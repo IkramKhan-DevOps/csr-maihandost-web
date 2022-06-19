@@ -8,6 +8,12 @@ Maihandost is visison to tackle the money problems of afghanistan by applying la
 2. Persian
 3. Pashto
 
+## Applications
+1. Website
+2. Administration
+3. Staff Managemengt
+4. Root Administartion
+
 ## Development Phases
 1. Core system with money transfer
 2. Ecommerce and load support
@@ -22,3 +28,8 @@ Please check the detailed down requirements here wrt iterations
 ### Iteration 2
 
 ### Iteration 3
+
+## Non Functional
+1. Security
+2. Scalability
+3. Optimization
