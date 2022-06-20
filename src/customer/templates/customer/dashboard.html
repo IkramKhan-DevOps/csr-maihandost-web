@@ -1,0 +1,244 @@
+{% extends 'customer/base.html' %}
+{% load static %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card" style="">
+                <div class="card-body">
+                    <div class="row">
+
+                        {# PROFILE #}
+                        <div class="col-lg-4">
+                            <div class="d-flex">
+                                <div class="me-3">
+                                    {% if request.user.profile_image %}
+                                        <img src="{{ request.user.profile_image.url }}" alt=""
+                                             class="avatar-md rounded-circle img-thumbnail">
+                                    {% else %}
+                                        <img src="{% static 'core/no-user.png' %}" alt=""
+                                             class="avatar-md rounded-circle img-thumbnail">
+                                    {% endif %}
+                                </div>
+                                <div class="flex-grow-1 align-self-center">
+                                    <div class="text-muted"><p class="mb-2">Welcome to your dashboard</p>
+                                        <h5 class="mb-1">{{ request.user.get_full_name }}</h5>
+                                        <p class="mb-0">
+                                            {% if request.user.is_premium %}
+                                                <b class="text-success">Premium User</b>
+                                            {% else %}
+                                                <b class="text-danger">Free User</b>
+                                            {% endif %}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {# PROFITS #}
+                        <div class="col-lg-4 align-self-center">
+                            <div class="text-lg-center mt-4 mt-lg-0">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div><p class="text-muted text-truncate mb-2">Current Assets</p>
+                                            <h5 class="mb-0">{{ request.user.get_statistics.current_subscription_amount }}
+                                                <small>TRX</small></h5></div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div><p class="text-muted text-truncate mb-2">Available</p>
+                                            <h5 class="mb-0">{{ request.user.get_statistics.current_amount }}
+                                                <small>TRX</small></h5></div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div><p class="text-muted text-truncate mb-2">Up Rate</p>
+                                            <h5 class="mb-0 text-success"><i class="fa fa-arrow-up"></i> 2%</h5></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="card" style="">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <h4 class="mb-0">
+                            <i class="bx bx-import text-success"></i> Subscriptions
+                            ({{ request.user.get_statistics.subscription_total }})
+                        </h4>
+                    </div>
+                    <div class="text-muted mt-4">
+                        <h4>{{ request.user.get_statistics.subscription_amount }} <small>TRX</small> <i
+                                class="mdi mdi-chevron-up ms-1 text-success"></i></h4>
+                        <div class="d-flex">
+                            <span class="ms-2 text-truncate">Trx supplied from subscriptions</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card" style="">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <h4 class="mb-0">
+                            <i class="fa fa-share text-primary"></i> Referrals
+                            ({{ request.user.get_statistics.referrals_total }})
+                        </h4>
+                    </div>
+                    <div class="text-muted mt-4">
+                        <h4>{{ request.user.get_statistics.referrals_amount }} <small>TRX</small> <i
+                                class="ms-1 text-success"></i></h4>
+                        <div class="d-flex">
+                            <span class="ms-2 text-truncate">Profit generated over referrals</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card" style="">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <h4 class="mb-0">
+                            <i class="bx bx-export text-danger"></i>
+                            Withdrawals ({{ request.user.get_statistics.withdrawals_total }})
+                        </h4>
+                    </div>
+                    <div class="text-muted mt-4">
+                        <h4>{{ request.user.get_statistics.withdrawn_amount }} <small>TRX</small> <i
+                                class="mdi mdi-chevron-down ms-1 text-danger"></i></h4>
+                        <div class="d-flex">
+                            <span class="ms-2 text-truncate">Trx Withdrawal from wallet</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card" style="">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <h4 class="mb-0"><i class="fa fa-coins text-warning"></i> Generated</h4>
+                    </div>
+                    <div class="text-muted mt-4">
+                        <h4>{{ request.user.get_statistics.generated_amount }} <small>TRX</small> <i
+                                class="ms-1 text-success"></i></h4>
+                        <div class="d-flex">
+                            <span class="ms-2 text-truncate">Profit generated over subscriptions</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            {% if subscriptions %}
+
+                <div class="card" style="">
+                    <div class="card-body border-bottom">
+                        <h4 class="card-title mb-0">Subscriptions</h4>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="table-responsive">
+                            <table class="align-middle table-striped table-hover table-nowrap table">
+                                <tbody>
+                                {% for object in subscriptions %}
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <h5 class="font-size-14 mb-1">
+                                                    {{ object.wallet_type.name }}
+                                                </h5>
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <div>
+                                                <h5 class="font-size-14 mb-1">
+                                                    {{ object.tx_id }}
+                                                </h5>
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <div class="text-end"><h5 class="font-size-14 mb-0">
+                                                <i class="fa fa-arrow-up text-success"></i> {{ object.amount }} TRONS
+                                            </h5></div>
+                                        </td>
+
+                                        <td>
+                                            {% if object.subscription_status == 'pen' %}
+                                                <span class="badge badge-pill badge-soft-danger font-size-11">
+                                                    <i class="fa fa-times-circle"></i> Un Paid
+                                                </span>
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {{ object.created_on }}
+                                        </td>
+                                        <td>
+                                            {{ object.expires_on }}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            {% else %}
+                <p class="text-danger">
+                    <b><i class="fa fa-exclamation-circle"></i> No subscriptions report available for now.</b>
+                </p>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if alert %}
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header border-bottom">
+                        <h5 class="modal-title" id="exampleModalLabel">{{ alert.title }}</h5>
+                    </div>
+                    <div class="modal-body border-bottom">
+                        {{ alert.description|safe }}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-dismiss="modal">
+                            <i class="fa fa-times-circle"></i> Okay
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% if alert %}
+    {% block js_code %}
+        <script>
+            $(document).ready(function () {
+                $('#exampleModal').modal('show');
+            })
+        </script>
+    {% endblock %}
+{% endif %}
