@@ -1,95 +1,88 @@
 {% load static %}
-
-<!DOCTYPE html>
-<html lang="en-US">
+<!doctype html>
+<html lang="en">
 <head>
-    <!-- Meta Tags -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="mark">
-
-    <!-- Page Title -->
+    <link rel="icon" href="{% static 'exarth/theme/favico.ico' %}">
     <title>
-        {% block title %}
-            Maihan Dost
+
+        {# BASE HALF TITLE #}
+        {% block base_title %}
+            Exarth
         {% endblock %}
+        {# --------------- #}
+
     </title>
-
-    <!-- Icon fonts -->
-    <link href="{% static 'website/css/font-awesome.min.css' %}" rel="stylesheet">
-    <link href="{% static 'website/css/flaticon.css' %}" rel="stylesheet">
-
-    <!-- Bootstrap core CSS -->
-    <link href="{% static 'website/css/bootstrap.min.css' %}" rel="stylesheet">
-
-    <!-- Plugins for this template -->
-    <link href="{% static 'website/css/animate.css' %}" rel="stylesheet">
-    <link href="{% static 'website/css/owl.carousel.css' %}" rel="stylesheet">
-    <link href="{% static 'website/css/owl.theme.css' %}" rel="stylesheet">
-    <link href="{% static 'website/css/slick.css' %}" rel="stylesheet">
-    <link href="{% static 'website/css/slick-theme.css' %}" rel="stylesheet">
-    <link href="{% static 'website/css/owl.transitions.css' %}" rel="stylesheet">
-    <link href="{% static 'website/css/jquery.fancybox.css' %}" rel="stylesheet">
-    <link href="{% static 'website/css/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
-    <link href="{% static 'website/css/magnific-popup.css' %}" rel="stylesheet">
-    <link href="{% static 'website/css/bootstrap-select.css' %}" rel="stylesheet">
-    <link href="{% static 'website/css/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
-    <link href="{% static 'website/css/jquery.mCustomScrollbar.min.css' %}" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="{% static 'website/css/style.css' %}" rel="stylesheet">
-
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    {% block in_ccss %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% block base_seo %}
 
     {% endblock %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="{% static 'exarth/theme/js_css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'exarth/theme/js_css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'exarth/theme/js_css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'exarth/theme/js_css/body_writing_fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'exarth/theme/js_css/head_writing_fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'exarth/theme/js_css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'exarth/theme/js_css/app.min.css' %}">
+
+    {# BASE LINKS THAT ARE REQUIRED FOR CERTAIN PAGE #}
+    {% block base_links %}
+
+    {% endblock %}
+    <style>
+        html, body {
+            font-family: 'Quicksand', sans-serif;
+        }
+
+
+    </style>
+    {# --------------------------------------------- #}
 
 </head>
+{% block body %}
 
-{# MAIN-BODY #}
-<body class="seo-home">
-<div class="page-wrapper" id="home">
+    <body data-spy="scroll" data-target="#topnav-menu" data-offset="60">
 
-    {# HEADER AND PRE-LOADER #}
-    {% include 'website/include/pre-loader.html' %}
-    {% include 'website/include/header.html' %}
+    {# BASE TOP NAVIGATION PANEL AREA #}
+    {% block base_top_nav %}
+        {% include 'website/include/base_top_nav.html' %}
+    {% endblock %}
+    {# ------------------------------ #}
+
 
     {% block content %}
-
     {% endblock %}
 
-    {# FOOTER #}
-    {% include 'website/include/footer.html' %}
+    {% block footer %}
+        {% include 'website/include/footer.html' %}
+    {% endblock %}
 
-</div>
+    {# jQuery first, then Popper.js, then Bootstrap JS #}
+    <script src="{% static 'exarth/theme/js_css/jquery.min.js' %}"></script>
+    <script src="{% static 'exarth/theme/js_css/boostraps.js' %}"></script>
+    <script src="{% static 'exarth/theme/js_css/metisMenu.min.js' %}"></script>
+    <script src="{% static 'exarth/theme/js_css/simplebar.min.js' %}"></script>
+    <script src="{% static 'exarth/theme/js_css/waves.min.js' %}"></script>
+    <script src="{% static 'exarth/theme/js_css/app.js' %}"></script>
+    <script src="{% static 'exarth/theme/js_css/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'exarth/theme/js_css/timeline.init.js' %}"></script>
+    <script src="{% static 'exarth/theme/js_css/ico-landing.init.js' %}"></script>
 
 
-<script src="{% static 'website/js/jquery.min.js' %}"></script>
-<script src="{% static 'website/js/bootstrap.min.js' %}"></script>
+    {# BASE INTERNAL SCRIPTS OR LINKS THAT ARE REQUIRED IN PAGE #}
+    {% block base_internal_scripts %}
 
-<!-- Plugins for this template -->
-<script src="{% static 'website/js/jquery.mCustomScrollbar.js' %}"></script>
-<script src="{% static 'website/js/moment.js' %}"></script>
-<script src="{% static 'website/js/jquery-plugin-collection.js' %}"></script>
-
-<!-- Google map api -->
-<script src="https://maps.googleapis.com/maps/api/js?key"></script>
-
-<!-- Custom script for this template -->
-<script src="{% static 'website/js/script.js' %}"></script>
-
-{% block in_js %}
-
+    {% endblock %}
+    {# -------------------------------------------------------- #}
+    </body>
 {% endblock %}
-
-</body>
 </html>
 
-{% block out_js %}
+
+{# BASE EXTERNAL SCRIPTS OR LINKS THAT ARE REQUIRED IN PAGE #}
+{% block base_external_scripts %}
 
 {% endblock %}
+{# -------------------------------------------------------- #}

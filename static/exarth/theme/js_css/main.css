@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.top-20 {
+    margin-top: -20px;
+}
+
+.top-10 {
+    margin-top: -10px;
+}
+
+u .searchlist {
+    position: absolute;
+    list-style-type: none;
+    background-color: white;
+    padding: 0px;
+    width: 100%;
+    margin-top: 37px;
+    font-size: 14px;
+    font-weight: 450;
+    border: 1px solid lightgrey;
+    border-top: 0px;
+    color: dimgrey;
+    z-index: 10;
+}
+
+.calculation-charts {
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+.searchlist li {
+    padding-left: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.searchlist li:hover {
+    background-color: lightgray;
+}
+
+
+.tb_p_lower_margin {
+    margin-bottom: -5px;
+}
+
+.light-text {
+    color: #B1B4B9;
+}
+
+.bg-blueblack {
+    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+}
+
+.bottom-down {
+    margin-top: 10px;
+}
+
+.p-ground {
+    background-image: radial-gradient(circle 248px at center, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);
+}
+
+.p-ground-light {
+    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+}
+
+.grey_tag_ground {
+    background-color: #e8e8e8;
+}
+
+.main_background {
+    background-image: url("/static/exarth/theme/carousel-02.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.remains_background {
+    background-image: url("/static/exarth/theme/banner1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.trasparency {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; /* IE 8 */
+    filter: alpha(opacity=50); /* IE 5-7 */
+    -moz-opacity: 0.5; /* Netscape */
+    -khtml-opacity: 0.5; /* Safari 1.x */
+    opacity: 0.5; /* Good browsers */
+}
+.head_write{
+    font-family: 'Akaya Kanadaka', cursive;
+}
+
+.bg-footer-link{
+    background-color: #2d3139;
+}
+

@@ -1,798 +1,235 @@
 {% extends 'website/base.html' %}
 {% load static %}
 
+{% block base_seo %}
+    <meta name="description" content="software development company">
+{% endblock %}
+
+{% block base_title %}Exarth | Home of Exalters{% endblock %}
 
 {% block content %}
 
-    <!-- start of hero -->
-    <section class="hero hero-slider-wrapper seo-hero-slider">
-        <div class="hero-slider">
-            <div class="slide">
-                <img src="{% static 'website/images/seo/slider/img-1.jpg' %}" alt class="slider-bg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col col-lg-5 col-xs-12 slide-caption">
-                            <h2><span>LEARN HOW OUR</span> SEO STRATEGIES <span class="light">INCREASED</span> <span
-                                    class="light">CONVERSIONS</span><span>OVER 750%</span></h2>
-                            <div class="btns">
-                                <a href="#" class="seo-theme-btn">Meet an Expert</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    {# PROTFOLIO ---------------------------------------------------------------------------------------------------- #}
+    <section class="py-5 main_background" id="hero">
+        <div class="py-5">
+            <div class="py-5">
+                <div class="container py-5 col-md-5 justify-content-center text-white text-center py-5">
 
-            <div class="slide">
-                <img src="{% static 'website/images/seo/slider/img-2.jpg' %}" alt class="slider-bg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col col-lg-5 col-xs-12 slide-caption">
-                            <h2><span>LEARN HOW OUR</span> SEO STRATEGIES <span class="light">INCREASED</span> <span
-                                    class="light">CONVERSIONS</span><span>OVER 750%</span></h2>
-                            <div class="btns">
-                                <a href="#" class="seo-theme-btn">Meet an Expert</a>
-                            </div>
-                        </div>
-                    </div>
+                    <p class="mb-0 display-3">
+                        MaihanDost
+                    </p>
+                    <hr>
+                    <h1 class="mb-0 text-light h2">
+                        Don't forget your loved ones, maihandost offers most easy and secure way to sent gifts to your
+                        friends and family
+                    </h1>
+
                 </div>
             </div>
         </div>
+
     </section>
-    <!-- end of hero slider -->
 
-
-    <!-- start seo-partners-section -->
-    <section class="seo-partners-section">
-        <h2><span>SEO Expertise</span> for B2B &amp; Enterprise Companies</h2>
+    {# PARTNERS ---------------------------------------------------------------------------------------------------- #}
+    <section class="section py-5">
         <div class="container">
+
             <div class="row">
-                <div class="col col-xs-12">
-                    <div class="partners-slider">
-                        <div class="grid">
-                            <img src="{% static 'website/images/partners/finance-partners/img-1.png' %}" alt>
-                        </div>
-                        <div class="grid">
-                            <img src="{% static 'website/images/partners/finance-partners/img-2.png' %}" alt>
-                        </div>
-                        <div class="grid">
-                            <img src="{% static 'website/images/partners/finance-partners/img-3.png' %}" alt>
-                        </div>
-                        <div class="grid">
-                            <img src="{% static 'website/images/partners/finance-partners/img-4.png' %}" alt>
-                        </div>
-                        <div class="grid">
-                            <img src="{% static 'website/images/partners/finance-partners/img-5.png' %}" alt>
-                        </div>
-                        <div class="grid">
-                            <img src="{% static 'website/images/partners/finance-partners/img-3.png' %}" alt>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> <!-- end container -->
-    </section>
-    <!-- end seo-partners-section -->
-
-
-    <!-- start seo-about-section -->
-    <section class="seo-about-section section-padding" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col col-md-6">
-                    <div class="seo-section-title">
-                        <h2>We are expert in search engine and social media optimization.</h2>
-                    </div>
-                    <div class="about-text">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                        <ul>
-                            <li><i class="fa fa-check"></i> Exercitation ullamco laboris nisi ut aliquip ex ea.</li>
-                            <li><i class="fa fa-check"></i> Duis aute irure dolor in reprehenderit in.</li>
-                            <li><i class="fa fa-check"></i> Voluptate velit esse cillum dolore eu fugiat nulla
-                                pariatur.
-                            </li>
-                            <li><i class="fa fa-check"></i> Excepteur sint occaecat cupidatat non proident.</li>
-                            <li><i class="fa fa-check"></i> Sunt in culpa qui officia deserunt mollit anim id est
-                                laborum
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col col-md-6">
-                    <div class="video-holder">
-                        <img src="{% static 'website/images/seo/about-video-bg.jpg' %}" alt>
-                        <a href="https://www.youtube.com/embed/7e90gBu4pas?autoplay=1" class="video-btn"
-                           data-type="iframe">
-                            <i class="fa fa-play"></i>
-                        </a>
-                    </div>
-                </div>
-            </div> <!-- end row -->
-        </div> <!-- end container -->
-    </section>
-    <!-- end seo-about-section -->
-
-
-    <!-- start seo-services-section -->
-    <section class="seo-services-section section-padding" id="services">
-        <div class="container">
-            <div class="row">
-                <div class="col col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-                    <div class="seo-section-title-s2">
-                        <h2>Services that made us unique unlike the others</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col col-xs-12">
-                    <div class="service-grids seo-services-slider">
-                        <div class="grid">
-                            <div class="img-holder">
-                                <img src="{% static 'website/images/seo/services/img-1.jpg' %}" alt>
-                            </div>
-                            <div class="details">
-                                <h3>SEO - Search Engine Optimization</h3>
-                                <a href="#" class="learn-more">Learn More</a>
-                            </div>
-                        </div>
-                        <div class="grid">
-                            <div class="img-holder">
-                                <img src="{% static 'website/images/seo/services/img-2.jpg' %}" alt>
-                            </div>
-                            <div class="details">
-                                <h3>PPC - Pay Per Click Advertising</h3>
-                                <a href="#" class="learn-more">Learn More</a>
-                            </div>
-                        </div>
-                        <div class="grid">
-                            <div class="img-holder">
-                                <img src="{% static 'website/images/seo/services/img-3.jpg' %}" alt>
-                            </div>
-                            <div class="details">
-                                <h3>Content Marketing for varius business</h3>
-                                <a href="#" class="learn-more">Learn More</a>
-                            </div>
-                        </div>
-                        <div class="grid">
-                            <div class="img-holder">
-                                <img src="{% static 'website/images/seo/services/img-4.jpg' %}" alt>
-                            </div>
-                            <div class="details">
-                                <h3>Social Media Marketing(SMM)</h3>
-                                <a href="#" class="learn-more">Learn More</a>
-                            </div>
-                        </div>
-                        <div class="grid">
-                            <div class="img-holder">
-                                <img src="{% static 'website/images/seo/services/img-1.jpg' %}" alt>
-                            </div>
-                            <div class="details">
-                                <h3>SEO - Search Engine Optimization</h3>
-                                <a href="#" class="learn-more">Learn More</a>
-                            </div>
-                        </div>
-                        <div class="grid">
-                            <div class="img-holder">
-                                <img src="{% static 'website/images/seo/services/img-2.jpg' %}" alt>
-                            </div>
-                            <div class="details">
-                                <h3>PPC - Pay Per Click Advertising</h3>
-                                <a href="#" class="learn-more">Learn More</a>
-                            </div>
-                        </div>
-                        <div class="grid">
-                            <div class="img-holder">
-                                <img src="{% static 'website/images/seo/services/img-3.jpg' %}" alt>
-                            </div>
-                            <div class="details">
-                                <h3>Content Marketing for varius business</h3>
-                                <a href="#" class="learn-more">Learn More</a>
-                            </div>
-                        </div>
-                        <div class="grid">
-                            <div class="img-holder">
-                                <img src="{% static 'website/images/seo/services/img-4.jpg' %}" alt>
-                            </div>
-                            <div class="details">
-                                <h3>Social Media Marketing(SMM)</h3>
-                                <a href="#" class="learn-more">Learn More</a>
-                            </div>
-                        </div>
-                        <div class="grid">
-                            <div class="img-holder">
-                                <img src="{% static 'website/images/seo/services/img-2.jpg' %}" alt>
-                            </div>
-                            <div class="details">
-                                <h3>PPC - Pay Per Click Advertising</h3>
-                                <a href="#" class="learn-more">Learn More</a>
-                            </div>
-                        </div>
-                        <div class="grid">
-                            <div class="img-holder">
-                                <img src="{% static 'website/images/seo/services/img-3.jpg' %}" alt>
-                            </div>
-                            <div class="details">
-                                <h3>Content Marketing for varius business</h3>
-                                <a href="#" class="learn-more">Learn More</a>
-                            </div>
-                        </div>
-                        <div class="grid">
-                            <div class="img-holder">
-                                <img src="{% static 'website/images/seo/services/img-4.jpg' %}" alt>
-                            </div>
-                            <div class="details">
-                                <h3>Social Media Marketing(SMM)</h3>
-                                <a href="#" class="learn-more">Learn More</a>
-                            </div>
-                        </div>
-                    </div> <!-- end service-grids -->
-                </div> <!-- end col -->
-            </div> <!-- end row -->
-        </div> <!-- end container -->
-    </section>
-    <!-- end seo-services-section -->
-
-
-    <!-- start seo-cb-section -->
-    <section class="seo-cb-section section-padding">
-        <div class="cb-grids">
-            <div class="left-grid">
-                <div class="cb-gallery-grids masonry-gallery sorting-container popup-gallery">
-                    <div class="grid-item width-40">
-                        <a href="{% static 'website/images/seo/cb-gallery/img-1.jpg' %}">
-                            <img src="{% static 'website/images/seo/cb-gallery/img-1.jpg' %}" alt>
-                        </a>
-                    </div>
-                    <div class="grid-item width-60">
-                        <a href="{% static 'website/images/seo/cb-gallery/img-2.jpg' %}">
-                            <img src="{% static 'website/images/seo/cb-gallery/img-2.jpg' %}" alt>
-                        </a>
-                    </div>
-                    <div class="grid-item width-60">
-                        <a href="{% static 'website/images/seo/cb-gallery/img-4.jpg' %}">
-                            <img src="{% static 'website/images/seo/cb-gallery/img-4.jpg' %}" alt>
-                        </a>
-                    </div>
-                    <div class="grid-item width-40">
-                        <a href="{% static 'website/images/seo/cb-gallery/img-3.jpg' %}">
-                            <img src="{% static 'website/images/seo/cb-gallery/img-3.jpg' %}" alt>
-                        </a>
+                <div class="col-lg-12">
+                    <div class="text-center mb-5">
+                        <div class="small-title text-secondary">support</div>
+                        <h1 class="text-dark">Payment Methods</h1>
                     </div>
                 </div>
             </div>
 
-            <div class="right-grid">
-                <div class="inner-details">
-                    <h2>Internet Marketing is our Domain</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius mod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                        cupidatat non proident</p>
-                    <div class="features-grids">
-                        <div class="grid">
-                            <div class="icon">
-                                <img src="{% static 'website/images/seo/cb-icons/icon-1.png' %}" alt>
-                            </div>
-                            <h3>Email Marketing</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
-                        </div>
-                        <div class="grid">
-                            <div class="icon">
-                                <img src="{% static 'website/images/seo/cb-icons/icon-2.png' %}" alt>
-                            </div>
-                            <h3>Franchise Marketing</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
-                        </div>
-                        <div class="grid">
-                            <div class="icon">
-                                <img src="{% static 'website/images/seo/cb-icons/icon-3.png' %}" alt>
-                            </div>
-                            <h3>Market Analytics</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
-                        </div>
-                        <div class="grid">
-                            <div class="icon">
-                                <img src="{% static 'website/images/seo/cb-icons/icon-4.png' %}" alt>
-                            </div>
-                            <h3>Google Penalty Removal</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
-                        </div>
-                    </div>
+            <div class="row justify-content-center">
+
+
+                <div class="cols px-4">
+                    <a href="#" target="_blank">
+                        <img src="{% static 'exarth/theme/images/payments/google-pay.png' %}" height="50"
+                             alt="default-logo" data-toggle="tooltip" data-placement="bottom"
+                             title="Google Pay">
+                    </a>
                 </div>
+                <div class="cols px-4">
+                    <a href="#" target="_blank">
+                        <img src="{% static 'exarth/theme/images/payments/apple-pay.png' %}" height="50"
+                             alt="default-logo" data-toggle="tooltip" data-placement="bottom"
+                             title="Apple Pay">
+                    </a>
+                </div>
+                <div class="cols px-4">
+                    <a href="#" target="_blank">
+                        <img src="{% static 'exarth/theme/images/payments/union-pay.png' %}" height="50"
+                             alt="default-logo" data-toggle="tooltip" data-placement="bottom"
+                             title="Union Pay">
+                    </a>
+                </div>
+                <div class="cols px-4">
+                    <a href="#" target="_blank">
+                        <img src="{% static 'exarth/theme/images/payments/master-card.png' %}" height="50"
+                             alt="default-logo" data-toggle="tooltip" data-placement="bottom"
+                             title="Google Pay">
+                    </a>
+                </div>
+                <div class="cols px-4">
+                    <a href="#" target="_blank">
+                        <img src="{% static 'exarth/theme/images/payments/visa.png' %}" height="50"
+                             alt="default-logo" data-toggle="tooltip" data-placement="bottom"
+                             title="Apple Pay">
+                    </a>
+                </div>
+                <div class="cols px-4">
+                    <a href="#" target="_blank">
+                        <img src="{% static 'exarth/theme/images/payments/american-express.png' %}" height="50"
+                             alt="default-logo" data-toggle="tooltip" data-placement="bottom"
+                             title="Union Pay">
+                    </a>
+                </div>
+                <div class="cols px-4">
+                    <a href="#" target="_blank">
+                        <img src="{% static 'exarth/theme/images/payments/discover.png' %}" height="50"
+                             alt="default-logo" data-toggle="tooltip" data-placement="bottom"
+                             title="Union Pay">
+                    </a>
+                </div>
+
+
             </div>
         </div>
     </section>
-    <!-- end seo-cb-section -->
 
-
-    <!-- start seo-pricing-section -->
-    <section class="seo-pricing-section section-padding" id="pricing">
+    <section class="section py-5 bg-white" id="about">
         <div class="container">
             <div class="row">
-                <div class="col col-md-8 col-md-offset-2">
-                    <div class="seo-section-title-s3">
-                        <h2>Our Pricing</h2>
-                        <p>Dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
-                            laoreet dolore magna aliquam erat volutpat.</p>
-                    </div>
+                <div class="col-lg-12">
+                    <div class="text-center mb-5">
+                        <div class="small-title">Want to know</div>
+                        <h4>How Maihandost gift cards works</h4></div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col col-xs-12">
-                    <div class="pricing-grids-wrapper">
-
-                        <!-- Nav tabs -->
-                        <ul class="tablinks">
-                            <li class="active">
-                                <a href="#tab-1" data-toggle="tab">One time</a>
-                            </li>
-                            <li>
-                                <a href="#tab-2" data-toggle="tab">Annual</a>
-                            </li>
-                        </ul>
-
-                        <!-- Tab panes -->
-                        <div class="tab-content">
-                            <div class="tab-pane in active" id="tab-1">
-                                <div class="pricing-grids">
-                                    <div class="grid basic">
-                                        <div class="pricing-header">
-                                            <span class="type">Basic</span>
-                                            <div class="icon">
-                                                <img src="{% static 'website/images/seo/pricing/icon-1.png' %}" alt>
-                                            </div>
-                                            <h2>$19</h2>
+            <div class="align-items-center row">
+                <div class="col-lg-5">
+                    <div class="text-muted"><h4>2 step process to sent gifts all over world</h4>
+                        <p>
+                            The most trust able and easiest way to sent gift cards to your loved ones
+                            (friends and family) around the world in two steps with single click.
+                        </p>
+                        <p class="mb-4">More on you can check the information below</p>
+                        <div class="button-items">
+                            <a href="/#" class="btn btn-success me-1">Sent Now</a>
+                            <a href="/#" class="btn btn-outline-primary">How It work</a>
+                        </div>
+                        <div class="mt-4 row">
+                            <div class="col-6 col-lg-4">
+                                <div class="mt-4"><h4>$ 6.2 M</h4>
+                                    <p>Total Amount</p></div>
+                            </div>
+                            <div class="col-6 col-lg-4">
+                                <div class="mt-4"><h4>16245</h4>
+                                    <p>Gifts Sent</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 ms-auto">
+                    <div class="mt-4 mt-lg-0">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="border card" style="">
+                                    <div class="card-body">
+                                        <div class="mb-3"><i class="mdi mdi-bitcoin h2 text-success"></i></div>
+                                        <div class="text-center">
+                                            <h1><i class="fa fa-plane"></i></h1>
+                                            <h5>Sent Fast</h5>
                                         </div>
-                                        <div class="pricing-body">
-                                            <ul>
-                                                <li><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet
-                                                </li>
-                                                <li><i class="fa fa-angle-right"></i> conse ctetuer adipiscing elit,
-                                                </li>
-                                                <li><i class="fa fa-angle-right"></i> sed diam non ummy</li>
-                                                <li><i class="fa fa-angle-right"></i> nibh euism</li>
-                                                <li><i class="fa fa-angle-right"></i> od tincidunt ut</li>
-                                                <li><i class="fa fa-angle-right"></i> dolore ma gna aliquam</li>
-                                            </ul>
-                                            <a href="#" class="seo-theme-btn-s2">Sing Up</a>
-                                        </div>
+                                        <p class="text-muted mb-0">No signup/login required, go with sent fast payment
+                                            method, your gift will be sent and account will be created automatically
+                                        </p>
                                     </div>
-                                    <div class="grid standard">
-                                        <div class="pricing-header">
-                                            <span class="type">Standard</span>
-                                            <div class="icon">
-                                                <img src="{% static 'website/images/seo/pricing/icon-2.png' %}" alt>
-                                            </div>
-                                            <h2>$39</h2>
-                                        </div>
-                                        <div class="pricing-body">
-                                            <ul>
-                                                <li><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet
-                                                </li>
-                                                <li><i class="fa fa-angle-right"></i> conse ctetuer adipiscing elit,
-                                                </li>
-                                                <li><i class="fa fa-angle-right"></i> sed diam non ummy</li>
-                                                <li><i class="fa fa-angle-right"></i> nibh euism</li>
-                                                <li><i class="fa fa-angle-right"></i> od tincidunt ut</li>
-                                                <li><i class="fa fa-angle-right"></i> dolore ma gna aliquam</li>
-                                            </ul>
-                                            <a href="#" class="seo-theme-btn-s2">Sing Up</a>
-                                        </div>
-                                    </div>
-                                    <div class="grid premium">
-                                        <div class="pricing-header">
-                                            <span class="type">Premium</span>
-                                            <div class="icon">
-                                                <img src="{% static 'website/images/seo/pricing/icon-3.png' %}" alt>
-                                            </div>
-                                            <h2>$59</h2>
-                                        </div>
-                                        <div class="pricing-body">
-                                            <ul>
-                                                <li><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet
-                                                </li>
-                                                <li><i class="fa fa-angle-right"></i> conse ctetuer adipiscing elit,
-                                                </li>
-                                                <li><i class="fa fa-angle-right"></i> sed diam non ummy</li>
-                                                <li><i class="fa fa-angle-right"></i> nibh euism</li>
-                                                <li><i class="fa fa-angle-right"></i> od tincidunt ut</li>
-                                                <li><i class="fa fa-angle-right"></i> dolore ma gna aliquam</li>
-                                            </ul>
-                                            <a href="#" class="seo-theme-btn-s2">Sing Up</a>
-                                        </div>
+                                    <div class="card-footer bg-transparent border-top text-center">
+                                        <a href="#" class="text-primary"><i class="fa fa-telegram"></i> Go Fast</a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="tab-2">
-                                <div class="pricing-grids">
-                                    <div class="grid basic">
-                                        <div class="pricing-header">
-                                            <span class="type">Basic</span>
-                                            <div class="icon">
-                                                <img src="{% static 'website/images/seo/pricing/icon-1.png' %}" alt>
-                                            </div>
-                                            <h2>$19</h2>
+                            <div class="col-sm-6">
+                                <div class="border mt-lg-5 card" style="">
+                                    <div class="card-body">
+                                        <div class="mb-3"><i class="mdi mdi-bitcoin h2 text-success"></i></div>
+                                        <div class="text-center">
+                                            <h1><i class="fa fa-lock"></i></h1>
+                                            <h5>Go Safe</h5>
                                         </div>
-                                        <div class="pricing-body">
-                                            <ul>
-                                                <li><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet
-                                                </li>
-                                                <li><i class="fa fa-angle-right"></i> conse ctetuer adipiscing elit,
-                                                </li>
-                                                <li><i class="fa fa-angle-right"></i> sed diam non ummy</li>
-                                                <li><i class="fa fa-angle-right"></i> nibh euism</li>
-                                                <li><i class="fa fa-angle-right"></i> od tincidunt ut</li>
-                                                <li><i class="fa fa-angle-right"></i> dolore ma gna aliquam</li>
-                                            </ul>
-                                            <a href="#" class="seo-theme-btn-s2">Sing Up</a>
-                                        </div>
-                                    </div>
-                                    <div class="grid standard">
-                                        <div class="pricing-header">
-                                            <span class="type">Standard</span>
-                                            <div class="icon">
-                                                <img src="{% static 'website/images/seo/pricing/icon-2.png' %}" alt>
-                                            </div>
-                                            <h2>$39</h2>
-                                        </div>
-                                        <div class="pricing-body">
-                                            <ul>
-                                                <li><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet
-                                                </li>
-                                                <li><i class="fa fa-angle-right"></i> conse ctetuer adipiscing elit,
-                                                </li>
-                                                <li><i class="fa fa-angle-right"></i> sed diam non ummy</li>
-                                                <li><i class="fa fa-angle-right"></i> nibh euism</li>
-                                                <li><i class="fa fa-angle-right"></i> od tincidunt ut</li>
-                                                <li><i class="fa fa-angle-right"></i> dolore ma gna aliquam</li>
-                                            </ul>
-                                            <a href="#" class="seo-theme-btn-s2">Sing Up</a>
-                                        </div>
-                                    </div>
-                                    <div class="grid premium">
-                                        <div class="pricing-header">
-                                            <span class="type">Premium</span>
-                                            <div class="icon">
-                                                <img src="{% static 'website/images/seo/pricing/icon-3.png' %}" alt>
-                                            </div>
-                                            <h2>$59</h2>
-                                        </div>
-                                        <div class="pricing-body">
-                                            <ul>
-                                                <li><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet
-                                                </li>
-                                                <li><i class="fa fa-angle-right"></i> conse ctetuer adipiscing elit,
-                                                </li>
-                                                <li><i class="fa fa-angle-right"></i> sed diam non ummy</li>
-                                                <li><i class="fa fa-angle-right"></i> nibh euism</li>
-                                                <li><i class="fa fa-angle-right"></i> od tincidunt ut</li>
-                                                <li><i class="fa fa-angle-right"></i> dolore ma gna aliquam</li>
-                                            </ul>
-                                            <a href="#" class="seo-theme-btn-s2">Sing Up</a>
-                                        </div>
+                                        <p class="text-muted mb-0">
+                                            Best way to setup your account, login to your account add recipient and sent
+                                            payments in
+                                            more secure and appropriate way.
+                                        </p>
+                                        <div class="card-footer bg-transparent border-top text-center">
+                                            <a href="#" class="text-primary">Go Safe</a></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <hr class="my-5">
             </div>
-        </div> <!-- end container -->
     </section>
-    <!-- end seo-pricing-section -->
 
-
-    <!-- start seo-newsletter-section -->
-    <section class="seo-newsletter-section">
+    <section class="section" id="features">
         <div class="container">
             <div class="row">
-                <div class="col col-md-8 col-md-offset-2">
-                    <div class="newsletter-content">
-                        <h3>Get a free consultaion about the SEO of your website</h3>
-                        <form>
-                            <div>
-                                <input type="text" class="form-control" placeholder="email address..">
-                                <button type="submit">Send</button>
-                            </div>
-                        </form>
+                <div class="col-lg-12">
+                    <div class="text-center mb-5">
+                        <div class="small-title">Features</div>
+                        <h4>Key features of the product</h4></div>
+                </div>
+            </div>
+            <div class="align-items-center pt-4 row">
+                <div class="col-sm-8 col-md-6">
+                    <div><img src="/assets/images/crypto/features-img/img-1.png" alt=""
+                              class="img-fluid mx-auto d-block"></div>
+                </div>
+                <div class="col-md-5 ms-auto">
+                    <div class="mt-4 mt-md-auto">
+                        <div class="d-flex align-items-center mb-2">
+                            <div class="features-number fw-semibold display-4 me-3">01</div>
+                            <h4 class="mb-0">Lending</h4></div>
+                        <p class="text-muted">If several languages coalesce, the grammar of the resulting language is
+                            more simple and regular than of the individual will be more simple and regular than the
+                            existing.</p>
+                        <div class="text-muted mt-4"><p class="mb-2"><i
+                                class="mdi mdi-circle-medium text-success me-1"></i> Donec pede justo vel aliquet </p>
+                            <p class=""><i class="mdi mdi-circle-medium text-success me-1"></i> Aenean et nisl sagittis
+                            </p></div>
                     </div>
                 </div>
             </div>
-        </div> <!-- end container -->
-    </section>
-    <!-- end seo-newsletter-section -->
-
-
-    <!-- start seo-testimonials-section -->
-    <section class="seo-testimonials-section section-padding" id="testimonials">
-        <div class="container">
-            <div class="row">
-                <div class="col col-xs-12">
-                    <div class="seo-section-title-s4">
-                        <h2>What Our Clients’ Say</h2>
+            <div class="align-items-center mt-5 pt-md-5 row">
+                <div class="col-md-5">
+                    <div class="mt-4 mt-md-auto">
+                        <div class="d-flex align-items-center mb-2">
+                            <div class="features-number fw-semibold display-4 me-3">02</div>
+                            <h4 class="mb-0">Wallet</h4></div>
+                        <p class="text-muted">It will be as simple as Occidental; in fact, it will be Occidental. To an
+                            English person, it will seem like simplified English, as a skeptical Cambridge friend.</p>
+                        <div class="text-muted mt-4"><p class="mb-2"><i
+                                class="mdi mdi-circle-medium text-success me-1"></i> Donec pede justo vel aliquet </p>
+                            <p class=""><i class="mdi mdi-circle-medium text-success me-1"></i> Aenean et nisl sagittis
+                            </p></div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col col-lg-10 col-lg-offset-1">
-                    <div class="testimonials-grids seo-testimonials-slider">
-                        <div class="grid">
-                            <div class="client-pic">
-                                <img src="{% static 'website/images/seo/testimonials/img-1.jpg' %}" alt>
-                            </div>
-                            <div class="details">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius mod tempor
-                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                    nostrud exercitation.</p>
-                                <div class="client-info">
-                                    <h4>David Jones</h4>
-                                    <span>CEO, Google</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid">
-                            <div class="client-pic">
-                                <img src="{% static 'website/images/seo/testimonials/img-1.jpg' %}" alt>
-                            </div>
-                            <div class="details">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius mod tempor
-                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                    nostrud exercitation.</p>
-                                <div class="client-info">
-                                    <h4>David Jones</h4>
-                                    <span>CEO, Google</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-sm-8 col-md-6 ms-md-auto">
+                    <div class="mt-4 me-md-0"><img src="/assets/images/crypto/features-img/img-2.png" alt=""
+                                                   class="img-fluid mx-auto d-block"></div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- end seo-testimonials-section -->
 
 
-    <!-- start seo-projects-section -->
-    <section class="seo-projects-section section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col col-xs-12">
-                    <div class="seo-section-title-s4">
-                        <h2>Recent Projects</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col col-xs-12">
-                <div class="construction-projects-grids">
-                    <div class="grid">
-                        <div class="project-img">
-                            <img src="{% static 'website/images/seo/projects/img-1.jpg' %}" alt>
-                        </div>
-                        <div class="project-info">
-                            <div class="inner-info">
-                                <a href="{% static 'website/images/seo/projects/img-1.jpg' %}" class="fancybox"><i
-                                        class="fa fa-search-plus"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grid">
-                        <div class="project-img">
-                            <img src="{% static 'website/images/seo/projects/img-2.jpg' %}" alt>
-                        </div>
-                        <div class="project-info">
-                            <div class="inner-info">
-                                <a href="{% static 'website/images/seo/projects/img-2.jpg' %}" class="fancybox"><i
-                                        class="fa fa-search-plus"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grid">
-                        <div class="project-img">
-                            <img src="{% static 'website/images/seo/projects/img-3.jpg' %}" alt>
-                        </div>
-                        <div class="project-info">
-                            <div class="inner-info">
-                                <a href="{% static 'website/images/seo/projects/img-3.jpg' %}" class="fancybox"><i
-                                        class="fa fa-search-plus"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grid">
-                        <div class="project-img">
-                            <img src="{% static 'website/images/seo/projects/img-4.jpg' %}" alt>
-                        </div>
-                        <div class="project-info">
-                            <div class="inner-info">
-                                <a href="{% static 'website/images/seo/projects/img-4.jpg' %}" class="fancybox"><i
-                                        class="fa fa-search-plus"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grid">
-                        <div class="project-img">
-                            <img src="{% static 'website/images/seo/projects/img-5.jpg' %}" alt>
-                        </div>
-                        <div class="project-info">
-                            <div class="inner-info">
-                                <a href="{% static 'website/images/seo/projects/img-5.jpg' %}" class="fancybox"><i
-                                        class="fa fa-search-plus"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grid">
-                        <div class="project-img">
-                            <img src="{% static 'website/images/seo/projects/img-2.jpg' %}" alt>
-                        </div>
-                        <div class="project-info">
-                            <div class="inner-info">
-                                <a href="{% static 'website/images/seo/projects/img-2.jpg' %}" class="fancybox"><i
-                                        class="fa fa-search-plus"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- end seo-projects-section -->
-
-
-    <!-- start seo-team-section -->
-    <section class="seo-team-section" id="team">
-        <div class="container">
-            <div class="row">
-                <div class="col col-xs-12">
-                    <div class="seo-section-title-s4">
-                        <h2>Our Team</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col col-xs-12">
-                    <div class="team-grids agency-team-slider">
-                        <div class="grid">
-                            <div class="member-pic-social">
-                                <div class="img-holder">
-                                    <img src="{% static 'website/images/agency/team/img-1.jpg' %}" alt>
-                                </div>
-                            </div>
-                            <div class="details">
-                                <h3>Amber Lee</h3>
-                                <span>Co-founder</span>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius mod tempor
-                                    incididunt ut labore et dolore magna aliqua. </p>
-                            </div>
-                        </div>
-                        <div class="grid">
-                            <div class="member-pic-social">
-                                <div class="img-holder">
-                                    <img src="{% static 'website/images/agency/team/img-2.jpg' %}" alt>
-                                </div>
-                            </div>
-                            <div class="details">
-                                <h3>Jonathon Howard</h3>
-                                <span>Co-founder</span>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius mod tempor
-                                    incididunt ut labore et dolore magna aliqua. </p>
-                            </div>
-                        </div>
-                        <div class="grid">
-                            <div class="member-pic-social">
-                                <div class="img-holder">
-                                    <img src="{% static 'website/images/agency/team/img-3.jpg' %}" alt>
-                                </div>
-                            </div>
-                            <div class="details">
-                                <h3>Jennifer Kovacic</h3>
-                                <span>Co-founder</span>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius mod tempor
-                                    incididunt ut labore et dolore magna aliqua. </p>
-                            </div>
-                        </div>
-                        <div class="grid">
-                            <div class="member-pic-social">
-                                <div class="img-holder">
-                                    <img src="{% static 'website/images/agency/team/img-1.jpg' %}" alt>
-                                </div>
-                            </div>
-                            <div class="details">
-                                <h3>Amber Lee</h3>
-                                <span>Co-founder</span>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius mod tempor
-                                    incididunt ut labore et dolore magna aliqua. </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- end start seo-team-section -->
-
-
-    <!-- start seo-blog-section -->
-    <section class="seo-blog-section" id="blog">
-        <div class="container">
-            <div class="row news-grids">
-                <div class="col col-md-4 col-xs-6">
-                    <div class="blog-section-title">
-                        <h2>Recent News</h2>
-                        <p>Perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor emque
-                            laudantium, totam rem aperiam.</p>
-                    </div>
-                    <div class="newsletter">
-                        <h5>Also, subscribe your email for newsletter and event updates regularly.</h5>
-                        <div class="newsletter-form">
-                            <form>
-                                <div>
-                                    <input type="email" class="form-control" placeholder="email address...">
-                                    <button type="submit">Send</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="grid">
-                        <div class="entry-body">
-                            <div class="entry-header">
-                                <h3><a href="blog-single.html">European firms look to Canada to grow assets</a></h3>
-                            </div>
-                            <div class="entry-details">
-                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
-                            </div>
-                            <div class="entry-meta">
-                                <a href="blog-single.html" class="read-more">Read More</a>
-                                <a href="#" class="date">16 Hours ago</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col col-md-4 col-xs-6">
-                    <div class="grid">
-                        <div class="entry-media">
-                            <img src="{% static 'website/images/seo/blog/img-1.jpg' %}" alt>
-                        </div>
-                        <div class="entry-body">
-                            <div class="entry-header">
-                                <h3><a href="blog-single.html">European firms look to Canada to grow assets</a></h3>
-                            </div>
-                            <div class="entry-details">
-                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                                    fugiat nulla pariatur.</p>
-                            </div>
-                            <div class="entry-meta">
-                                <a href="blog-single.html" class="read-more">Read More</a>
-                                <a href="#" class="date">16 Hours ago</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col col-md-4 col-xs-6">
-                    <div class="grid">
-                        <div class="entry-media">
-                            <img src="{% static 'website/images/seo/blog/img-2.jpg' %}" alt>
-                        </div>
-                        <div class="entry-body">
-                            <div class="entry-header">
-                                <h3><a href="blog-single.html">British drinkers leave Molson Coors thirsty</a></h3>
-                            </div>
-                            <div class="entry-details">
-                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                                    fugiat nulla pariatur.</p>
-                            </div>
-                            <div class="entry-meta">
-                                <a href="blog-single.html" class="read-more">Read More</a>
-                                <a href="#" class="date">16 Hours ago</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> <!-- end container -->
-    </section>
-    <!-- end seo-blog-section -->
 
 {% endblock %}
