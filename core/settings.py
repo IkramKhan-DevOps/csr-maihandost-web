@@ -25,8 +25,8 @@ SERVER = False
 DEBUG = True
 
 if SERVER:
-    ALLOWED_HOSTS = ['maihandost.com']
-    GOOGLE_CALLBACK_ADDRESS = "http://maihandost.com/accounts/google/login/callback/"
+    ALLOWED_HOSTS = ['maihandost.pythonanywhere.com']
+    GOOGLE_CALLBACK_ADDRESS = "http://maihandost.pythonanywhere.com/accounts/google/login/callback/"
     SITE_ID = 3
 else:
     ALLOWED_HOSTS = ['*']

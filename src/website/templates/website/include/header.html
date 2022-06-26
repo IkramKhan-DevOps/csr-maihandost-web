@@ -1,68 +1,52 @@
-{% load static %}
-
-<!-- Header -->
-<header>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="navbar-brand" href="javascript:void(0)">
-                        <img src="{% static 'core/logo.png' %}" class="img-fluid" alt="">
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="la la-bars"></i>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto w-100 justify-content-end">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#wave">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#ico">Earning</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#tutorials">Steps</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#subscriptions">subscription</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#product">Product</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#faq">FAQ's</a>
-                            </li>
-                        </ul>
+<!-- Start header -->
+        <header id="header" class="site-header seo-header">
+            <nav class="navigation navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="open-btn">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="site-logo" href="#"><img src="{% static 'core/logo-long.png' %}" height="25"></a>
                     </div>
-                    <ul class="nav justify-content-end">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown"
-                               role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Eng
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="javascript:void(0)">Eng</a>
-                                {#                                <a class="dropdown-item" href="javascript:void(0)">Deutsch</a>#}
-                                {#                                <a class="dropdown-item" href="javascript:void(0)">Español</a>#}
-                                {#                                <a class="dropdown-item" href="javascript:void(0)">Spanish</a>#}
+                    <div id="navbar" class="navbar-collapse collapse navbar-right navigation-holder">
+                        <button class="close-navbar"><i class="fa fa-close"></i></button>
+                        <ul class="nav navbar-nav">
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#pricing">Pricing</a></li>
+                            <li><a href="#testimonials">Testimonials</a></li>
+                            <li><a href="#team">Team</a></li>
+                            <li><a href="#blog">Blog</a></li>
+                        </ul>
+                    </div><!-- end of nav-collapse -->
+
+                    <div class="search-social">
+                        <div class="header-search-area">
+                            <div class="header-search-form">
+                                <form class="form">
+                                    <div>
+                                        <input type="text" class="form-control" placeholder="Search here">
+                                    </div>
+                                    <button type="submit" class="btn"><i class="fa fa-search"></i></button>
+                                </form>
                             </div>
-                        </li>
-                        <li class="nav-item iq-mlr-0">
-                            <a class="nav-link button"
-                               href="{% url 'account_login' %}">
-                                {% if request.user.is_authenticated and request.user.is_superuser %}
-                                    Dashboard
-                                {% else %}
-                                    Login
-                                {% endif %}
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </div>
-</header>
-<!-- Header END -->
+                            <div>
+                                <button class="open-btn"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                        <div class="social">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div><!-- end of container -->
+            </nav>
+        </header>
+        <!-- end of header -->
