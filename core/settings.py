@@ -21,17 +21,24 @@ ROOT_URLCONF = 'core.urls'
 AUTH_USER_MODEL = 'accounts.User'
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
-SERVER = False
+SERVER = 'local'
 DEBUG = True
 
-if SERVER:
-    ALLOWED_HOSTS = ['maihandost.pythonanywhere.com']
-    GOOGLE_CALLBACK_ADDRESS = "http://maihandost.pythonanywhere.com/accounts/google/login/callback/"
+
+if SERVER == 'deployment':
     SITE_ID = 3
+    ALLOWED_HOSTS = ['maihandost.com', 'www.maihandost.com']
+    GOOGLE_CALLBACK_ADDRESS = "https://maihandost.com/accounts/google/login/callback/"
 else:
+
+    if SERVER == 'testing':
+        SITE_ID = 2
+        GOOGLE_CALLBACK_ADDRESS = "https://maihandost.pythonanywhere.com/accounts/google/login/callback/"
+    else:
+        SITE_ID = 1
+        GOOGLE_CALLBACK_ADDRESS = "http://127.0.0.1:8000/accounts/google/login/callback/"
     ALLOWED_HOSTS = ['*']
-    GOOGLE_CALLBACK_ADDRESS = "http://127.0.0.1:8000/accounts/google/login/callback/"
-    SITE_ID = 1
+
 
 """ APPS ---------------------------------------------------------------------------------------"""
 INSTALLED_APPS = [
@@ -113,7 +120,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'core.wsgi.application'
 
 """ DATABASES ------------------------------------------------------------------------------------"""
-if not SERVER:
+
+if SERVER != 'deployment':
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
