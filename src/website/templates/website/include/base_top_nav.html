@@ -11,8 +11,8 @@
         </button>
 
         <a class="navbar-logo" href="/">
-            <img src="{% static 'exarth/theme/logo-red.png' %}" alt="" height="30" class="logo logo-dark">
-            <img src="{% static 'exarth/theme/logo-light.png' %}" alt="" height="30" class="logo logo-light">
+            <img src="{% static 'exarth/theme/images/logos/logo-long.png' %}" alt="" height="30" class="logo logo-dark">
+            <img src="{% static 'exarth/theme/images/logos/logo-long.png' %}" alt="" height="30" class="logo logo-light">
         </a>
 
         <div class="collapse navbar-collapse" id="topnav-menu-content">
@@ -20,23 +20,13 @@
 
 
                 <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="#">Services</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Products</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Our Work</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Blog</a>
+                    <a class="nav-link" href="#">Go Fast</a>
                 </li>
                 <li class="nav-item">
                     {% if request.user.is_authenticated %}

@@ -72,14 +72,14 @@ u .searchlist {
 }
 
 .main_background {
-    background-image: url("/static/exarth/theme/carousel-02.jpg");
+    background-image: url("/static/exarth/theme/images/banner/carousel-02.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 
 .remains_background {
-    background-image: url("/static/exarth/theme/banner1.jpg");
+    background-image: url("/static/exarth/theme/images/banner/bg-11.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }

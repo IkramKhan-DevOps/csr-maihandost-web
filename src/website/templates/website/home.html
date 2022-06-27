@@ -10,7 +10,7 @@
 {% block content %}
 
     {# PROTFOLIO ---------------------------------------------------------------------------------------------------- #}
-    <section class="py-5 main_background" id="hero">
+    <section class="py-5 remains_background" id="hero">
         <div class="py-5">
             <div class="py-5">
                 <div class="container py-5 col-md-5 justify-content-center text-white text-center py-5">
@@ -30,7 +30,7 @@
 
     </section>
 
-    {# PARTNERS ---------------------------------------------------------------------------------------------------- #}
+    {# PAYMENTS ---------------------------------------------------------------------------------------------------- #}
     <section class="section py-5">
         <div class="container">
 
@@ -101,6 +101,7 @@
         </div>
     </section>
 
+    {# WORK ---------------------------------------------------------------------------------------------------- #}
     <section class="section py-5 bg-white" id="about">
         <div class="container">
             <div class="row">
@@ -175,61 +176,108 @@
                         </div>
                     </div>
                 </div>
-                <hr class="my-5">
-            </div>
-    </section>
-
-    <section class="section" id="features">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="text-center mb-5">
-                        <div class="small-title">Features</div>
-                        <h4>Key features of the product</h4></div>
-                </div>
-            </div>
-            <div class="align-items-center pt-4 row">
-                <div class="col-sm-8 col-md-6">
-                    <div><img src="/assets/images/crypto/features-img/img-1.png" alt=""
-                              class="img-fluid mx-auto d-block"></div>
-                </div>
-                <div class="col-md-5 ms-auto">
-                    <div class="mt-4 mt-md-auto">
-                        <div class="d-flex align-items-center mb-2">
-                            <div class="features-number fw-semibold display-4 me-3">01</div>
-                            <h4 class="mb-0">Lending</h4></div>
-                        <p class="text-muted">If several languages coalesce, the grammar of the resulting language is
-                            more simple and regular than of the individual will be more simple and regular than the
-                            existing.</p>
-                        <div class="text-muted mt-4"><p class="mb-2"><i
-                                class="mdi mdi-circle-medium text-success me-1"></i> Donec pede justo vel aliquet </p>
-                            <p class=""><i class="mdi mdi-circle-medium text-success me-1"></i> Aenean et nisl sagittis
-                            </p></div>
-                    </div>
-                </div>
-            </div>
-            <div class="align-items-center mt-5 pt-md-5 row">
-                <div class="col-md-5">
-                    <div class="mt-4 mt-md-auto">
-                        <div class="d-flex align-items-center mb-2">
-                            <div class="features-number fw-semibold display-4 me-3">02</div>
-                            <h4 class="mb-0">Wallet</h4></div>
-                        <p class="text-muted">It will be as simple as Occidental; in fact, it will be Occidental. To an
-                            English person, it will seem like simplified English, as a skeptical Cambridge friend.</p>
-                        <div class="text-muted mt-4"><p class="mb-2"><i
-                                class="mdi mdi-circle-medium text-success me-1"></i> Donec pede justo vel aliquet </p>
-                            <p class=""><i class="mdi mdi-circle-medium text-success me-1"></i> Aenean et nisl sagittis
-                            </p></div>
-                    </div>
-                </div>
-                <div class="col-sm-8 col-md-6 ms-md-auto">
-                    <div class="mt-4 me-md-0"><img src="/assets/images/crypto/features-img/img-2.png" alt=""
-                                                   class="img-fluid mx-auto d-block"></div>
-                </div>
             </div>
         </div>
     </section>
 
+    {# CARDS ---------------------------------------------------------------------------------------------------- #}
+    <div class="section py-5">
+        <div class="container py-2">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-center mb-5">
+                        <div class="small-title text-secondary">
+                            Haven't seen
+                        </div>
+                        <h1 class="text-dark">Our Gift Cards</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+
+
+                {% for foo in '1234567890'|make_list %}
+                    <div class="col-lg-4">
+                        <div class="card border shadow">
+                            <div class="card-body text-center">
+
+                                <div>
+                                    <iframe src="https://embed.lottiefiles.com/animation/93614" class="border-0"></iframe>
+{#                                    <img src="{% static 'exarth/theme/logo-red.png' %}" height="80px">#}
+                                    <h3 class="pt-2 m-0">
+                                        <a href="#" class="text-dark">Love Gift</a>
+                                    </h3>
+                                    <p class="text-muted small">To your loved one whom you loves so much</p>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col">
+                                        <b class="">100 $</b>
+                                    </div>
+                                    <div class="col">
+                                        <a href="#"><b>Buy Now</b></a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+
+            </div>
+        </div>
+    </div>
+
+{#    <section class="section" id="features">#}
+{#        <div class="container">#}
+{#            <div class="row">#}
+{#                <div class="col-lg-12">#}
+{#                    <div class="text-center mb-5">#}
+{#                        <div class="small-title">Features</div>#}
+{#                        <h4>Key features of the product</h4></div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="align-items-center pt-4 row">#}
+{#                <div class="col-sm-8 col-md-6">#}
+{#                    <div class="text-left">#}
+{#                        <img src="{% static 'exarth/theme/images/img-1.png' %}" alt=""#}
+{#                             class="img-fluid mx-auto d-block">#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-md-5 ms-auto">#}
+{#                    <div class="mt-4 mt-md-auto">#}
+{#                        <div class="d-flex align-items-center mb-2">#}
+{#                            <div class="features-number fw-semibold display-4 me-3">01</div>#}
+{#                            <h4 class="mb-0"> Click Fast Sent</h4>#}
+{#                        </div>#}
+{#                        <p class="text-muted">#}
+{#                            {% lorem 1 p %}#}
+{#                        </p>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="align-items-center mt-5 pt-md-5 row">#}
+{#                <div class="col-md-5">#}
+{#                    <div class="mt-4 mt-md-auto">#}
+{#                        <div class="d-flex align-items-center mb-2">#}
+{#                            <div class="features-number fw-semibold display-4 me-3">02</div>#}
+{#                            <h4 class="mb-0">Fill Form</h4></div>#}
+{#                        <p class="text-muted">#}
+{#                            {% lorem 1 p %}#}
+{#                        </p>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-sm-8 col-md-6 ms-md-auto">#}
+{#                    <div class="mt-4 me-md-0">#}
+{#                        <img src="{% static 'exarth/theme/images/img-2.png' %}" alt=""#}
+{#                             class="img-fluid mx-auto d-block">#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </section>#}
 
 
 {% endblock %}
