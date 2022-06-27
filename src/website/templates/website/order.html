@@ -82,9 +82,9 @@
                     </ul>
                     <input type="checkbox" checked> I am agreed to all terms and conditions mentioned above
                     <br><br>
-                    <button class="btn btn-primary">
+                    <a href="{% url 'payments:create_checkout_session' 1 %}" class="btn btn-primary">
                         Purchase and Sent
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>

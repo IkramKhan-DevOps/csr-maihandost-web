@@ -27,17 +27,27 @@ DEBUG = True
 
 if SERVER == 'deployment':
     SITE_ID = 3
+    DOMAIN_URL = 'https://rsonlineaccounting.com/'
+
+    STRIPE_PUBLISHABLE_KEY = 'pk_test_51KNUx8GWh1G1v77h4cAKDbEvH3wEbK4yVZfSGKT5f5wgShK8cipV0ctpNrZ2tqt63fsVmJp4sAk6cs8mogGlzHlL00CTKGtGvE'
+    STRIPE_SECRET_KEY = 'sk_test_51KNUx8GWh1G1v77hDR40VBVDDZTK2pgUZMk0yxDyN4evl4lBg2LyxFyOQCDoLQWhgy1t9bAzcC63c681rUe5mxtv00vHfKyh2r'
+
     ALLOWED_HOSTS = ['maihandost.com', 'www.maihandost.com']
     GOOGLE_CALLBACK_ADDRESS = "https://maihandost.com/accounts/google/login/callback/"
 else:
 
     if SERVER == 'testing':
         SITE_ID = 2
+        DOMAIN_URL = 'https://maihandost.pythonanywhere.com/'
         GOOGLE_CALLBACK_ADDRESS = "https://maihandost.pythonanywhere.com/accounts/google/login/callback/"
     else:
         SITE_ID = 1
+        DOMAIN_URL = 'http://127.0.0.1:8000/'
         GOOGLE_CALLBACK_ADDRESS = "http://127.0.0.1:8000/accounts/google/login/callback/"
+
     ALLOWED_HOSTS = ['*']
+    STRIPE_PUBLISHABLE_KEY = 'pk_test_51KNUx8GWh1G1v77h4cAKDbEvH3wEbK4yVZfSGKT5f5wgShK8cipV0ctpNrZ2tqt63fsVmJp4sAk6cs8mogGlzHlL00CTKGtGvE'
+    STRIPE_SECRET_KEY = 'sk_test_51KNUx8GWh1G1v77hDR40VBVDDZTK2pgUZMk0yxDyN4evl4lBg2LyxFyOQCDoLQWhgy1t9bAzcC63c681rUe5mxtv00vHfKyh2r'
 
 
 """ APPS ---------------------------------------------------------------------------------------"""
@@ -72,6 +82,7 @@ INSTALLED_APPS = [
 
     'src.admins',
     'src.customer',
+    'src.payments',
 
     # MUST BE AT THE END
     'notifications'

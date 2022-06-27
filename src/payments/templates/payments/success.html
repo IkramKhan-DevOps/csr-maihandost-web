@@ -1,0 +1,74 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+
+{% block base_title %}
+    Payment Successful
+{% endblock %}
+
+
+{% block base_top_nav %}{% endblock %}
+{% block footer %}{% endblock %}
+
+
+{% block content %}
+    <div class="content mt-5">
+        <div class="row justify-content-center">
+            <div class="col-sm-4">
+                <div class="card" style="">
+                    <div class="card-body">
+                        <div class="text-center">
+                            <div class="justify-content-center mt-5 mb-2 row">
+                                <div class="col-8 col-sm-6">
+                                    <div>
+                                        <img src="{% static 'exarth/theme/logo-red.png' %}" alt="" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="justify-content-center row">
+                                <div class="col-lg-10"><h4 class="mt-4 fw-semibold text-success">Payments Successful</h4>
+                                    <p class="text-muted mt-3">
+                                        Your payment has been verified successfully, please use the code below to
+                                        withdraw money from any maihandost franchsie
+                                    </p>
+                                    <div class="row justify-content-center">
+                                        <div class="cols">
+                                            <div class="input-group mb-2">
+                                            <input id="qr-code" class="form-control-lg border-0 bg-light" disabled
+                                                   value="3267897392">
+                                            <div class="input-group-append">
+                                                <button onclick="copy_code()" class="btn btn-dark"><i
+                                                        class="fa fa-copy"></i></button>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="mt-4">
+                                        <button type="button" class="btn btn-primary" value="" style="">
+                                            <i class="fa fa-arrow-right"></i> Go back to your Dashboard
+                                        </button>
+                                        <button type="button" class="btn btn-light">
+                                            <i class="fa fa-receipt"></i> Print Receipt
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block base_external_scripts %}
+    <script>
+        function copy_code() {
+            var copyText = document.getElementById("qr-code");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(copyText.value);
+        }
+    </script>
+{% endblock %}

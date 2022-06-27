@@ -14,6 +14,7 @@ from src.website.views import handler404
 
 handler404 = handler404
 urlpatterns = [
+
     # ADMIN/ROOT APPLICATION
     path('admin/', admin.site.urls),
     path('', include('src.website.urls', namespace='website')),
@@ -23,7 +24,9 @@ urlpatterns = [
     path('accounts/', include('src.accounts.urls', namespace='accounts')),
     path('accounts/', include('allauth.urls')),
 
+    path('payments/', include('src.payments.urls', namespace='payments')),
     url('^inbox/notifications/', include(notifications.urls, namespace='notifications')),
+
 ]
 
 # urlpatterns += [
