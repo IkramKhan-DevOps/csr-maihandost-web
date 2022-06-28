@@ -1,13 +1,13 @@
 from django.urls import path
 from django.views.generic import TemplateView
 
-from src.website.views import HomeView, OrderView
+from src.website.views import HomeView, OrderCreateView, GiftView
 
 app_name = 'website'
 urlpatterns = [
 
     path('', HomeView.as_view(), name='home'),
-    path('go/fast/', OrderView.as_view(), name='go_fast'),
-    path('gift/', OrderView.as_view(), name='gifts'),
+    path('order/', OrderCreateView.as_view(), name='order_add'),
+    path('gift/', GiftView.as_view(), name='gifts'),
 
 ]
