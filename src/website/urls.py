@@ -7,6 +7,7 @@ app_name = 'website'
 urlpatterns = [
 
     path('', HomeView.as_view(), name='home'),
-    path('order/', OrderView.as_view(), name='order'),
+    path('go/fast/', OrderView.as_view(), name='go_fast'),
+    path('gift/', OrderView.as_view(), name='gifts'),
 
 ]

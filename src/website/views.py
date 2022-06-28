@@ -27,3 +27,11 @@ class OrderView(TemplateView):
         context = super(OrderView, self).get_context_data(**kwargs)
         return context
 
+
+class GiftView(TemplateView):
+    template_name = 'website/gifts.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(GiftView, self).get_context_data(**kwargs)
+        return context
+
