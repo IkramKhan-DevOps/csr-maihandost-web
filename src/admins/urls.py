@@ -3,7 +3,8 @@ from .views import (
     DashboardView,
     UserListView, UserPasswordResetView, UserDetailView, UserUpdateView,
     OrderListView, OrderDetailView, OrderUpdateView, OrderDeleteView,
-    GiftCardListView, GiftCardCreateView, GiftCardUpdateView, GiftCardDeleteView
+    GiftCardListView, GiftCardCreateView, GiftCardUpdateView, GiftCardDeleteView,
+    CountryListView, CountryCreateView, CountryUpdateView, CountryDeleteView
 )
 
 app_name = 'admins'
@@ -24,5 +25,10 @@ urlpatterns = [
     path('gift-card/add/', GiftCardCreateView.as_view(), name='gift-card-add'),
     path('gift-card/<int:pk>/update/', GiftCardUpdateView.as_view(), name='gift-card-update'),
     path('gift-card/<int:pk>/delete/', GiftCardDeleteView.as_view(), name='gift-card-delete'),
+
+    path('country/', CountryListView.as_view(), name='country-list'),
+    path('country/add/', CountryCreateView.as_view(), name='country-add'),
+    path('country/<int:pk>/update/', CountryUpdateView.as_view(), name='country-update'),
+    path('country/<int:pk>/delete/', CountryDeleteView.as_view(), name='country-delete'),
 
 ]

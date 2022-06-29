@@ -1,0 +1,89 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block subtitle %} Countries {% endblock %}
+
+{% block content %}
+
+    <div class="row mb-2">
+        <div class="col-sm-12">
+            <a href="{% url 'admins:country-add' %}" class="btn btn-primary">New Country</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+
+                    {% if object_list %}
+                        <div class="table-responsive">
+                            <table class="table table-hover table-striped border">
+                                <thead class="thead-light">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>for Sender</th>
+                                    <th>for Receiver</th>
+                                    <th>Active</th>
+                                    <th>-</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                {% for object in object_list %}
+                                    <tr>
+                                        <td>{{ object.name }}</td>
+                                        <td>
+                                            {% if object.is_available_for_sender %}
+                                                <b class="text-success"><i class="fa fa-check-circle"></i></b>
+                                            {% else %}
+                                                <b class="text-danger"><i class="fa fa-times-circle"></i></b>
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {% if object.is_available_for_receiver %}
+                                                <b class="text-success"><i class="fa fa-check-circle"></i></b>
+                                            {% else %}
+                                                <b class="text-danger"><i class="fa fa-times-circle"></i></b>
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {% if object.is_active %}
+                                                <b class="text-success"><i class="fa fa-check-circle"></i></b>
+                                            {% else %}
+                                                <b class="text-danger"><i class="fa fa-times-circle"></i></b>
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            <a href="{% url 'admins:country-update' object.pk %}">
+                                                <b class="text-primary">
+                                                    <i class="fa fa-edit"></i>
+                                                </b>
+                                            </a>
+                                            <a href="{% url 'admins:country-delete' object.pk %}">
+                                                <b class="text-danger">
+                                                    <i class="fa fa-trash"></i>
+                                                </b>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    {% else %}
+                        <p class="mb-0 text-danger">
+                            <b>
+                                <i class="fa fa-exclamation-circle"></i>
+                                No Countries available yet.
+                            </b>
+                        </p>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

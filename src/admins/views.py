@@ -22,7 +22,7 @@ from notifications.signals import notify
 # from faker_data import initialization
 from src.accounts.models import User
 from src.admins.filters import UserFilter, OrderFilter
-from src.admins.models import Order, GiftCard
+from src.admins.models import Order, GiftCard, Country
 
 admin_decorators = [login_required, user_passes_test(lambda u: u.is_superuser)]
 
@@ -171,3 +171,31 @@ class GiftCardUpdateView(UpdateView):
 class GiftCardDeleteView(DeleteView):
     model = GiftCard
     success_url = reverse_lazy('admins:gift-card-list')
+
+
+""" COUNTRY """
+
+
+@method_decorator(admin_decorators, name='dispatch')
+class CountryListView(ListView):
+    queryset = Country.objects.all()
+
+
+@method_decorator(admin_decorators, name='dispatch')
+class CountryCreateView(CreateView):
+    model = Country
+    fields = '__all__'
+    success_url = reverse_lazy('admins:country-list')
+
+
+@method_decorator(admin_decorators, name='dispatch')
+class CountryUpdateView(UpdateView):
+    model = Country
+    fields = '__all__'
+    success_url = reverse_lazy('admins:country-list')
+
+
+@method_decorator(admin_decorators, name='dispatch')
+class CountryDeleteView(DeleteView):
+    model = Country
+    success_url = reverse_lazy('admins:country-list')
