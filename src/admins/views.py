@@ -145,7 +145,6 @@ class OrderDetailView(DetailView):
     model = Order
 
 
-
 """ GIFTS """
 
 
