@@ -2,7 +2,8 @@ from django.urls import path
 from .views import (
     DashboardView,
     UserListView, UserPasswordResetView, UserDetailView, UserUpdateView,
-    OrderListView, OrderDetailView, OrderUpdateView, OrderDeleteView
+    OrderListView, OrderDetailView, OrderUpdateView, OrderDeleteView,
+    GiftCardListView, GiftCardCreateView, GiftCardUpdateView, GiftCardDeleteView
 )
 
 app_name = 'admins'
@@ -18,5 +19,10 @@ urlpatterns = [
     path('order/<int:pk>/', OrderDetailView.as_view(), name='order-detail'),
     path('order/<int:pk>/update/', OrderUpdateView.as_view(), name='order-update'),
     path('order/<int:pk>/delete/', OrderDeleteView.as_view(), name='order-delete'),
+
+    path('gift-card/', GiftCardListView.as_view(), name='gift-card-list'),
+    path('gift-card/add/', GiftCardCreateView.as_view(), name='gift-card-add'),
+    path('gift-card/<int:pk>/update/', GiftCardUpdateView.as_view(), name='gift-card-update'),
+    path('gift-card/<int:pk>/delete/', GiftCardDeleteView.as_view(), name='gift-card-delete'),
 
 ]

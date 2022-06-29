@@ -1,0 +1,65 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block subtitle %}Gift Cards{% endblock %}
+
+{% block content %}
+
+    <div class="row mb-2">
+        <div class="col-sm-12">
+            <a href="{% url 'admins:gift-card-add' %}" class="btn btn-primary">New Gift Card</a>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+
+        {% if object_list %}
+            {% for gift in object_list %}
+                <div class="col-lg-4">
+                    <div class="card border shadow">
+                        <div class="card-body text-center">
+
+                            <div>
+                                {% if gift.image %}
+                                    <img src="{{ gift.image.url }}" height="150">
+                                {% else %}
+                                    <img alt="gift-image" src="{% static 'exarth/theme/images/other/no-gift.png' %}"
+                                         height="150">
+                                {% endif %}
+
+                                <h3 class="mb-0">
+                                    <a href="#" class="text-dark">{{ gift.name }}</a>
+                                </h3>
+                                <h4 class="mb-1">
+                                    <a href="#" class="text-dark">
+                                        <span class="badge badge-success">
+                                            $ {{ gift.price }}
+                                        </span>
+                                    </a>
+                                </h4>
+                                <p class="text-muted small">{{ gift.description }}</p>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col border-right">
+                                    <a href="{% url 'admins:gift-card-update' gift.pk %}"><b>Update</b></a>
+                                </div>
+                                <div class="col">
+                                    <a class="text-danger"
+                                       href="{% url 'admins:gift-card-delete' gift.pk %}"><b>Delete</b></a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="text-danger">
+                <i class="fa fa-exclamation-circle"></i> No gifts are available for now.
+            </p>
+        {% endif %}
+
+    </div>
+
+{% endblock %}

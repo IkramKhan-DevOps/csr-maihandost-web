@@ -16,21 +16,23 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-pages" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="bx bx-user mr-2"></i>Users
+                            <i class="bx bx-user mr-2"></i>User Control
                             <div class="arrow-down"></div>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="topnav-pages">
                             <a href="{% url 'admins:user-list' %}" class="dropdown-item">Users</a>
                         </div>
-                        <div class="dropdown-menu" aria-labelledby="topnav-pages">
-                            <a href="{% url 'admins:order-list' %}" class="dropdown-item">Orders</a>
-                        </div>
                     </li>
 
-                    {#WALLET#}
                     <li class="nav-item">
-                        <a class="nav-link dropdown-toggle arrow-none" href="#">
-                            <i class="bx bx-wallet mr-2"></i>Menu
+                        <a class="nav-link dropdown-toggle arrow-none" href="{% url 'admins:order-list' %}">
+                            <i class="mdi mdi-cash-100 mr-2"></i> Orders
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link dropdown-toggle arrow-none" href="{% url 'admins:gift-card-list' %}">
+                            <i class="bx bx-gift mr-2"></i>Gift Shop
                         </a>
                     </li>
                 </ul>
