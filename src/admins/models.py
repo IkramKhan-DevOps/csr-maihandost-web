@@ -38,6 +38,7 @@ class Order(models.Model):
         ('unp', 'Un Paid'),
         ('pai', 'Paid'),
         ('fai', 'Failed'),
+        ('pen', 'Pending'),
         ('com', 'Completed'),
         ('can', 'Cancelled'),
     )
