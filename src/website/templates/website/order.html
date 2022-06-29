@@ -1,7 +1,12 @@
 {% extends 'website/base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 
-{% block base_title %} Gift Cards {% endblock %}
+{% block base_seo %}
+    <meta name="description" content="software development company">
+{% endblock %}
+
+{% block base_title %}Go Fast{% endblock %}
 
 {% block content %}
 
@@ -12,11 +17,14 @@
                 <div class="container py-5 col-md-5 justify-content-center text-white text-center py-5">
 
                     <p class="mb-0 display-3">
-                        Gift Cards
+                        Go Fast
+{#                        هدیه سریع#}
                     </p>
                     <hr>
                     <h1 class="mb-0 text-light h2">
-                        No of gift cards are available for now we will add more in future.
+{#                        هدیه سریع بدون ثبت نام یا ورود فقط اطلاعات فرستنده و گیرنده را پر کنید و هدیه خود را برای عزیزانتان ارسال کنید#}
+                        No-Signup/Signin Just fill out sender and receiver information and sent your gift to your loved
+                        ones.
                     </h1>
 
                 </div>
@@ -25,55 +33,63 @@
 
     </section>
 
-    {# CARDS --------------------------------------------------------------------------------------------------- #}
-    <div class="section py-5">
-        <div class="container py-2">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="text-center mb-5">
-                        <div class="small-title text-secondary">
-                            Haven't seen
-                        </div>
-                        <h1 class="text-dark">Our Gift Cards</h1>
-                    </div>
-                </div>
-            </div>
+    {# WORK ---------------------------------------------------------------------------------------------------- #}
+    <section class="section py-5" id="about">
+        <div class="container">
 
-            <div class="row justify-content-center">
-
-
-                {% for foo in '1234567890'|make_list %}
-                    <div class="col-lg-4">
-                        <div class="card border shadow">
-                            <div class="card-body text-center">
-
-                                <div>
-                                    <iframe src="https://embed.lottiefiles.com/animation/93614" class="border-0"></iframe>
-{#                                    <img src="{% static 'exarth/theme/logo-red.png' %}" height="80px">#}
-                                    <h3 class="pt-2 m-0">
-                                        <a href="#" class="text-dark">Love Gift</a>
-                                    </h3>
-                                    <p class="text-muted small">To your loved one whom you loves so much</p>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col">
-                                        <b class="">100 $</b>
-                                    </div>
-                                    <div class="col">
-                                        <a href="#"><b>Buy Now</b></a>
-                                    </div>
-                                </div>
-
+            {# FORM #}
+            <form method="post">
+                {# FORM-MAIN #}
+                <div class="row border p-4">
+                    <div class="col-7">
+                        <div class="card border shadow rounded">
+                            <div class="card-body border-bottom">
+                                <div class="small-title">Step 1</div>
+                                <h4>Sender and Receiver</h4>
+                            </div>
+                            <div class="card-body">
+                                {{ form|crispy }}
                             </div>
                         </div>
                     </div>
-                {% endfor %}
+                    <div class="col-5">
+                        <div class="card border shadow rounded">
+                            <div class="card-body border-bottom">
+                                <div class="small-title">Step 2</div>
+                                <h4>Verification Process</h4>
+                            </div>
+                            <div class="card-body">
+                                <p>
+                                    <b>Go Fast</b> is a world fastest and easiest way to sent money using gift cards
+                                    internationally this method is used for fast gift sent service, you can sent gift from our
+                                    available gift cards, on some charges deduction your receiver will receive amount
+                                    from gift card, here are no of instructions to follow.
+                                </p>
+                                <p class="h4">Agreement</p>
+                                <ul>
+                                    <li>Make sure filled information is valid</li>
+                                    <li>Sender and receiver must have correct names</li>
+                                    <li>Gift card will be successfully received if you have a correct <code>Transfer ID</code></li>
+                                    <li><code>Transfer ID</code> will be provided at the end over a successful transaction</li>
+                                    <li>Please don't share your <code>Transfer ID</code> with anyone except receiver</li>
+                                    <li><b class="text-success">100% Guarantee</b> on payments</li>
+                                    <li>There is no return policy once gift card is purchased</li>
+                                </ul>
+                                <input type="checkbox" checked> I am agreed to all terms and conditions mentioned
+                                above
+                                <br><br>
+                                <a href="{% url 'payments:create_checkout_session' 1 %}" class="btn btn-primary">
+                                    Purchase and Sent
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
 
-
-            </div>
         </div>
-    </div>
+    </section>
+
 
 
 {% endblock %}

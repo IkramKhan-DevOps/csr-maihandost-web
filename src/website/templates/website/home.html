@@ -196,35 +196,43 @@
 
             <div class="row justify-content-center">
 
+                {% if gift_cards %}
+                    {% for gift in gift_cards %}
+                        <div class="col-lg-4">
+                            <div class="card border shadow">
+                                <div class="card-body text-center">
 
-                {% for foo in '1234567890'|make_list %}
-                    <div class="col-lg-4">
-                        <div class="card border shadow">
-                            <div class="card-body text-center">
+                                    <div>
+                                        {% if gift.image %}
+                                            <img src="{{ gift.image.url }}" height="150">
+                                        {% else %}
+                                            <img alt="gift-image" src="{% static 'exarth/theme/images/other/no-gift.png' %}" height="150">
+                                        {% endif %}
 
-                                <div>
-                                    <iframe src="https://embed.lottiefiles.com/animation/93614" class="border-0"></iframe>
-{#                                    <img src="{% static 'exarth/theme/logo-red.png' %}" height="80px">#}
-                                    <h3 class="pt-2 m-0">
-                                        <a href="#" class="text-dark">Love Gift</a>
-                                    </h3>
-                                    <p class="text-muted small">To your loved one whom you loves so much</p>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col">
-                                        <b class="">100 $</b>
+                                        <h3 class="pt-2 m-0">
+                                            <a href="#" class="text-dark">{{ gift.name }}</a>
+                                        </h3>
+                                        <p class="text-muted small">{{ gift.description }}</p>
                                     </div>
-                                    <div class="col">
-                                        <a href="#"><b>Buy Now</b></a>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col">
+                                            <b class="">{{ gift.price }} $</b>
+                                        </div>
+                                        <div class="col">
+                                            <a href="{% url 'website:order_add' gift.pk %}"><b>Buy Now</b></a>
+                                        </div>
                                     </div>
-                                </div>
 
+                                </div>
                             </div>
                         </div>
-                    </div>
-                {% endfor %}
-
+                    {% endfor %}
+                {% else %}
+                    <p class="text-danger">
+                        <i class="fa fa-exclamation-circle"></i> No gifts are available for now.
+                    </p>
+                {% endif %}
 
             </div>
         </div>

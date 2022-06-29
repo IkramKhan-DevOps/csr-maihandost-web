@@ -1,24 +1,25 @@
 import stripe
 from django.http import HttpResponseNotFound
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import TemplateView
 
 from core import settings
+from src.admins.models import GiftCard, Order
 
 
 @csrf_exempt
 def create_checkout_session(request, pk):
     domain_url = settings.DOMAIN_URL
-    # filing = get_object_or_404(Filing, pk=pk)
+    order = get_object_or_404(Order, pk=pk)
     stripe.api_key = settings.STRIPE_SECRET_KEY
     session = stripe.checkout.Session.create(
         line_items=[{
-            'name': 'Gold Gift',
+            'name': order.gift_card.name,
             'quantity': 1,
-            'currency': 'gbp',
-            'amount': 3500,
+            'currency': 'usd',
+            'amount': order.gift_card.price,
         }],
         mode='payment',
         success_url=request.build_absolute_uri(
@@ -26,8 +27,8 @@ def create_checkout_session(request, pk):
         ) + "?session_id={CHECKOUT_SESSION_ID}",
         cancel_url=request.build_absolute_uri(reverse('payments:cancel')),
     )
-    # filing.stripe_payment_intent = session.id
-    # filing.save()
+    order.stripe_pay_id = session.id
+    order.save()
 
     return redirect(session.url, code=303)
 
@@ -43,10 +44,11 @@ class SuccessView(TemplateView):
         stripe.api_key = settings.STRIPE_SECRET_KEY
         session = stripe.checkout.Session.retrieve(session_id)
 
-        # filing = get_object_or_404(Filing, stripe_payment_intent=session_id)
-        # filing.is_paid = True
-        # filing.is_active = False
-        # filing.save()
+        order = get_object_or_404(Order, stripe_pay_id=session_id)
+        order.status = 'pai'
+        order.save()
+
+        # TODO: Generate emails + generate messages + everything
 
         return render(request, self.template_name)
 

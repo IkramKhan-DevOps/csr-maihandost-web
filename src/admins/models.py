@@ -31,18 +31,31 @@ class GiftCard(models.Model):
 
 
 class Order(models.Model):
+
+    STATUS_CHOICES = (
+        ('unp', 'Un Paid'),
+        ('pai', 'Paid'),
+        ('fai', 'Failed'),
+        ('com', 'Completed'),
+        ('can', 'Cancelled'),
+    )
+
     # TODO: generate a unique id for identification
     sender_first_name = models.CharField(max_length=10, null=False, blank=False)
     sender_last_name = models.CharField(max_length=10, null=False, blank=False)
     sender_phone_number = models.CharField(max_length=10, null=False, blank=False)
     sender_email = models.CharField(max_length=10, null=False, blank=False)
-    sender_country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True, blank=True, related_name='sender_country')
+    sender_country = models.ForeignKey(
+        Country, on_delete=models.SET_NULL, null=True, blank=True, related_name='sender_country'
+    )
 
     receiver_first_name = models.CharField(max_length=10, null=False, blank=False)
     receiver_last_name = models.CharField(max_length=10, null=False, blank=False)
     receiver_phone_number = models.CharField(max_length=10, null=False, blank=False)
     receiver_email = models.CharField(max_length=10, null=False, blank=False)
-    receiver_country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True, blank=True, related_name='receiver_country')
+    receiver_country = models.ForeignKey(
+        Country, on_delete=models.SET_NULL, null=True, blank=True, related_name='receiver_country'
+    )
 
     total_amount = models.FloatField(default=0)
     tax_charges = models.FloatField(default=0)
@@ -50,14 +63,15 @@ class Order(models.Model):
     payable_amount = models.FloatField(default=0)
 
     gift_card = models.ForeignKey(GiftCard, on_delete=models.SET_NULL, null=True, blank=True)
+    stripe_pay_id = models.CharField(max_length=2000, null=True, blank=True)
 
-    is_completed = models.BooleanField(default=True)
+    status = models.CharField(max_length=3, choices=STATUS_CHOICES, default='unp')
     is_active = models.BooleanField(default=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
 
     class Meta:
-        ordering = ['created_on', 'is_completed']
+        ordering = ['created_on', 'status']
         verbose_name_plural = 'Orders'
 
     def __str__(self):
