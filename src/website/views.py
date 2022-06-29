@@ -43,7 +43,7 @@ class OrderCreateView(CreateView):
         return super(OrderCreateView, self).form_valid(form)
 
     def get_success_url(self):
-        return reverse_lazy('payments:create_checkout_session', self.object.pk)
+        return reverse_lazy('payments:create_checkout_session', kwargs={'pk': self.object.pk})
 
 
 class GiftView(TemplateView):

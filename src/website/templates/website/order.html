@@ -48,6 +48,7 @@
                                 <h4>Sender and Receiver</h4>
                             </div>
                             <div class="card-body">
+                                {% csrf_token %}
                                 {{ form|crispy }}
                             </div>
                         </div>
@@ -78,9 +79,9 @@
                                 <input type="checkbox" checked> I am agreed to all terms and conditions mentioned
                                 above
                                 <br><br>
-                                <a href="{% url 'payments:create_checkout_session' 1 %}" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary">
                                     Purchase and Sent
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>

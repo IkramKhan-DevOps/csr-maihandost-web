@@ -19,7 +19,7 @@ def create_checkout_session(request, pk):
             'name': order.gift_card.name,
             'quantity': 1,
             'currency': 'usd',
-            'amount': order.gift_card.price,
+            'amount': int(str(int(order.gift_card.price))+"00"),
         }],
         mode='payment',
         success_url=request.build_absolute_uri(

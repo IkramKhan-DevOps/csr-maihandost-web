@@ -9,7 +9,7 @@ class CountryAdmin(admin.ModelAdmin):
 
 
 class GiftCardAdmin(admin.ModelAdmin):
-    list_display = ['name', 'is_active']
+    list_display = ['name', 'image']
 
 
 class OrderAdmin(admin.ModelAdmin):
@@ -19,6 +19,6 @@ class OrderAdmin(admin.ModelAdmin):
     ]
 
 
-admin.site.register(Country)
-admin.site.register(GiftCard)
-admin.site.register(Order)
+admin.site.register(Country, CountryAdmin)
+admin.site.register(GiftCard, GiftCardAdmin)
+admin.site.register(Order, OrderAdmin)
