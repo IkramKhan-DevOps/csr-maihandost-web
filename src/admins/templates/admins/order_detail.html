@@ -1,0 +1,21 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block base_title %}Remove State {% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+
+                    {{ object }}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

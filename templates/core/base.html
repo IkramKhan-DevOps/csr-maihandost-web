@@ -3,7 +3,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <link rel="icon" href="{% static "core/logo.png" %}">
+    <link rel="icon" href="{% static 'exarth/theme/favico.ico' %}">
     <title>
 
         {% block title %}
@@ -22,16 +22,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     {% if request.user.is_authenticated %}
-        {% if request.user.is_staff %}
-            <link rel="stylesheet" href="{% static 'admins/css/app.min.css' %}">
-            <link rel="stylesheet" href="{% static 'admins/css/bootstrap.min.css' %}">
-        {% else %}
-            <link rel="stylesheet" href="{% static 'admins/css/app-dark.css' %}">
-            <link rel="stylesheet" href="{% static 'admins/css/bootstrap-dark.min.css' %}">
-        {% endif %}
-    {% else %}
-        <link rel="stylesheet" href="{% static 'admins/css/app-dark.css' %}">
-        <link rel="stylesheet" href="{% static 'admins/css/bootstrap-dark.min.css' %}">
+        <link rel="stylesheet" href="{% static 'admins/css/app.min.css' %}">
+        <link rel="stylesheet" href="{% static 'admins/css/bootstrap.min.css' %}">
     {% endif %}
 
     <link rel="stylesheet" href="{% static 'admins/css/icons.min.css' %}">
@@ -179,8 +171,8 @@
     <!-- App js -->
     <script src="{% static 'admins/js/app.js' %}"></script>
 
-{#    <script src="{% static 'core/js/notify.js' %}" type="text/javascript"></script>#}
-{#    {% register_notify_callbacks callbacks='fill_notification_badge,my_special_notification_callback' %}#}
+    {#    <script src="{% static 'core/js/notify.js' %}" type="text/javascript"></script>#}
+    {#    {% register_notify_callbacks callbacks='fill_notification_badge,my_special_notification_callback' %}#}
 
 
     {# BASE INTERNAL SCRIPTS OR LINKS THAT ARE REQUIRED IN PAGE #}

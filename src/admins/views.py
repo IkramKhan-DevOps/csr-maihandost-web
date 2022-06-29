@@ -21,7 +21,8 @@ from notifications.signals import notify
 
 # from faker_data import initialization
 from src.accounts.models import User
-from src.admins.filters import UserFilter
+from src.admins.filters import UserFilter, OrderFilter
+from src.admins.models import Order
 
 admin_decorators = [login_required, user_passes_test(lambda u: u.is_superuser)]
 
@@ -49,7 +50,7 @@ class DashboardView(TemplateView):
 class UserListView(ListView):
     model = User
     template_name = 'admins/user_list.html'
-    paginate_by = 100
+    paginate_by = 50
 
     def get_context_data(self, **kwargs):
         context = super(UserListView, self).get_context_data(**kwargs)
@@ -103,3 +104,42 @@ class UserPasswordResetView(View):
             form.save(commit=True)
             messages.success(request, f"{user.get_full_name()}'s password changed successfully.")
         return render(request, 'admins/admin_password_reset.html', {'form': form})
+
+
+""" ORDERS VIEWS """
+
+
+@method_decorator(admin_decorators, name='dispatch')
+class OrderListView(ListView):
+    queryset = Order.objects.all()
+    paginate_by = 100
+
+    def get_context_data(self, **kwargs):
+        context = super(OrderListView, self).get_context_data(**kwargs)
+        object_filter = OrderFilter(self.request.GET, queryset=Order.objects.filter())
+        context['object_filter_form'] = object_filter.form
+
+        paginator = Paginator(object_filter.qs, 50)
+        page_number = self.request.GET.get('page')
+        user_page_object = paginator.get_page(page_number)
+
+        context['object_list'] = user_page_object
+        return context
+
+
+@method_decorator(admin_decorators, name='dispatch')
+class OrderUpdateView(UpdateView):
+    model = Order
+    fields = '__all__'
+    success_url = reverse_lazy('admins:order-list')
+
+
+@method_decorator(admin_decorators, name='dispatch')
+class OrderDeleteView(DeleteView):
+    model = Order
+    success_url = reverse_lazy('admins:order-list')
+
+
+@method_decorator(admin_decorators, name='dispatch')
+class OrderDetailView(DetailView):
+    model = Order
