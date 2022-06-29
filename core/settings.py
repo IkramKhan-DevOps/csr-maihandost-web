@@ -37,7 +37,7 @@ if SERVER == 'deployment':
 else:
 
     if SERVER == 'testing':
-        SITE_ID = 2
+        SITE_ID = 1
         DOMAIN_URL = 'https://maihandost.pythonanywhere.com/'
         GOOGLE_CALLBACK_ADDRESS = "https://maihandost.pythonanywhere.com/accounts/google/login/callback/"
     else:

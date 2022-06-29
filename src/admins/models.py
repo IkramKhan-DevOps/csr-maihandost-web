@@ -48,7 +48,7 @@ class Order(models.Model):
     sender_first_name = models.CharField(max_length=10, null=False, blank=False)
     sender_last_name = models.CharField(max_length=10, null=False, blank=False)
     sender_phone_number = models.CharField(max_length=10, null=False, blank=False)
-    sender_email = models.CharField(max_length=10, null=False, blank=False)
+    sender_email = models.EmailField(null=False, blank=False)
     sender_country = models.ForeignKey(
         Country, on_delete=models.SET_NULL, null=True, blank=True, related_name='sender_country'
     )
@@ -56,7 +56,7 @@ class Order(models.Model):
     receiver_first_name = models.CharField(max_length=10, null=False, blank=False)
     receiver_last_name = models.CharField(max_length=10, null=False, blank=False)
     receiver_phone_number = models.CharField(max_length=10, null=False, blank=False)
-    receiver_email = models.CharField(max_length=10, null=False, blank=False)
+    receiver_email = models.EmailField(null=False, blank=False)
     receiver_country = models.ForeignKey(
         Country, on_delete=models.SET_NULL, null=True, blank=True, related_name='receiver_country'
     )
