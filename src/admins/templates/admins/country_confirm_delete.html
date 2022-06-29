@@ -2,9 +2,15 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-{% block subtitle %}Remove {{object.name}} {% endblock %}
+{% block subtitle %}Remove {{ object.name }} {% endblock %}
 
 {% block content %}
+
+    <div class="row">
+        <div class="col-sm-12">
+            <p><a href="{% url 'admins:country-list' %}"><i class="fa fa-arrow-left"></i> Go Back</a></p>
+        </div>
+    </div>
 
     <div class="row">
         <div class="col-md-12">
