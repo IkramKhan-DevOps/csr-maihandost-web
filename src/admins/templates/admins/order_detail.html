@@ -7,14 +7,120 @@
 {% block content %}
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-8">
+
+            <div class="card-body border-bottom">
+                <p class="my-0 card-title">Gift Order Information</p>
+            </div>
+            <div class="card-body">
+
+                <div class="row mt-4">
+                    <div class="col">
+                        <div class="avatar-sm mb-4">
+                            <span class="avatar-title rounded-circle bg-soft-dark font-size-18">
+                                <i class="fa fa-money-bill text-dark"></i>
+                            </span>
+                        </div>
+                        <p class="mb-0 small">Total Amount</p>
+                        <p class="h1 mb-0">${{ object.total_amount }}</p>
+                    </div>
+                    <div class="col">
+                        <div class="avatar-sm mb-4">
+                            <span class="avatar-title rounded-circle bg-soft-danger font-size-18">
+                                <i class="fa fa-coins text-danger"></i>
+                            </span>
+                        </div>
+                        <p class="mb-0 small text-danger">Tax Charges</p>
+                        <p class="h1 mb-0 text-danger">${{ object.tax_charges }}</p>
+                    </div>
+                    <div class="col">
+                        <div class="avatar-sm mb-4">
+                            <span class="avatar-title rounded-circle bg-soft-dark font-size-18">
+                                <i class="fa fa-hands-helping text-dark"></i>
+                            </span>
+                        </div>
+                        <p class="mb-0 small">Received Amount</p>
+                        <p class="h1 mb-0">${{ object.payable_amount }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body border-top">
+                <p class="mb-0"><i class="fa fa-calendar"></i> {{ object.created_on }}</p>
+            </div>
+
+        </div>
+        <div class="col-4">
+
             <div class="card">
+                <div class="card-body border-bottom">
+                    <p class="my-0 card-title">Sender</p>
+                </div>
                 <div class="card-body">
 
-                    {{ object }}
+                    <div class="text-center">
+                        <img class="rounded-circle avatar-xl" alt="200x200"
+                             src="{% static 'core/images/no-user.png' %}"
+                             data-holder-rendered="true">
+
+                        <hr>
+                        <p class="h3 mb-0 mt-2">
+                            {{ object.sender_first_name }}
+                            {{ object.sender_last_name }}
+                        </p>
+                        <p class="mb-0">
+                            <b>
+                                <a href="mailto:{{ object.sender_email }}">
+                                    <i class="mdi mdi-mail"></i> {{ object.sender_email }}
+                                </a>
+                            </b>
+                        </p>
+                        <p class="mb-0">
+                            <b>
+                                <a href="callto:{{ object.sender_phone_number }}">
+                                    <i class="fa fa-phone"></i> {{ object.sender_phone_number }}
+                                </a>
+                            </b>
+                        </p>
+                    </div>
 
                 </div>
             </div>
+
+            <div class="card">
+                <div class="card-body border-bottom">
+                    <p class="my-0 card-title">Receiver</p>
+                </div>
+                <div class="card-body">
+
+                    <div class="text-center">
+                        <img class="rounded-circle avatar-xl" alt="200x200"
+                             src="{% static 'core/images/no-user.png' %}"
+                             data-holder-rendered="true">
+
+                        <hr>
+                        <p class="h3 mb-0 mt-2">
+                            {{ object.receiver_first_name }}
+                            {{ object.receiver_last_name }}
+                        </p>
+                        <p class="mb-0">
+                            <b>
+                                <a href="mailto:{{ object.receiver_email }}">
+                                    <i class="mdi mdi-mail"></i> {{ object.receiver_email }}
+                                </a>
+                            </b>
+                        </p>
+                        <p class="mb-0">
+                            <b>
+                                <a href="callto:{{ object.receiver_phone_number }}">
+                                    <i class="fa fa-phone"></i> {{ object.receiver_phone_number }}
+                                </a>
+                            </b>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </div>
 

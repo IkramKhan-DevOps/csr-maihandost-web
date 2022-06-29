@@ -1,3 +1,5 @@
+import uuid
+
 from django.db import models
 
 
@@ -41,6 +43,7 @@ class Order(models.Model):
     )
 
     # TODO: generate a unique id for identification
+    transaction_id = models.CharField(max_length=2000, null=False, blank=False, default=uuid.uuid4)
     sender_first_name = models.CharField(max_length=10, null=False, blank=False)
     sender_last_name = models.CharField(max_length=10, null=False, blank=False)
     sender_phone_number = models.CharField(max_length=10, null=False, blank=False)
