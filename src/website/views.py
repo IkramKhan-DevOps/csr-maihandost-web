@@ -53,3 +53,13 @@ class GiftView(TemplateView):
         context = super(GiftView, self).get_context_data(**kwargs)
         context['gift_cards'] = GiftCard.objects.all()[0:9]
         return context
+
+
+class PrivacyPolicyView(TemplateView):
+    template_name = 'website/privacy-policy.html'
+
+
+class TermsView(TemplateView):
+    template_name = 'website/terms-of-use.html'
+
+
