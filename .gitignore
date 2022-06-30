@@ -134,4 +134,3 @@ migrations
 migrations/
 media/
 myprojectenv/
-db.sqlite3

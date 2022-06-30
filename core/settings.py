@@ -21,13 +21,13 @@ ROOT_URLCONF = 'core.urls'
 AUTH_USER_MODEL = 'accounts.User'
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
-SERVER = 'testing'
+SERVER = 'local'
 DEBUG = True
 
 
-if SERVER == 'deployment':
+if SERVER == 'testing':
     SITE_ID = 3
-    DOMAIN_URL = 'https://rsonlineaccounting.com/'
+    DOMAIN_URL = 'https://maihandost.com/'
 
     STRIPE_PUBLISHABLE_KEY = 'pk_test_51KNUx8GWh1G1v77h4cAKDbEvH3wEbK4yVZfSGKT5f5wgShK8cipV0ctpNrZ2tqt63fsVmJp4sAk6cs8mogGlzHlL00CTKGtGvE'
     STRIPE_SECRET_KEY = 'sk_test_51KNUx8GWh1G1v77hDR40VBVDDZTK2pgUZMk0yxDyN4evl4lBg2LyxFyOQCDoLQWhgy1t9bAzcC63c681rUe5mxtv00vHfKyh2r'
@@ -37,7 +37,7 @@ if SERVER == 'deployment':
 else:
 
     if SERVER == 'testing':
-        SITE_ID = 1
+        SITE_ID = 2
         DOMAIN_URL = 'https://maihandost.pythonanywhere.com/'
         GOOGLE_CALLBACK_ADDRESS = "https://maihandost.pythonanywhere.com/accounts/google/login/callback/"
     else:
