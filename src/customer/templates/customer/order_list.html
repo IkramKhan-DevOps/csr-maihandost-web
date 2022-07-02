@@ -1,0 +1,149 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load custom_tags %}
+
+{% block subtitle %}Orders{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-12">
+            <form method="get">
+                <div class="input-group mb-3">
+                    {{ object_filter_form }}
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="submit">
+                            <i class="fa fa-search"></i> Search
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+
+                    {% if object_list %}
+                        <div class="table-responsive">
+                            <table class="table table-hover table-striped border">
+                                <thead class="thead-light">
+                                <tr>
+                                    <th>Sender</th>
+                                    <th>Receiver</th>
+                                    <th>Total Amount</th>
+                                    <th>Charges</th>
+                                    <th>Gift Card</th>
+                                    <th>Status</th>
+                                    <th>Active</th>
+                                    <th>Created</th>
+                                    <th>-</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                {% for object in object_list %}
+                                    <tr>
+                                        <td>{{ object.sender.first_name }} {{ object.sender.last_name }}</td>
+                                        <td>{{ object.receiver_first_name }} {{ object.receiver_last_name }}</td>
+                                        <td>$ {{ object.total_amount }}</td>
+                                        <td>$ {{ object.fees_charges }}</td>
+                                        <td>
+                                            <b>
+                                                <a href="#">
+                                                    {{ object.gift_card.name }}
+                                                </a>
+                                            </b>
+                                        </td>
+                                        <td>{{ object.get_status_display }}</td>
+                                        <td>
+                                            {% if object.status %}
+                                                <b class="text-success"><i class="fa fa-check-circle"></i></b>
+                                            {% else %}
+                                                <b class="text-success"><i class="fa fa-times-circle"></i></b>
+                                            {% endif %}
+                                        </td>
+                                        <td>{{ object.created_on }}</td>
+                                        <td>
+                                            <a href="{% url 'customer:order-detail' object.pk %}">
+                                                <b class="text-primary">
+                                                    <i class="fa fa-eye"></i>
+                                                </b>
+                                            </a>
+                                            <a href="{% url 'customer:order-update' object.pk %}">
+                                                <b class="text-primary">
+                                                    <i class="fa fa-edit"></i>
+                                                </b>
+                                            </a>
+                                            <a href="{% url 'customer:order-delete' object.pk %}">
+                                                <b class="text-danger">
+                                                    <i class="fa fa-trash"></i>
+                                                </b>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    {% else %}
+                        <p class="mb-0 text-danger">
+                            <b>
+                                <i class="fa fa-exclamation-circle"></i>
+                                No orders available yet.
+                            </b>
+                        </p>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="mt-4">
+                <ul class="pagination">
+                    {% if object_list.has_previous %}
+                        <li>
+                            <span>
+                                <a href="{% relative_url object_list.previous_page_number 'page' request.GET.urlencode %}">
+                                    Previous
+                                </a>
+                            </span>
+                        </li>
+                    {% endif %}
+                    <li class="">
+                        <span>Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.</span>
+                    </li>
+                    {% if object_list.has_next %}
+                        <li>
+                            <span>
+                                <a href="{% relative_url object_list.next_page_number 'page' request.GET.urlencode %}">
+                                    Next
+                                </a>
+                            </span>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block js_code %}
+    <script>
+        $(document).ready(function () {
+
+            $('label').hide();
+            $('input').addClass('form-control');
+            $('select').addClass('form-control');
+
+        });
+    </script>
+{% endblock %}

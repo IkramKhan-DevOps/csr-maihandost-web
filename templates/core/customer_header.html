@@ -1,6 +1,6 @@
 <div class="topnav">
     <div class="container-fluid">
-        <nav class="navbar navbar-dark navbar-expand-lg topnav-menu">
+        <nav class="navbar navbar-light navbar-expand-lg topnav-menu">
 
             <div class="collapse navbar-collapse" id="topnav-menu-content">
                 <ul class="navbar-nav">
@@ -9,6 +9,18 @@
                     <li class="nav-item">
                         <a class="nav-link dropdown-toggle arrow-none" href="{% url 'customer:dashboard' %}">
                             <i class="bx bx-home-circle mr-2"></i>Dashboard
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link dropdown-toggle arrow-none" href="{% url 'customer:order-list' %}">
+                            <i class="bx bx-package mr-2"></i>Orders
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link dropdown-toggle arrow-none" href="{% url 'website:gifts' %}">
+                            <i class="bx bx-gift mr-2"></i>Sent Gift
                         </a>
                     </li>
                 </ul>

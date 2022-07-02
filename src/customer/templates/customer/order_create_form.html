@@ -1,0 +1,67 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block subtitle %} Order Form {% endblock %}
+
+{% block content %}
+
+    <section class="section py-5" id="about">
+        <div class="container">
+
+            {# FORM #}
+            <form method="post">
+                {# FORM-MAIN #}
+                <div class="row">
+                    <div class="col-sm-7">
+                        <div class="card border shadow rounded">
+                            <div class="card-body border-bottom">
+                                <div class="small-title">Step 1</div>
+                                <h4>Receiver Information</h4>
+                            </div>
+                            <div class="card-body">
+                                {% csrf_token %}
+                                {{ form|crispy }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="card border shadow rounded">
+                            <div class="card-body border-bottom">
+                                <div class="small-title">Step 2</div>
+                                <h4>Verification Process</h4>
+                            </div>
+                            <div class="card-body">
+                                <p>
+                                    <b>Go Fast</b> is a world fastest and easiest way to sent money using gift cards
+                                    internationally this method is used for fast gift sent service, you can sent gift from our
+                                    available gift cards, on some charges deduction your receiver will receive amount
+                                    from gift card, here are no of instructions to follow.
+                                </p>
+                                <p class="h4">Agreement</p>
+                                <ul>
+                                    <li>Make sure filled information is valid</li>
+                                    <li>Sender and receiver must have correct names</li>
+                                    <li>Gift card will be successfully received if you have a correct <code>Transfer ID</code></li>
+                                    <li><code>Transfer ID</code> will be provided at the end over a successful transaction</li>
+                                    <li>Please don't share your <code>Transfer ID</code> with anyone except receiver</li>
+                                    <li><b class="text-success">100% Guarantee</b> on payments</li>
+                                    <li>There is no return policy once gift card is purchased</li>
+                                </ul>
+                                <input type="checkbox" checked> I am agreed to all terms and conditions mentioned
+                                above
+                                <br><br>
+                                <button type="submit" class="btn btn-primary">
+                                    Purchase and Sent
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </section>
+
+
+{% endblock %}

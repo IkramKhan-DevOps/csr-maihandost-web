@@ -12,7 +12,8 @@
 
         <a class="navbar-logo" href="/">
             <img src="{% static 'exarth/theme/images/logos/logo-long.png' %}" alt="" height="30" class="logo logo-dark">
-            <img src="{% static 'exarth/theme/images/logos/logo-long.png' %}" alt="" height="30" class="logo logo-light">
+            <img src="{% static 'exarth/theme/images/logos/logo-long.png' %}" alt="" height="30"
+                 class="logo logo-light">
         </a>
 
         <div class="collapse navbar-collapse" id="topnav-menu-content">
@@ -23,16 +24,15 @@
                     <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'website:gifts' %}">Go Fast</a>
+                    <a class="nav-link" href="/">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'website:gifts' %}">Gifts</a>
                 </li>
                 <li class="nav-item">
                     {% if request.user.is_authenticated %}
-                        {% if request.user.is_client %}
-                            <a class="nav-link" href="{% url 'accounts:cross-auth' %}"><i class="fa fa-dashboard"></i> Dashboard</a>
-                        {% elif request.user.is_superuser %}
-                            <a class="nav-link" href="{% url 'accounts:cross-auth' %}"><i class="fa fa-shield"></i> Root User</a>
-                        {% endif %}
-
+                        <a class="nav-link" href="{% url 'accounts:cross-auth' %}"><i class="fa fa-dashboard"></i>
+                            Dashboard</a>
                     {% else %}
                         <a class="nav-link" href="{% url 'account_login' %}"><i class="fa fa-sign-in"></i> Login</a>
                     {% endif %}

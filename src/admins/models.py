@@ -48,7 +48,7 @@ class Order(models.Model):
 
     # TODO: generate a unique id for identification
     transaction_id = models.CharField(max_length=2000, null=False, blank=False, default=uuid.uuid4)
-    sender = models.ForeignKey(User, on_delete=models.CASCADE)
+    sender = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=False)
 
     receiver_first_name = models.CharField(max_length=10, null=False, blank=False)
     receiver_last_name = models.CharField(max_length=10, null=False, blank=False)

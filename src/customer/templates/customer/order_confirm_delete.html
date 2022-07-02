@@ -1,0 +1,30 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block subtitle %}Remove Order {% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-sm-12">
+        <p><a href="{% url 'customer:order-list' %}"><i class="fa fa-arrow-left"></i> Go Back</a></p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+
+                    <form method="post">{% csrf_token %}
+                        <p class="mb-2">Are you sure you want to delete <b class="text-danger">"{{ object }}"</b>?</p>
+                        <input type="submit" class="btn btn-danger" value="Confirm">
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
