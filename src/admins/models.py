@@ -1,6 +1,9 @@
 import uuid
 
 from django.db import models
+from phonenumber_field.modelfields import PhoneNumberField
+
+from src.accounts.models import User
 
 
 class Country(models.Model):
@@ -45,17 +48,11 @@ class Order(models.Model):
 
     # TODO: generate a unique id for identification
     transaction_id = models.CharField(max_length=2000, null=False, blank=False, default=uuid.uuid4)
-    sender_first_name = models.CharField(max_length=10, null=False, blank=False)
-    sender_last_name = models.CharField(max_length=10, null=False, blank=False)
-    sender_phone_number = models.CharField(max_length=10, null=False, blank=False)
-    sender_email = models.EmailField(null=False, blank=False)
-    sender_country = models.ForeignKey(
-        Country, on_delete=models.SET_NULL, null=True, blank=True, related_name='sender_country'
-    )
+    sender = models.ForeignKey(User, on_delete=models.CASCADE)
 
     receiver_first_name = models.CharField(max_length=10, null=False, blank=False)
     receiver_last_name = models.CharField(max_length=10, null=False, blank=False)
-    receiver_phone_number = models.CharField(max_length=10, null=False, blank=False)
+    receiver_phone_number = PhoneNumberField()
     receiver_email = models.EmailField(null=False, blank=False)
     receiver_country = models.ForeignKey(
         Country, on_delete=models.SET_NULL, null=True, blank=True, related_name='receiver_country'

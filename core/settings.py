@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'ckeditor',
     'django_filters',
+    'phonenumber_field',
 
     'rest_framework',
     'rest_framework.authtoken',

@@ -27,8 +27,8 @@ class HomeView(TemplateView):
 class OrderCreateView(CreateView):
     model = Order
     fields = [
-        'sender_first_name', 'sender_last_name', 'sender_phone_number', 'sender_email', 'sender_country',
-        'receiver_first_name', 'receiver_last_name', 'receiver_phone_number', 'receiver_email', 'receiver_country',
+        'sender', 'receiver_first_name', 'receiver_last_name',
+        'receiver_phone_number', 'receiver_email', 'receiver_country',
     ]
     template_name = 'website/order.html'
 

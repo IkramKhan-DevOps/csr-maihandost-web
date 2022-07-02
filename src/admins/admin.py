@@ -14,7 +14,7 @@ class GiftCardAdmin(admin.ModelAdmin):
 
 class OrderAdmin(admin.ModelAdmin):
     list_display = [
-        'sender_email', 'receiver_email', 'total_amount', 'payable_amount',
+        'sender', 'receiver_email', 'total_amount', 'payable_amount',
         'gift_card', 'status', 'created_on'
     ]
 
