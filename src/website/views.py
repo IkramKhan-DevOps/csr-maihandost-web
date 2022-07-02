@@ -24,28 +24,6 @@ class HomeView(TemplateView):
         return context
 
 
-class OrderCreateView(CreateView):
-    model = Order
-    fields = [
-        'sender', 'receiver_first_name', 'receiver_last_name',
-        'receiver_phone_number', 'receiver_email', 'receiver_country',
-    ]
-    template_name = 'website/order.html'
-
-    def dispatch(self, request, *args, **kwargs):
-        get_object_or_404(GiftCard, pk=kwargs['pk'])
-        return super(OrderCreateView, self).dispatch(request)
-
-    def form_valid(self, form):
-        gift_card = get_object_or_404(GiftCard, pk=self.kwargs['pk'])
-        form.instance.gift_card = gift_card
-        form.instance.total_amount = gift_card.price
-        return super(OrderCreateView, self).form_valid(form)
-
-    def get_success_url(self):
-        return reverse_lazy('payments:create_checkout_session', kwargs={'pk': self.object.pk})
-
-
 class GiftView(TemplateView):
     template_name = 'website/gifts.html'
 
