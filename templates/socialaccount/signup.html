@@ -13,15 +13,18 @@
 {% block head_title %}{% trans "Confirm E-mail Address" %}{% endblock %}
 
 {% block base_top_nav %} {% endblock %}
-{% block dont_include_details %}
+{% block only-body %}
 
-    {% include 'core/include/message.html' %}
+    <div class="container my-4">
+        <div>
+            {% include 'admins/message.html' %}
+        </div>
+    </div>
 
     <div class="container my-4">
         <div class="row justify-content-center">
             <div class="col-sm-8 col-12">
                 <div class="text-center">
-                    <img src="{% static 'images/logo.png' %}">
                     <p class="text-danger mt-1"><b>Account Security</b></p>
                 </div>
 

@@ -7,8 +7,19 @@
 {% block content %}
 
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-6">
             <p><a href="{% url 'customer:order-list' %}"><i class="fa fa-arrow-left"></i> Go Back</a></p>
+        </div>
+    </div>
+
+    <div class="row text-center mb-4">
+        <div class="col-sm-12">
+            <p class="mb-0">Transaction Key</p>
+            <h1>{{ object.transaction_id }}</h1>
+            <h4>
+                <b><i class="fa fa-check-circle text-success"></i> Paid</b> |
+                <a href="#"><i class="fa fa-receipt"></i> Print Receipt</a>
+            </h4>
         </div>
     </div>
 
@@ -28,7 +39,7 @@
                             </span>
                         </div>
                         <p class="mb-0 small">Total Amount</p>
-                        <p class="h1 mb-0">${{ object.total_amount }}</p>
+                        <p class="h2 mb-0">${{ object.total_amount }}</p>
                     </div>
                     <div class="col">
                         <div class="avatar-sm mb-4">
@@ -37,7 +48,7 @@
                             </span>
                         </div>
                         <p class="mb-0 small text-danger">Tax Charges</p>
-                        <p class="h1 mb-0 text-danger">${{ object.tax_charges }}</p>
+                        <p class="h2 mb-0 text-danger">${{ object.tax_charges }}</p>
                     </div>
                     <div class="col">
                         <div class="avatar-sm mb-4">
@@ -46,7 +57,16 @@
                             </span>
                         </div>
                         <p class="mb-0 small">Received Amount</p>
-                        <p class="h1 mb-0">${{ object.payable_amount }}</p>
+                        <p class="h2 mb-0">${{ object.payable_amount }}</p>
+                    </div>
+                    <div class="col">
+                        <div class="avatar-sm mb-4">
+                            <span class="avatar-title rounded-circle bg-soft-dark font-size-18">
+                                <i class="fa fa-gift text-success"></i>
+                            </span>
+                        </div>
+                        <p class="mb-0 small">Package</p>
+                        <p class="h2 mb-0">{{ object.gift_card.name }}</p>
                     </div>
                 </div>
             </div>
@@ -56,30 +76,6 @@
 
         </div>
         <div class="col-sm-4">
-
-            <div class="card">
-                <div class="card-body border-bottom">
-                    <p class="my-0 card-title">Package</p>
-                </div>
-                <div class="card-body">
-                    <div id="gift">
-                        <div class="text-center">
-                            {% if object.gift_card.image %}
-                                <img src="{{ object.gift_card.image.url }}" height="150">
-                            {% else %}
-                                <img alt="gift-image" src="{% static 'exarth/theme/images/other/no-gift.png' %}"
-                                     height="150">
-                            {% endif %}
-
-                            <h3 class="pt-2 m-0">
-                                <a href="#" class="text-dark">{{ object.gift_card.name }}</a>
-                            </h3>
-                            <p class="text-muted small">{{ object.gift_card.description }}</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
 
             <div class="card">
                 <div class="card-body border-bottom">
@@ -118,4 +114,16 @@
         </div>
     </div>
 
+{% endblock %}
+
+
+{% block js_code %}
+    <script>
+        function copy_code() {
+            var copyText = document.getElementById("qr-code");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(copyText.value);
+        }
+    </script>
 {% endblock %}
