@@ -59,34 +59,23 @@
 
             <div class="card">
                 <div class="card-body border-bottom">
-                    <p class="my-0 card-title">Sender</p>
+                    <p class="my-0 card-title">Package</p>
                 </div>
                 <div class="card-body">
+                    <div id="gift">
+                        <div class="text-center">
+                            {% if object.gift_card.image %}
+                                <img src="{{ object.gift_card.image.url }}" height="150">
+                            {% else %}
+                                <img alt="gift-image" src="{% static 'exarth/theme/images/other/no-gift.png' %}"
+                                     height="150">
+                            {% endif %}
 
-                    <div class="text-center">
-                        <img class="rounded-circle avatar-xl" alt="200x200"
-                             src="{% static 'core/no-user.png' %}"
-                             data-holder-rendered="true">
-
-                        <hr>
-                        <p class="h3 mb-0 mt-2">
-                            {{ object.sender_first_name }}
-                            {{ object.sender_last_name }}
-                        </p>
-                        <p class="mb-0">
-                            <b>
-                                <a href="mailto:{{ object.sender_email }}">
-                                    <i class="mdi mdi-mail"></i> {{ object.sender_email }}
-                                </a>
-                            </b>
-                        </p>
-                        <p class="mb-0">
-                            <b>
-                                <a href="callto:{{ object.sender_phone_number }}">
-                                    <i class="fa fa-phone"></i> {{ object.sender_phone_number }}
-                                </a>
-                            </b>
-                        </p>
+                            <h3 class="pt-2 m-0">
+                                <a href="#" class="text-dark">{{ object.gift_card.name }}</a>
+                            </h3>
+                            <p class="text-muted small">{{ object.gift_card.description }}</p>
+                        </div>
                     </div>
 
                 </div>

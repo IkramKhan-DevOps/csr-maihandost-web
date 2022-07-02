@@ -30,31 +30,70 @@
                             <h4>Verification Process</h4>
                         </div>
                         <div class="card-body">
-                            <p>
-                                <b>Go Fast</b> is a world fastest and easiest way to sent money using gift cards
-                                internationally this method is used for fast gift sent service, you can sent gift from
-                                our
-                                available gift cards, on some charges deduction your receiver will receive amount
-                                from gift card, here are no of instructions to follow.
-                            </p>
-                            <p class="h4">Agreement</p>
-                            <ul>
-                                <li>Make sure filled information is valid</li>
-                                <li>Sender and receiver must have correct names</li>
-                                <li>Gift card will be successfully received if you have a correct <code>Transfer
-                                    ID</code></li>
-                                <li><code>Transfer ID</code> will be provided at the end over a successful transaction
-                                </li>
-                                <li>Please don't share your <code>Transfer ID</code> with anyone except receiver</li>
-                                <li><b class="text-success">100% Guarantee</b> on payments</li>
-                                <li>There is no return policy once gift card is purchased</li>
-                            </ul>
-                            <input type="checkbox" checked> I am agreed to all terms and conditions mentioned
-                            above
-                            <br><br>
-                            <button type="submit" class="btn btn-primary">
-                                Purchase and Sent
-                            </button>
+
+                            <div id="gift">
+                                <div class="text-center">
+                                    {% if gift.image %}
+                                        <img src="{{ gift.image.url }}" height="150">
+                                    {% else %}
+                                        <img alt="gift-image" src="{% static 'exarth/theme/images/other/no-gift.png' %}"
+                                             height="150">
+                                    {% endif %}
+
+                                    <h3 class="pt-2 m-0">
+                                        <a href="#" class="text-dark">{{ gift.name }}</a>
+                                    </h3>
+                                    <p class="text-muted small">{{ gift.description }}</p>
+
+                                    <div class="row border p-2">
+                                        <div class="col">
+                                            <h2 class="mb-0 text-success"><i class="bx bx-gift"></i></h2>
+                                            <small>Price</small><br>
+                                            <b class="">{{ gift.price }} $</b>
+                                        </div>
+                                        <div class="col">
+                                            <h2 class="mb-0 text-warning"><i class="fa fa-coins"></i></h2>
+                                            <small>Charges</small><br>
+                                            <b class="">{{ gift.commission }} $</b>
+                                        </div>
+                                        <div class="col">
+                                            <h2 class="mb-0 text-primary"><i class="bx bx-credit-card"></i></h2>
+                                            <small>Payable</small><br>
+                                            <b class="">{{ gift.price|add:gift.commission }} $</b>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-4" id="stats">
+                                <p class="h4">Agreement</p>
+                                <p>
+                                    <b>Go Fast</b> is a world fastest and easiest way to sent money using gift cards
+                                    internationally this method is used for fast gift sent service, you can sent gift
+                                    from
+                                    our
+                                    available gift cards, on some charges deduction your receiver will receive amount
+                                    from gift card, here are no of instructions to follow.
+                                </p>
+                                <ul>
+                                    <li>Make sure filled information is valid</li>
+                                    <li>Sender and receiver must have correct names</li>
+                                    <li>Gift card will be successfully received if you have a correct <code>Transfer
+                                        ID</code></li>
+                                    <li><code>Transfer ID</code> will be provided at the end over a successful
+                                        transaction
+                                    </li>
+                                    <li>Please don't share your <code>Transfer ID</code> with anyone except receiver
+                                    </li>
+                                    <li><b class="text-success">100% Guarantee</b> on payments</li>
+                                    <li>There is no return policy once gift card is purchased</li>
+                                </ul>
+                                <input type="checkbox" checked> I am agreed to all terms and conditions mentioned
+                                above
+                                <br><br>
+                                <button type="submit" class="btn btn-primary">
+                                    Purchase and Sent
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

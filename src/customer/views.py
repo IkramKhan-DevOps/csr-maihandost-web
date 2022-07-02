@@ -40,9 +40,14 @@ class OrderCreateView(CreateView):
         get_object_or_404(GiftCard, pk=kwargs['pk'])
         return super(OrderCreateView, self).dispatch(request)
 
+    def get_context_data(self, **kwargs):
+        context = super(OrderCreateView, self).get_context_data(**kwargs)
+        context['gift'] = get_object_or_404(GiftCard, pk=self.kwargs['pk'])
+        return context
+
     def form_valid(self, form):
         gift_card = get_object_or_404(GiftCard, pk=self.kwargs['pk'])
-        form.instance.sender=self.request.user
+        form.instance.sender = self.request.user
         form.instance.gift_card = gift_card
         form.instance.total_amount = gift_card.price
         return super(OrderCreateView, self).form_valid(form)

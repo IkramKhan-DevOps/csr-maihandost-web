@@ -24,7 +24,7 @@ class Country(models.Model):
 class GiftCard(models.Model):
     name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='images/gifts/', null=True, blank=True)
-    # commission = models.FloatField(default=1.1)
+    commission = models.FloatField(default=1.1, help_text="Commission for maihandost services")
     description = models.TextField(default='No information provided for this gift')
     price = models.FloatField(default=100)
 
