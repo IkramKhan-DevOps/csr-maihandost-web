@@ -36,6 +36,7 @@ class OrderSearchView(View):
             order = Order.objects.filter(transaction_id=order_id, status='pai')
             if order:
                 order = order[0]
+
                 return redirect('staff:order-detail', order.transaction_id)
             else:
                 messages.error(request, "Requested ID: doesn't exists with an active record")
@@ -44,6 +45,7 @@ class OrderSearchView(View):
         return render(request, template_name=self.template_name)
 
 
+# TODO: use for both staff and admins
 @method_decorator(staff_decorators, name='dispatch')
 class OrderDetailView(View):
     template_name = 'staff/order_detail.html'
@@ -61,4 +63,6 @@ class OrderDetailView(View):
         order.save()
 
         messages.success(request, "Order confirmed and closed successfully")
+        if request.user.is_superuser:
+            return redirect('admins:order-detail', order.pk)
         return redirect('staff:order-search')

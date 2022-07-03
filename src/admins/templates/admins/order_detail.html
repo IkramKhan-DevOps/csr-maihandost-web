@@ -8,113 +8,207 @@
 
     <div class="row">
         <div class="col-sm-12">
-        <p><a href="{% url 'admins:order-list' %}"><i class="fa fa-arrow-left"></i> Go Back</a></p>
+            <p><a href="{% url 'admins:order-list' %}"><i class="fa fa-arrow-left"></i> Go Back</a></p>
         </div>
     </div>
 
     <div class="row">
         <div class="col-sm-8">
 
-            <div class="card-body border-bottom">
-                <p class="my-0 card-title">Gift Order Information</p>
-            </div>
-            <div class="card-body">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-body border-bottom">
+                            <p class="mb-0 card-title">Gift Order Information</p>
+                            <p class="mb-0 card-title-desc">{{ object.transaction_id }}</p>
+                        </div>
+                        <div class="card-body">
 
-                <div class="row mt-4">
-                    <div class="col">
-                        <div class="avatar-sm mb-4">
+                            <div class="row mt-4">
+                                <div class="col">
+                                    <div class="avatar-sm mb-4">
                             <span class="avatar-title rounded-circle bg-soft-dark font-size-18">
                                 <i class="fa fa-money-bill text-dark"></i>
                             </span>
-                        </div>
-                        <p class="mb-0 small">Total Amount</p>
-                        <p class="h1 mb-0">${{ object.total_amount }}</p>
-                    </div>
-                    <div class="col">
-                        <div class="avatar-sm mb-4">
+                                    </div>
+                                    <p class="mb-0 small">Total Amount</p>
+                                    <p class="h2 mb-0">${{ object.total_amount }}</p>
+                                </div>
+                                <div class="col">
+                                    <div class="avatar-sm mb-4">
                             <span class="avatar-title rounded-circle bg-soft-danger font-size-18">
                                 <i class="fa fa-coins text-danger"></i>
                             </span>
-                        </div>
-                        <p class="mb-0 small text-danger">Tax Charges</p>
-                        <p class="h1 mb-0 text-danger">${{ object.tax_charges }}</p>
-                    </div>
-                    <div class="col">
-                        <div class="avatar-sm mb-4">
+                                    </div>
+                                    <p class="mb-0 small text-danger">Tax Charges</p>
+                                    <p class="h2 mb-0 text-danger">${{ object.tax_charges }}</p>
+                                </div>
+                                <div class="col">
+                                    <div class="avatar-sm mb-4">
                             <span class="avatar-title rounded-circle bg-soft-dark font-size-18">
                                 <i class="fa fa-hands-helping text-dark"></i>
                             </span>
+                                    </div>
+                                    <p class="mb-0 small">Received Amount</p>
+                                    <p class="h2 mb-0">${{ object.payable_amount }}</p>
+                                </div>
+                                <div class="col">
+                                    <div class="avatar-sm mb-4">
+                            <span class="avatar-title rounded-circle bg-soft-dark font-size-18">
+                                <i class="fa fa-gift text-success"></i>
+                            </span>
+                                    </div>
+                                    <p class="mb-0 small">Package</p>
+                                    <p class="h2 mb-0">{{ object.gift_card.name }}</p>
+                                </div>
+                            </div>
                         </div>
-                        <p class="mb-0 small">Received Amount</p>
-                        <p class="h1 mb-0">${{ object.payable_amount }}</p>
+                        <div class="card-body border-top">
+                            <p class="mb-0"><b><i class="fa fa-calendar"></i> Created On</b></p>
+                            <p class="mb-0">{{ object.created_on }}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="card-body border-top">
-                <p class="mb-0"><i class="fa fa-calendar"></i> {{ object.created_on }}</p>
+
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body border-bottom">
+                            <p class="my-0 card-title">Sender</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="text-center">
+                                <img class="rounded-circle avatar-xl" alt="200x200"
+                                     src="{% static 'core/no-user.png' %}"
+                                     data-holder-rendered="true">
+
+                                <hr>
+                                <p class="h3 mb-0 mt-2">
+                                    {{ object.sender.first_name }}
+                                    {{ object.sender.last_name }}
+                                </p>
+                                <p class="mb-0">
+                                    <b>
+                                        <a href="mailto:{{ object.sender.email }}">
+                                            <i class="mdi mdi-mail"></i> {{ object.sender.email }}
+                                        </a>
+                                    </b>
+                                </p>
+                                <p class="mb-0">
+                                    <b>
+                                        <a href="callto:{{ object.sender.phone_number }}">
+                                            <i class="fa fa-phone"></i> {{ object.sender.phone_number }}
+                                        </a>
+                                    </b>
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body border-bottom">
+                            <p class="my-0 card-title">Receiver</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="text-center">
+                                <img class="rounded-circle avatar-xl" alt="200x200"
+                                     src="{% static 'core/no-user.png' %}"
+                                     data-holder-rendered="true">
+
+                                <hr>
+                                <p class="h3 mb-0 mt-2">
+                                    {{ object.receiver_first_name }}
+                                    {{ object.receiver_last_name }}
+                                </p>
+                                <p class="mb-0">
+                                    <b>
+                                        <a href="mailto:{{ object.receiver_email }}">
+                                            <i class="mdi mdi-mail"></i> {{ object.receiver_email }}
+                                        </a>
+                                    </b>
+                                </p>
+                                <p class="mb-0">
+                                    <b>
+                                        <a href="callto:{{ object.receiver_phone_number }}">
+                                            <i class="fa fa-phone"></i> {{ object.receiver_phone_number }}
+                                        </a>
+                                    </b>
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
         <div class="col-sm-4">
 
-            <div class="card">
-                <div class="card-body border-bottom">
-                    <p class="my-0 card-title">Package</p>
-                </div>
-                <div class="card-body">
-                    <div id="gift">
-                        <div class="text-center">
-                            {% if object.gift_card.image %}
-                                <img src="{{ object.gift_card.image.url }}" height="150">
-                            {% else %}
-                                <img alt="gift-image" src="{% static 'exarth/theme/images/other/no-gift.png' %}"
-                                     height="150">
-                            {% endif %}
-
-                            <h3 class="pt-2 m-0">
-                                <a href="#" class="text-dark">{{ object.gift_card.name }}</a>
-                            </h3>
-                            <p class="text-muted small">{{ object.gift_card.description }}</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-body border-bottom">
-                    <p class="my-0 card-title">Receiver</p>
-                </div>
-                <div class="card-body">
-
-                    <div class="text-center">
-                        <img class="rounded-circle avatar-xl" alt="200x200"
-                             src="{% static 'core/no-user.png' %}"
-                             data-holder-rendered="true">
-
-                        <hr>
-                        <p class="h3 mb-0 mt-2">
-                            {{ object.receiver_first_name }}
-                            {{ object.receiver_last_name }}
-                        </p>
-                        <p class="mb-0">
-                            <b>
-                                <a href="mailto:{{ object.receiver_email }}">
-                                    <i class="mdi mdi-mail"></i> {{ object.receiver_email }}
-                                </a>
-                            </b>
-                        </p>
-                        <p class="mb-0">
-                            <b>
-                                <a href="callto:{{ object.receiver_phone_number }}">
-                                    <i class="fa fa-phone"></i> {{ object.receiver_phone_number }}
-                                </a>
-                            </b>
+            {% if object.status == 'pai' %}
+                <div class="card border border-danger">
+                    <div class="card-body border-bottom border-danger text-danger">
+                        <p class="mb-0 card-title"><i class="fa fa-exclamation-circle"></i> Order Status Update</p>
+                        <p class="mb-0 card-title-desc">
+                            Make sure to follow proper instructions before any attempt.
                         </p>
                     </div>
+                    <div class="card-body">
+                        <p>
+                            This order is currently accepted by <code>maihandost</code> and payments are
+                            <code>verified</code>, you are seeing this page you can have access to pay customer and
+                            close
+                            this order, before closing make sure to follow these instructions.
+                        </p>
+                        <ul>
+                            <li>1: Print receipt first</li>
+                            <li>2: Verify receiver identification using <code>ID Card</code> or some other docs.</li>
+                            <li>
+                                2: After verification print <code>receipt</code>
+                            </li>
+                            <li>
+                                3: Take <code>signature</code> from receiver on receipt.
+                            </li>
+                            <li>5: Pay <code>Payable</code> amount to customer
+                            </li>
+                            <li>6: Close this <code>Order</code></li>
+                        </ul>
+                        <input type="checkbox" checked> I am agreed and followed all terms and conditions mentioned
+                        above
+                        <br><br>
 
+                        <form method="post" action="{% url 'staff:order-detail' object.transaction_id %}">
+                            {% csrf_token %}
+                            <a href="/" class="btn btn-light" target="_blank">
+                                <i class="fa fa-receipt"></i> Print Receipt
+                            </a>
+                            <button type="submit" class="btn btn-danger">
+                                <i class="fa fa-check-circle"></i> Mark as complete
+                            </button>
+                        </form>
+                    </div>
                 </div>
-            </div>
+            {% else %}
+                <div class="card">
+                    <div class="card-body border-bottom">
+                        <p class="mb-0 card-title">Order Status</p>
+                        <p class="mb-0 card-title-desc">Please follow the proper instructions to avoid any clash</p>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" action="">
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <button class="btn btn-primary" type="submit">
+                                <i class="fa fa-check-circle"></i> Submit
+                            </button>
+                            <a href="#" class="btn btn-light" type="submit">
+                                <i class="fa fa-receipt"></i> Print
+                            </a>
+                        </form>
+                    </div>
+                </div>
+            {% endif %}
 
         </div>
     </div>

@@ -22,6 +22,7 @@ from notifications.signals import notify
 # from faker_data import initialization
 from src.accounts.models import User
 from src.admins.filters import UserFilter, OrderFilter
+from src.admins.forms import OrderStatusForm
 from src.admins.models import Order, GiftCard, Country
 
 admin_decorators = [login_required, user_passes_test(lambda u: u.is_superuser)]
@@ -143,6 +144,11 @@ class OrderDeleteView(DeleteView):
 @method_decorator(admin_decorators, name='dispatch')
 class OrderDetailView(DetailView):
     model = Order
+
+    def get_context_data(self, **kwargs):
+        context = super(OrderDetailView, self).get_context_data(**kwargs)
+        context['form'] = OrderStatusForm(instance=self.object)
+        return context
 
 
 """ GIFTS """
