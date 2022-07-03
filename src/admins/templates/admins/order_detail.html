@@ -12,6 +12,16 @@
         </div>
     </div>
 
+    <div class="row text-center mb-4">
+        <div class="col-sm-12">
+            <p class="mb-0">Transaction Key</p>
+            <h1>{{ object.transaction_id }} <a href="#"><i class="fa fa-print"></i> </a> </h1>
+            <h4>
+                <b>Order is: {{ object.get_status_display }}</b>
+            </h4>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-sm-8">
 
@@ -19,8 +29,9 @@
                 <div class="col-sm-12">
                     <div class="card">
                         <div class="card-body border-bottom">
-                            <p class="mb-0 card-title">Gift Order Information</p>
-                            <p class="mb-0 card-title-desc">{{ object.transaction_id }}</p>
+                            <p class="mb-0 card-title">
+                                Order Information <a href="/admin/admins/order/{{ object.pk }}/change/"><i class="fa fa-edit"></i> </a>
+                            </p>
                         </div>
                         <div class="card-body">
 
@@ -64,8 +75,18 @@
                             </div>
                         </div>
                         <div class="card-body border-top">
-                            <p class="mb-0"><b><i class="fa fa-calendar"></i> Created On</b></p>
-                            <p class="mb-0">{{ object.created_on }}</p>
+                            <div class="row">
+                                <div class="col">
+                                    <p class="mb-0"><b><i class="fa fa-calendar"></i> Created On</b></p>
+                                    <p class="mb-0">{{ object.created_on }}</p>
+                                </div>
+                                {% if object.closed_at %}
+                                    <div class="col text-right">
+                                        <p class="mb-0"><b><i class="fa fa-calendar"></i> Closed On</b></p>
+                                        <p class="mb-0">{{ object.closed_at }}</p>
+                                    </div>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -193,19 +214,10 @@
                 <div class="card">
                     <div class="card-body border-bottom">
                         <p class="mb-0 card-title">Order Status</p>
-                        <p class="mb-0 card-title-desc">Please follow the proper instructions to avoid any clash</p>
                     </div>
                     <div class="card-body">
-                        <form method="post" action="">
-                            {% csrf_token %}
-                            {{ form|crispy }}
-                            <button class="btn btn-primary" type="submit">
-                                <i class="fa fa-check-circle"></i> Submit
-                            </button>
-                            <a href="#" class="btn btn-light" type="submit">
-                                <i class="fa fa-receipt"></i> Print
-                            </a>
-                        </form>
+                        This order current status is <code>{{ object.get_status_display }}</code> - to change this please visit this
+                        <a href="/admin/admins/order/{{ object.pk }}/change/">Link</a>
                     </div>
                 </div>
             {% endif %}

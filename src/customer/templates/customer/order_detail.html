@@ -17,8 +17,8 @@
             <p class="mb-0">Transaction Key</p>
             <h1>{{ object.transaction_id }}</h1>
             <h4>
-                <b><i class="fa fa-check-circle text-success"></i> Paid</b> |
-                <a href="{% url 'customer:order-invoice' object.pk %}"><i class="fa fa-receipt"></i> Print Receipt</a>
+                <b>Order is: {{ object.get_status_display }}</b>
+{#                |<a href="{% url 'customer:order-invoice' object.pk %}"><i class="fa fa-receipt"></i> Print Receipt</a>#}
             </h4>
         </div>
     </div>
@@ -72,8 +72,18 @@
                 </div>
             </div>
             <div class="card-body border-top">
-                <p class="mb-0"><b><i class="fa fa-calendar"></i> Created On</b></p>
-                <p class="mb-0">{{ object.created_on }}</p>
+                <div class="row">
+                                <div class="col">
+                                    <p class="mb-0"><b><i class="fa fa-calendar"></i> Created On</b></p>
+                                    <p class="mb-0">{{ object.created_on }}</p>
+                                </div>
+                                {% if object.closed_at %}
+                                    <div class="col text-right">
+                                        <p class="mb-0"><b><i class="fa fa-calendar"></i> Closed On</b></p>
+                                        <p class="mb-0">{{ object.closed_at }}</p>
+                                    </div>
+                                {% endif %}
+                            </div>
             </div>
             </div>
 

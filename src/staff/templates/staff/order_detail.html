@@ -17,6 +17,16 @@
         </div>
     </div>
 
+    <div class="row text-center mb-4">
+        <div class="col-sm-12">
+            <p class="mb-0">Transaction Key</p>
+            <h1>{{ object.transaction_id }} </h1>
+            <h4>
+                <b>Order is: {{ object.get_status_display }}</b>
+            </h4>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-sm-8">
 
