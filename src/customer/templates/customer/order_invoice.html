@@ -1,0 +1,42 @@
+{% load static %}
+<html>
+<head>
+    <title>Invoice | {{ order.pk }}</title>
+    <link rel="stylesheet" href="{% static 'admins/css/app.min.css' %}">
+    <link rel="stylesheet" href="{% static 'admins/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'admins/css/icons.min.css' %}">
+</head>
+<body>
+<div id="layout-wrapper">
+
+    <div class="page-content mt-4">
+        <div class="container">
+            <div class="row justify-content-center">
+            <div class="col-sm-12 text-center">
+                <div id="card" class="card">
+                    <div class="card-body border-bottom">
+                        <img src="{% static 'core/logo-long.png' %}">
+                    </div>
+
+                    <div class="card-body">
+                        <h3 class="mb-0">Order ID</h3>
+                        <h5>{{ object.transaction_id }}</h5>
+                    </div>
+
+                    <div class="card-body">
+                        <h3 class="mb-0">Amount</h3>
+                        <h5>$ {{ object.total_amount }}</h5>
+                    </div>
+
+                    <div class="card-body">
+                        <h3 class="mb-0">Tax Charges</h3>
+                        <h5>$ {{ object.tax_charges }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

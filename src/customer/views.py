@@ -3,7 +3,9 @@ import json
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
+from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render, redirect
+from django.template.loader import render_to_string
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views import View
@@ -13,6 +15,7 @@ from notifications.signals import notify
 from src.admins.filters import OrderFilter
 from src.admins.models import Order, GiftCard
 from src.api.models import AlertMessage
+from src.customer.bll import html_to_pdf
 
 
 @method_decorator(login_required, name='dispatch')
@@ -107,3 +110,23 @@ class OrderDetailView(DetailView):
         return get_object_or_404(Order.objects.filter(sender=self.request.user), pk=self.kwargs['pk'])
 
 
+@method_decorator(login_required, name='dispatch')
+class OrderInvoiceView(DetailView):
+    model = Order
+    template_name = 'customer/order_invoice.html'
+
+    def get_object(self, queryset=None):
+        return get_object_or_404(Order.objects.filter(sender=self.request.user), pk=self.kwargs['pk'])
+
+
+@method_decorator(login_required, name='dispatch')
+class GeneratePdfView(View):
+    def get(self, request, pk, *args, **kwargs):
+        data = get_object_or_404(Order.objects.filter(sender=self.request.user), pk=pk)
+        open('templates/temp.html', "w").write(render_to_string('customer/order_invoice.html', {'data': data}))
+
+        # Converting the HTML template into a PDF file
+        pdf = html_to_pdf('temp.html')
+
+        # rendering the template
+        return HttpResponse(pdf, content_type='application/pdf')
