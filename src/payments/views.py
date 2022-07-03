@@ -48,9 +48,13 @@ class SuccessView(TemplateView):
         order.status = 'pai'
         order.save()
 
+        context = {
+            'order': order
+        }
+
         # TODO: Generate emails + generate messages + everything
 
-        return render(request, self.template_name)
+        return render(request, self.template_name, context=context)
 
 
 class CancelledView(TemplateView):
