@@ -3,6 +3,7 @@ import json
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
+from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render, redirect
 from django.template.loader import render_to_string
@@ -24,6 +25,12 @@ class DashboardView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(DashboardView, self).get_context_data(**kwargs)
+        orders = Order.objects.filter(sender=self.request.user)
+        context['orders'] = orders.order_by('-created_on')[0:20]
+        context['orders_total'] = orders.count()
+        context['orders_completed'] = orders.filter(status='com').count()
+        context['orders_processing'] = orders.exclude(Q(status='com') | Q(status='can')).count()
+        context['orders_cancelled'] = orders.filter(status='can').count()
         return context
 
 
