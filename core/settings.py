@@ -82,6 +82,7 @@ INSTALLED_APPS = [
     'src.api',
 
     'src.admins',
+    'src.staff',
     'src.customer',
     'src.payments',
 

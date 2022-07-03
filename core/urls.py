@@ -20,6 +20,7 @@ urlpatterns = [
     path('', include('src.website.urls', namespace='website')),
 
     path('admins/', include('src.admins.urls', namespace='admins')),
+    path('staff/', include('src.staff.urls', namespace='staff')),
     path('customer/', include('src.customer.urls', namespace='customer')),
     path('accounts/', include('src.accounts.urls', namespace='accounts')),
     path('accounts/', include('allauth.urls')),
