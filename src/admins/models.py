@@ -72,6 +72,9 @@ class Order(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
 
+    closed_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='staff')
+    closed_at = models.DateTimeField(null=True, blank=True)
+
     class Meta:
         ordering = ['created_on', 'status']
         verbose_name_plural = 'Orders'

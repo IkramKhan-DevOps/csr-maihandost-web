@@ -76,7 +76,10 @@ class CrossAuthView(View):
 
     def get(self, request):
         if request.user.is_superuser or request.user.is_staff:
-            return redirect('admins:dashboard')
+            if request.user.is_superuser:
+                return redirect('admins:dashboard')
+            else:
+                return redirect('staff:dashboard')
         else:
             return redirect('customer:dashboard')
 

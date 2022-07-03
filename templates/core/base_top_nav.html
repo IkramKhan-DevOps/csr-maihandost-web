@@ -135,6 +135,8 @@
 
 {% if request.user.is_superuser %}
     {% include 'core/admin_header.html' %}
+{% elif request.user.is_staff and not request.user.is_superuser %}
+    {% include 'core/staff_header.html' %}
 {% else %}
     {% include 'core/customer_header.html' %}
 {% endif %}
