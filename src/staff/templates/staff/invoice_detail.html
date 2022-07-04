@@ -1,0 +1,175 @@
+{% load static %}
+<html>
+<head>
+    <title>Order | {{ object.pk }}</title>
+    <link rel="stylesheet" href="{% static 'admins/css/app.min.css' %}">
+    <link rel="stylesheet" href="{% static 'admins/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'admins/css/icons.min.css' %}">
+</head>
+<body>
+<div class="container py-4">
+
+    {# RECEIVER #}
+    <div class="row">
+        {# HEAD #}
+        <div class="col-sm-12">
+            <img src="{% static 'core/logo-long.png' %}">
+        </div>
+
+        {# SUB HEAD - LEFT #}
+        <div class="col-sm-6 mt-4">
+            <div>
+                <h3 class="mb-0">Cashier Receipt</h3>
+                <p>Thanks for using Maihandost</p>
+            </div>
+
+            <div>
+                <h5 class="mb-0">Recipient Information</h5>
+                <p class="mb-0">{{ object.receiver_first_name }} {{ object.receiver_last_name }}</p>
+                <p class="mb-0">{{ object.receiver_email }}</p>
+                <p class="mb-0">{{ object.receiver_phone_number }}</p>
+            </div>
+
+            <div class="mt-5">
+                <p class="pt-4">
+                    <b>Cashier Signature</b>
+                </p>
+            </div>
+
+        </div>
+
+        {# SUB HEAD - RIFHT #}
+        <div class="col-sm-6 mt-4 text-right">
+            <div>
+                <h3 class="mb-0">Ref# {{ object.pk }}</h3>
+                <p>{{ object.created_on }}</p>
+            </div>
+
+            <div>
+                <h5 class="mb-0">Sender Information</h5>
+                <p class="mb-0">
+                    {% if object.sender.first_name or object.sender.last_name %}
+                        {{ object.sender.first_name }} {{ object.sender.last_name }}
+                    {% else %}
+                        {{ object.sender.username }}
+                    {% endif %}
+                </p>
+                <p class="mb-0">{{ object.sender.email }}</p>
+                <p class="mb-0">{{ object.sender.phone_number }}</p>
+            </div>
+
+            <div class="mt-5">
+                <p class="pt-4">
+                    <b>Receiver Signature</b>
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <hr>
+
+    {# RECEIVER #}
+    <div class="row">
+        {# HEAD #}
+        <div class="col-sm-12">
+            <img src="{% static 'core/logo-long.png' %}">
+        </div>
+
+        {# SUB HEAD - LEFT #}
+        <div class="col-sm-6 mt-4">
+            <div>
+                <h3 class="mb-0">Receiver Receipt</h3>
+                <p>Thanks for using Maihandost</p>
+            </div>
+
+            <div>
+                <h5 class="mb-0">Recipient Information</h5>
+                <p class="mb-0">{{ object.receiver_first_name }} {{ object.receiver_last_name }}</p>
+                <p class="mb-0">{{ object.receiver_email }}</p>
+                <p class="mb-0">{{ object.receiver_phone_number }}</p>
+            </div>
+
+            <div class="mt-4">
+                <table class="table table-borderless border table-sm">
+                    <thead class="border">
+                    <tr>
+                        <th colspan="2">Totals</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Transfer Amount</td>
+                        <td class="text-right"><b>$ 127</b></td>
+                    </tr>
+                    <tr>
+                        <td>Other Taxes</td>
+                        <td class="text-right"><b>$ -0</b></td>
+                    </tr>
+                    <tr>
+                        <td>Transfer Amount</td>
+                        <td class="text-right"><b>$ -0</b></td>
+                    </tr>
+                    <tr class="border-top">
+                        <th>Total</th>
+                        <td class="text-right"><b>$ 127</b></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        {# SUB HEAD - RIFHT #}
+        <div class="col-sm-6 mt-4 text-right">
+            <div>
+                <h3 class="mb-0">Ref# {{ object.pk }}</h3>
+                <p>{{ object.created_on }}</p>
+            </div>
+
+            <div>
+                <h5 class="mb-0">Sender Information</h5>
+                <p class="mb-0">
+                    {% if object.sender.first_name or object.sender.last_name %}
+                        {{ object.sender.first_name }} {{ object.sender.last_name }}
+                    {% else %}
+                        {{ object.sender.username }}
+                    {% endif %}
+                </p>
+                <p class="mb-0">{{ object.sender.email }}</p>
+                <p class="mb-0">{{ object.sender.phone_number }}</p>
+            </div>
+        </div>
+
+        {# FOOT #}
+        <div class="col-sm-12 mt-5">
+            <h5 class="mb-0">
+                Terms and Conditions/Receiver Declarations
+            </h5>
+            <p>
+                <small>Thi transaction is subjected to our terms and conditions that is also available at
+                    maihandost.com/terms/. By signin this form:
+                </small>
+            <ul class="small">
+                <li>You agreed to the terms and conditions</li>
+                <li>You confirmed the receipt of receive amount as set out on the form and confirms that your personal
+                    information is correct
+                </li>
+                <li>Your consent to the collection, use, disclosure and transfer (including cross-border transfer) of
+                    your personal information as described in our privacy notes, which is available on our website
+                    maihandost.com/privacy-policy/
+                </li>
+                <li>You agreed to the terms and conditions</li>
+            </ul>
+
+            <small>
+                For complains please contact us on <u>support@maihandost.com</u>, for further information please visit
+                our Terms and conditions
+            </small><br>
+            <small>This transaction is provided by maihanbdost</small>
+            </p>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

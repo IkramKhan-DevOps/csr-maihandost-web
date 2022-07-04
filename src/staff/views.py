@@ -66,3 +66,12 @@ class OrderDetailView(View):
         if request.user.is_superuser:
             return redirect('admins:order-detail', order.pk)
         return redirect('staff:order-search')
+
+
+class OrderDetailInvoiceView(TemplateView):
+    template_name = 'staff/invoice_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(OrderDetailInvoiceView, self).get_context_data(**kwargs)
+        context['object'] = get_object_or_404(Order, transaction_id=self.kwargs['tx_id'])
+        return context

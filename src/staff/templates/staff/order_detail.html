@@ -196,7 +196,7 @@
 
                         <form method="post" action="">
                             {% csrf_token %}
-                            <a href="/" class="btn btn-light" target="_blank">
+                            <a href="{% url 'staff:order-invoice' object.transaction_id %}" class="btn btn-light" target="_blank">
                                 <i class="fa fa-receipt"></i> Print Receipt
                             </a>
                             <button type="submit" class="btn btn-danger">
