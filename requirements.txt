@@ -5,6 +5,7 @@ djangorestframework~=3.12.4
 django-allauth~=0.45.0
 dj-rest-auth
 python-dateutil~=2.8.2
+xhtml2pdf
 django-phonenumber-field
 
 markdown

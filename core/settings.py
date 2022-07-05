@@ -21,11 +21,11 @@ ROOT_URLCONF = 'core.urls'
 AUTH_USER_MODEL = 'accounts.User'
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
-SERVER = 'testing'
+SERVER = 'local'
 DEBUG = True
 
 
-if SERVER == 'official':
+if SERVER == 'testing':
     SITE_ID = 3
     DOMAIN_URL = 'https://maihandost.com/'
 

@@ -68,6 +68,7 @@ class OrderDetailView(View):
         return redirect('staff:order-search')
 
 
+@method_decorator(staff_decorators, name='dispatch')
 class OrderDetailInvoiceView(TemplateView):
     template_name = 'staff/invoice_detail.html'
 

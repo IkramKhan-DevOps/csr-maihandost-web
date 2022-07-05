@@ -2,7 +2,8 @@ from django.urls import path
 
 from .views import (
     DashboardView,
-    OrderListView, OrderCreateView, OrderUpdateView, OrderDetailView, OrderDeleteView, OrderInvoiceView, GeneratePdfView
+    OrderListView, OrderCreateView, OrderUpdateView, OrderDetailView,
+    OrderDeleteView, OrderInvoiceView
 )
 
 app_name = 'customer'

@@ -16,7 +16,6 @@ from notifications.signals import notify
 from src.admins.filters import OrderFilter
 from src.admins.models import Order, GiftCard
 from src.api.models import AlertMessage
-from src.customer.bll import html_to_pdf
 
 
 @method_decorator(login_required, name='dispatch')
@@ -126,14 +125,14 @@ class OrderInvoiceView(DetailView):
         return get_object_or_404(Order.objects.filter(sender=self.request.user), pk=self.kwargs['pk'])
 
 
-@method_decorator(login_required, name='dispatch')
-class GeneratePdfView(View):
-    def get(self, request, pk, *args, **kwargs):
-        data = get_object_or_404(Order.objects.filter(sender=self.request.user), pk=pk)
-        open('templates/temp.html', "w").write(render_to_string('customer/order_invoice.html', {'data': data}))
-
-        # Converting the HTML template into a PDF file
-        pdf = html_to_pdf('temp.html')
-
-        # rendering the template
-        return HttpResponse(pdf, content_type='application/pdf')
+# @method_decorator(login_required, name='dispatch')
+# class GeneratePdfView(View):
+#     def get(self, request, pk, *args, **kwargs):
+#         data = get_object_or_404(Order.objects.filter(sender=self.request.user), pk=pk)
+#         open('templates/temp.html', "w").write(render_to_string('customer/order_invoice.html', {'data': data}))
+#
+#         # Converting the HTML template into a PDF file
+#         pdf = html_to_pdf('temp.html')
+#
+#         # rendering the template
+#         return HttpResponse(pdf, content_type='application/pdf')
