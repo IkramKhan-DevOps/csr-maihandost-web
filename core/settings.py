@@ -25,7 +25,7 @@ SERVER = 'testing'
 DEBUG = True
 
 
-if SERVER == 'testing':
+if SERVER == 'deploy':
     SITE_ID = 3
     DOMAIN_URL = 'https://maihandost.com/'
 
