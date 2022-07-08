@@ -57,19 +57,24 @@
     </section>
 
     {# CARDS #}
-    <section class="section">
+    <section class="bg-white section">
         <div class="container">
             <h2 class="text-9 text-center text-uppercase fw-400">Haven't seen</h2>
             <p class="lead text-center mb-5">Our Gift Cards</p>
-            <div class="row">
+            <div class="row gy-5">
                 <div class="col-lg-10 mx-auto">
                     <div class="row g-4">
                         {% for gift_card in gift_cards %}
                             <div class="col-sm-4 mt-3">
                                 <a href="{% url 'customer:order-add' gift_card.pk %}">
                                     <div class="card border-0">
-                                        <img src="{% static 'vendor/images/cards/card-100.png' %}"
+                                        {% if gift_card.image %}
+                                            <img src="{{ gift_card.image.url }}"
+                                                 class="img-thumbnail">
+                                        {% else %}
+                                            <img src="{% static 'core/logo.png' %}"
                                              class="img-thumbnail">
+                                        {% endif %}
                                     </div>
                                 </a>
                             </div>
@@ -125,7 +130,7 @@
     </section>
 
     {# VIDEO #}
-    <section class="section">
+    <section class="bg-white section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
@@ -305,7 +310,7 @@
     </section>
 
     {# QUESTIONS #}
-    <section class="section">
+    <section class="bg-white section">
         <div class="container">
             <h2 class="text-9 text-center">Frequently Asked Questions</h2>
             <p class="lead text-center mb-4 mb-sm-5">Can't find it here? Check out our <a class="btn-link"
