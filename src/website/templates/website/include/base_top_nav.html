@@ -1,43 +1,46 @@
 {% load static %}
 
-<!-- Header
-    ============================================= -->
 <header id="header" class="bg-transparent header-text-light">
     <div class="container">
-        <div class="header-row">
-            <div class="header-column justify-content-start">
-                <!-- Logo
-                ============================= -->
-                <div class="logo me-3"><a class="d-flex" href="/" title="Logo"><img
-                        src="{% static 'core/logo-long.png' %}" alt="Logo"/></a></div>
-                <!-- Logo end -->
-                <!-- Collapse Button
-                ============================== -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#header-nav">
-                    <span></span> <span></span> <span></span></button>
-                <!-- Collapse Button end -->
+      <div class="header-row">
+        <div class="header-column justify-content-start">
+          <!-- Logo
+          ============================= -->
+          <div class="logo me-3"> <a class="d-flex" href="/" title="logo">
+              <img src="{% static 'core/logo-long.png' %}" alt="logo" height="25"></a>
+          </div>
+          <!-- Logo end -->
+          <!-- Collapse Button
+          ============================== -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#header-nav"> <span></span> <span></span> <span></span> </button>
+          <!-- Collapse Button end -->
 
-                <!-- Primary Navigation
-                ============================== -->
-                <!-- Primary Navigation end -->
-
+          <!-- Primary Navigation
+          ============================== -->
+          <nav class="primary-menu navbar navbar-expand-lg">
+            <div id="header-nav" class="collapse navbar-collapse">
+              <ul class="navbar-nav me-auto">
+                <li><a href="/">Home</a></li>
+                <li><a href="#gifts">Gifts</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#serices">Services</a></li>
+                <li><a href="#faq">FAQ's</a></li>
+              </ul>
             </div>
-            <div class="header-column justify-content-end">
-                <!-- Login & Signup Link
-                ============================== -->
-                <nav class="login-signup navbar navbar-expand">
-                    <ul class="navbar-nav">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Gift Cards</a></li>
-                        <li><a href="#">Login</a></li>
-                        <li class="align-items-center h-auto ms-sm-3"><a class="btn btn-primary" href="signup.html">Sign
-                            Up</a></li>
-                    </ul>
-                </nav>
-                <!-- Login & Signup Link end -->
-            </div>
+          </nav>
+          <!-- Primary Navigation end -->
         </div>
+        <div class="header-column justify-content-end">
+          <!-- Login & Signup Link
+          ============================== -->
+          <nav class="login-signup navbar navbar-expand">
+            <ul class="navbar-nav">
+              <li><a href="{% url 'account_login' %}">Login</a> </li>
+              <li class="align-items-center h-auto ms-sm-3"><a class="btn btn-primary" href="{% url 'account_signup' %}">Sign Up</a></li>
+            </ul>
+          </nav>
+          <!-- Login & Signup Link end -->
+        </div>
+      </div>
     </div>
-</header>
-<!-- Header End -->
+  </header>
