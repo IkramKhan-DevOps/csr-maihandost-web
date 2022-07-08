@@ -55,90 +55,110 @@
     </section>
     <!-- Send/Request Money End -->
 
-    <!-- Why choose us
+
+    <!-- cards
     ============================================= -->
     <section class="section bg-white">
         <div class="container">
-            <h2 class="text-9 text-center text-uppercase fw-400">Why choose us?</h2>
-            <p class="lead text-center mb-5">Here’s Top 4 reasons why using a Payyed account for manage your
-                money.</p>
+            <h2 class="text-9 text-center text-uppercase fw-400">Haven't seen</h2>
+            <p class="lead text-center mb-5">Our Gift Cards</p>
             <div class="row">
                 <div class="col-lg-10 mx-auto">
                     <div class="row g-4">
-                        <div class="col-sm-6">
-                            <div class="featured-box style-3">
-                                <div class="featured-box-icon border border-primary text-primary rounded-circle"><i
-                                        class="fas fa-hand-pointer"></i></div>
-                                <h3 class="fw-400">Easy to use</h3>
-                                <p>Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent
-                                    possim iriure.</p>
+                        {% for gift_card in '123'|make_list %}
+                            <div class="col-sm-4 mt-3">
+                                <div class="card border-0">
+                                    <img src="{% static 'vendor/images/cards/card-100.png' %}" class="img-thumbnail">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="featured-box style-3">
-                                <div class="featured-box-icon border border-primary text-primary rounded-circle"><i
-                                        class="fas fa-share"></i></div>
-                                <h3 class="fw-400">Faster Payments</h3>
-                                <p>Persius interesset his et, in quot quidam persequeris vim, ad mea essent possim
-                                    iriure.</p>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="featured-box style-3">
-                                <div class="featured-box-icon border border-primary text-primary rounded-circle"><i
-                                        class="fas fa-dollar-sign"></i></div>
-                                <h3 class="fw-400">Lower Fees</h3>
-                                <p>Essent lisque persius interesset his et, in quot quidam persequeris vim, ad mea
-                                    essent possim iriure.</p>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="featured-box style-3">
-                                <div class="featured-box-icon border border-primary text-primary rounded-circle"><i
-                                        class="fas fa-lock"></i></div>
-                                <h3 class="fw-400">100% secure</h3>
-                                <p>Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea
-                                    essent possim iriure.</p>
-                            </div>
-                        </div>
+                        {% endfor %}
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Why choose us End -->
+    <!-- cards -->
+
+    <!-- What can you do
+    ============================================= -->
+    <section class="section bg-white">
+        <div class="container">
+            <h2 class="text-9 text-center">Why should you choose Payyed?</h2>
+            <p class="lead text-center mb-5">Here’s Top 4 reasons why using a Payyed account for manage your money.</p>
+            <div class="row gy-5">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="featured-box">
+                        <div class="featured-box-icon text-primary"><i class="fas fa-hand-pointer"></i></div>
+                        <h3>Easy to use</h3>
+                        <p class="text-3">Lisque persius interesset his et, in quot quidam persequeris vim, ad mea
+                            essent possim iriure.</p>
+                        <a href="#" class="btn-link text-3">Learn more<i
+                                class="fas fa-chevron-right text-1 ms-2"></i></a></div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="featured-box">
+                        <div class="featured-box-icon text-primary"><i class="fas fa-share"></i></div>
+                        <h3>Faster Payments</h3>
+                        <p class="text-3">Persius interesset his et, in quot quidam persequeris vim, ad mea essent
+                            possim iriure.</p>
+                        <a href="#" class="btn-link text-3">Learn more<i
+                                class="fas fa-chevron-right text-1 ms-2"></i></a></div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="featured-box">
+                        <div class="featured-box-icon text-primary"><i class="fas fa-dollar-sign"></i></div>
+                        <h3>Lower Fees</h3>
+                        <p class="text-3">Essent lisque persius interesset his et, in quot quidam persequeris vim, ad
+                            mea essent possim iriure.</p>
+                        <a href="#" class="btn-link text-3">Learn more<i
+                                class="fas fa-chevron-right text-1 ms-2"></i></a></div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="featured-box">
+                        <div class="featured-box-icon text-primary"><i class="fas fa-lock"></i></div>
+                        <h3>100% secure</h3>
+                        <p class="text-3">Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad
+                            mea essent possim iriure.</p>
+                        <a href="#" class="btn-link text-3">Learn more<i
+                                class="fas fa-chevron-right text-1 ms-2"></i></a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- What can you do End -->
+
+
 
     <!-- How it works
     ============================================= -->
     <section class="section">
         <div class="container">
-            <h2 class="text-9 text-center text-uppercase fw-400">As simple as 1-2-3</h2>
-            <p class="lead text-center mb-5">Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.</p>
+            <h2 class="text-9 text-center text-uppercase fw-400">3 Step process</h2>
+            <p class="lead text-center mb-5">The most easiest way to fund transfer</p>
             <div class="row g-4 g-lg-5">
                 <div class="col-sm-4">
                     <div class="featured-box style-4">
                         <div class="featured-box-icon text-dark shadow-none border-bottom"><span
                                 class="w-100 text-20 fw-500">1</span></div>
-                        <h3 class="mb-3">Sign Up Your Account</h3>
-                        <p class="text-3 fw-300">Sign up for your free personal/business Account in fea a
-                            minute.</p>
+                        <h3 class="mb-3">Gift Card</h3>
+                        <p class="text-3 fw-300">Choose the best gift course according to your needs.</p>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="featured-box style-4">
                         <div class="featured-box-icon text-dark shadow-none border-bottom"><span
                                 class="w-100 text-20 fw-500">2</span></div>
-                        <h3 class="mb-3">Send & Receive Money</h3>
-                        <p class="text-3 fw-300">Receive & Send Payments from worldwide in 40 currencies.</p>
+                        <h3 class="mb-3">Sender Info</h3>
+                        <p class="text-3 fw-300">Provide us receiver information as less as possible</p>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="featured-box style-4">
                         <div class="featured-box-icon text-dark shadow-none border-bottom"><span
                                 class="w-100 text-20 fw-500">3</span></div>
-                        <h3 class="mb-3">Withdraw Funds</h3>
-                        <p class="text-3 fw-300">Your funds will be transferred to your local bank account.</p>
+                        <h3 class="mb-3">Sent Card</h3>
+                        <p class="text-3 fw-300">Sent card and and ask receiver to withdraw.</p>
                     </div>
                 </div>
             </div>
@@ -146,45 +166,6 @@
         </div>
     </section>
     <!-- How it works End -->
-
-    <!-- What can you do
-    ============================================= -->
-    <section class="section bg-white">
-        <div class="container">
-            <h2 class="text-9 text-center text-uppercase fw-400">What can you do?</h2>
-            <p class="lead text-center mb-5">Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.</p>
-            <div class="row g-4">
-                <div class="col-sm-6 col-lg-3"><a href="#">
-                    <div class="featured-box style-5 rounded">
-                        <div class="featured-box-icon text-primary"><i class="fas fa-share-square"></i></div>
-                        <h3>Send Money</h3>
-                    </div>
-                </a></div>
-                <div class="col-sm-6 col-lg-3"><a href="#">
-                    <div class="featured-box style-5 rounded">
-                        <div class="featured-box-icon text-primary"><i class="fas fa-check-square"></i></div>
-                        <h3>Receive Money</h3>
-                    </div>
-                </a></div>
-                <div class="col-sm-6 col-lg-3"><a href="#">
-                    <div class="featured-box style-5 rounded">
-                        <div class="featured-box-icon text-primary"><i class="fas fa-user-friends"></i></div>
-                        <h3>Pay a Friend</h3>
-                    </div>
-                </a></div>
-                <div class="col-sm-6 col-lg-3"><a href="#">
-                    <div class="featured-box style-5 rounded">
-                        <div class="featured-box-icon text-primary"><i class="fas fa-shopping-bag"></i></div>
-                        <h3>Online Shopping</h3>
-                    </div>
-                </a></div>
-            </div>
-            <div class="text-center mt-5"><a href="#" class="btn-link text-4">See more can you do<i
-                    class="fas fa-chevron-right text-2 ms-2"></i></a></div>
-        </div>
-    </section>
-    <!-- What can you do End -->
 
     <!-- Testimonial
     ============================================= -->
@@ -202,4 +183,177 @@
         </div>
     </section>
     <!-- Testimonial end -->
+
+
+    <section class="section">
+        <div class="container">
+            <h2 class="text-9 text-center">What people say about Payyed</h2>
+            <p class="lead text-center mb-4">A payments experience people love to talk about</p>
+            <div class="row">
+                <div class="col-lg-10 col-xl-8 mx-auto">
+                    <div class="owl-carousel owl-theme owl-loaded owl-drag" data-autoplay="true" data-nav="true"
+                         data-loop="true" data-margin="30" data-stagepadding="5" data-items-xs="1" data-items-sm="1"
+                         data-items-md="1" data-items-lg="1">
+
+
+                        <div class="owl-stage-outer">
+                            <div class="owl-stage"
+                                 style="transform: translate3d(-5256px, 0px, 0px); transition: all 0.25s ease 0s; width: 10522px; padding-left: 5px; padding-right: 5px;">
+                                <div class="owl-item cloned" style="width: 846px; margin-right: 30px;">
+                                    <div class="item">
+                                        <div class="testimonial rounded text-center p-4">
+                                            <p class="text-9 text-muted opacity-2 mb-2"><i class="fa fa-quote-left"></i>
+                                            </p>
+                                            <p class="text-4">“I have used them twice now. Good rates, very efficient
+                                                service and it denies high street banks an undeserved windfall.
+                                                Excellent.”</p>
+                                            <strong class="d-block fw-500">Chris Tom</strong> <span class="text-muted">User from UK</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="owl-item cloned" style="width: 846px; margin-right: 30px;">
+                                    <div class="item">
+                                        <div class="testimonial rounded text-center p-4">
+                                            <p class="text-9 text-muted opacity-2 mb-2"><i class="fa fa-quote-left"></i>
+                                            </p>
+                                            <p class="text-4">“It's a real good idea to manage your money by payyed. The
+                                                rates are fair and you can carry out the transactions without
+                                                worrying!”</p>
+                                            <strong class="d-block fw-500">Mauri Lindberg</strong> <span
+                                                class="text-muted">Freelancer from Australia</span></div>
+                                    </div>
+                                </div>
+                                <div class="owl-item cloned" style="width: 846px; margin-right: 30px;">
+                                    <div class="item">
+                                        <div class="testimonial rounded text-center p-4">
+                                            <p class="text-9 text-muted opacity-2 mb-2"><i class="fa fa-quote-left"></i>
+                                            </p>
+                                            <p class="text-4">“Only trying it out since a few days. But up to now
+                                                excellent. Seems to work flawlessly. I'm only using it for sending money
+                                                to friends at the moment.”</p>
+                                            <strong class="d-block fw-500">Dennis Jacques</strong> <span
+                                                class="text-muted">User from USA</span></div>
+                                    </div>
+                                </div>
+                                <div class="owl-item" style="width: 846px; margin-right: 30px;">
+                                    <div class="item">
+                                        <div class="testimonial rounded text-center p-4">
+                                            <p class="text-9 text-muted opacity-2 mb-2"><i class="fa fa-quote-left"></i>
+                                            </p>
+                                            <p class="text-4">“Easy to use, reasonably priced simply dummy text of the
+                                                printing and typesetting industry. Quidam lisque persius interesset his
+                                                et, in quot quidam possim iriure.”</p>
+                                            <strong class="d-block fw-500">Jay Shah</strong> <span class="text-muted">Founder at Icomatic Pvt Ltd</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="owl-item" style="width: 846px; margin-right: 30px;">
+                                    <div class="item">
+                                        <div class="testimonial rounded text-center p-4">
+                                            <p class="text-9 text-muted opacity-2 mb-2"><i class="fa fa-quote-left"></i>
+                                            </p>
+                                            <p class="text-4">“I am happy Working with printing and typesetting
+                                                industry. Quidam lisque persius interesset his et, in quot quidam
+                                                persequeris essent possim iriure.”</p>
+                                            <strong class="d-block fw-500">Patrick Cary</strong> <span
+                                                class="text-muted">Freelancer from USA</span></div>
+                                    </div>
+                                </div>
+                                <div class="owl-item" style="width: 846px; margin-right: 30px;">
+                                    <div class="item">
+                                        <div class="testimonial rounded text-center p-4">
+                                            <p class="text-9 text-muted opacity-2 mb-2"><i class="fa fa-quote-left"></i>
+                                            </p>
+                                            <p class="text-4">“Fast easy to use transfers to a different currency. Much
+                                                better value that the banks.”</p>
+                                            <strong class="d-block fw-500">De Mortel</strong> <span class="text-muted">Online Retail</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="owl-item active" style="width: 846px; margin-right: 30px;">
+                                    <div class="item">
+                                        <div class="testimonial rounded text-center p-4">
+                                            <p class="text-9 text-muted opacity-2 mb-2"><i class="fa fa-quote-left"></i>
+                                            </p>
+                                            <p class="text-4">“I have used them twice now. Good rates, very efficient
+                                                service and it denies high street banks an undeserved windfall.
+                                                Excellent.”</p>
+                                            <strong class="d-block fw-500">Chris Tom</strong> <span class="text-muted">User from UK</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="owl-item" style="width: 846px; margin-right: 30px;">
+                                    <div class="item">
+                                        <div class="testimonial rounded text-center p-4">
+                                            <p class="text-9 text-muted opacity-2 mb-2"><i class="fa fa-quote-left"></i>
+                                            </p>
+                                            <p class="text-4">“It's a real good idea to manage your money by payyed. The
+                                                rates are fair and you can carry out the transactions without
+                                                worrying!”</p>
+                                            <strong class="d-block fw-500">Mauri Lindberg</strong> <span
+                                                class="text-muted">Freelancer from Australia</span></div>
+                                    </div>
+                                </div>
+                                <div class="owl-item" style="width: 846px; margin-right: 30px;">
+                                    <div class="item">
+                                        <div class="testimonial rounded text-center p-4">
+                                            <p class="text-9 text-muted opacity-2 mb-2"><i class="fa fa-quote-left"></i>
+                                            </p>
+                                            <p class="text-4">“Only trying it out since a few days. But up to now
+                                                excellent. Seems to work flawlessly. I'm only using it for sending money
+                                                to friends at the moment.”</p>
+                                            <strong class="d-block fw-500">Dennis Jacques</strong> <span
+                                                class="text-muted">User from USA</span></div>
+                                    </div>
+                                </div>
+                                <div class="owl-item cloned" style="width: 846px; margin-right: 30px;">
+                                    <div class="item">
+                                        <div class="testimonial rounded text-center p-4">
+                                            <p class="text-9 text-muted opacity-2 mb-2"><i class="fa fa-quote-left"></i>
+                                            </p>
+                                            <p class="text-4">“Easy to use, reasonably priced simply dummy text of the
+                                                printing and typesetting industry. Quidam lisque persius interesset his
+                                                et, in quot quidam possim iriure.”</p>
+                                            <strong class="d-block fw-500">Jay Shah</strong> <span class="text-muted">Founder at Icomatic Pvt Ltd</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="owl-item cloned" style="width: 846px; margin-right: 30px;">
+                                    <div class="item">
+                                        <div class="testimonial rounded text-center p-4">
+                                            <p class="text-9 text-muted opacity-2 mb-2"><i class="fa fa-quote-left"></i>
+                                            </p>
+                                            <p class="text-4">“I am happy Working with printing and typesetting
+                                                industry. Quidam lisque persius interesset his et, in quot quidam
+                                                persequeris essent possim iriure.”</p>
+                                            <strong class="d-block fw-500">Patrick Cary</strong> <span
+                                                class="text-muted">Freelancer from USA</span></div>
+                                    </div>
+                                </div>
+                                <div class="owl-item cloned" style="width: 846px; margin-right: 30px;">
+                                    <div class="item">
+                                        <div class="testimonial rounded text-center p-4">
+                                            <p class="text-9 text-muted opacity-2 mb-2"><i class="fa fa-quote-left"></i>
+                                            </p>
+                                            <p class="text-4">“Fast easy to use transfers to a different currency. Much
+                                                better value that the banks.”</p>
+                                            <strong class="d-block fw-500">De Mortel</strong> <span class="text-muted">Online Retail</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="owl-nav">
+                            <button type="button" role="presentation" class="owl-prev"><i
+                                    class="fa fa-chevron-left"></i></button>
+                            <button type="button" role="presentation" class="owl-next"><i
+                                    class="fa fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
 {% endblock %}
