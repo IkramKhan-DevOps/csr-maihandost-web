@@ -1,46 +1,43 @@
 {% load static %}
 
-<nav class="navbar navbar-expand-lg navigation fixed-top sticky py-2">
-
+<!-- Header
+    ============================================= -->
+<header id="header" class="bg-transparent header-text-light">
     <div class="container">
+        <div class="header-row">
+            <div class="header-column justify-content-start">
+                <!-- Logo
+                ============================= -->
+                <div class="logo me-3"><a class="d-flex" href="/" title="Logo"><img
+                        src="{% static 'core/logo-long.png' %}" alt="Logo"/></a></div>
+                <!-- Logo end -->
+                <!-- Collapse Button
+                ============================== -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#header-nav">
+                    <span></span> <span></span> <span></span></button>
+                <!-- Collapse Button end -->
 
+                <!-- Primary Navigation
+                ============================== -->
+                <!-- Primary Navigation end -->
 
-        <button type="button" class="btn btn-sm px-3 font-size-16 d-lg-none header-item waves-effect waves-light"
-                data-toggle="collapse" data-target="#topnav-menu-content">
-            <i class="fa fa-fw fa-bars"></i>
-        </button>
-
-        <a class="navbar-logo" href="/">
-            <img src="{% static 'exarth/theme/images/logos/logo-long.png' %}" alt="" height="30" class="logo logo-dark">
-            <img src="{% static 'exarth/theme/images/logos/logo-long.png' %}" alt="" height="30"
-                 class="logo logo-light">
-        </a>
-
-        <div class="collapse navbar-collapse" id="topnav-menu-content">
-            <ul class="navbar-nav ml-auto" id="topnav-menu">
-
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'website:gifts' %}">Gifts</a>
-                </li>
-                <li class="nav-item">
-                    {% if request.user.is_authenticated %}
-                        <a class="nav-link" href="{% url 'accounts:cross-auth' %}"><i class="fa fa-dashboard"></i>
-                            Dashboard</a>
-                    {% else %}
-                        <a class="nav-link" href="{% url 'account_login' %}"><i class="fa fa-sign-in"></i> Login</a>
-                    {% endif %}
-                </li>
-
-            </ul>
+            </div>
+            <div class="header-column justify-content-end">
+                <!-- Login & Signup Link
+                ============================== -->
+                <nav class="login-signup navbar navbar-expand">
+                    <ul class="navbar-nav">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Gift Cards</a></li>
+                        <li><a href="#">Login</a></li>
+                        <li class="align-items-center h-auto ms-sm-3"><a class="btn btn-primary" href="signup.html">Sign
+                            Up</a></li>
+                    </ul>
+                </nav>
+                <!-- Login & Signup Link end -->
+            </div>
         </div>
-
-
     </div>
-</nav>
+</header>
+<!-- Header End -->

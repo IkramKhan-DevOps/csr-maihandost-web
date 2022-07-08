@@ -1,49 +1,55 @@
 {% load static %}
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" href="{% static 'exarth/theme/favico.ico' %}">
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+    <link href="#" rel="icon"/>
+
     <title>
 
         {# BASE HALF TITLE #}
         {% block base_title %}
-            Exarth
+            Maihandost
         {% endblock %}
         {# --------------- #}
 
     </title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    {% block base_seo %}
+    <meta name="description" content="The Secure, easiest and fastest way to transfer money.">
+    <meta name="author" content="exarth">
+
+    <!-- Web Fonts
+    ============================================= -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+
+    <!-- Stylesheet
+    ============================================= -->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap.min.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/all.min.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap-select.min.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/currency-flags.min.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/owl.carousel.min.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/stylesheet.css' %}"/>
+    <link rel="stylesheet" href="{% static 'admins/css/icons.min.css' %}">
+    <!-- Colors Css -->
+    <link id="color-switcher" type="text/css" rel="stylesheet" href="{% static 'vendor/orange.css' %}"/>
+
+    {% block css %}
 
     {% endblock %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <link rel="stylesheet" href="{% static 'exarth/theme/js_css/owl.carousel.min.css' %}">
-    <link rel="stylesheet" href="{% static 'exarth/theme/js_css/owl.theme.default.min.css' %}">
-    <link rel="stylesheet" href="{% static 'exarth/theme/js_css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'exarth/theme/js_css/body_writing_fonts.css' %}">
-    <link rel="stylesheet" href="{% static 'exarth/theme/js_css/head_writing_fonts.css' %}">
-    <link rel="stylesheet" href="{% static 'exarth/theme/js_css/main.css' %}">
-    <link rel="stylesheet" href="{% static 'exarth/theme/js_css/app.min.css' %}">
-
-    {# BASE LINKS THAT ARE REQUIRED FOR CERTAIN PAGE #}
-    {% block base_links %}
-
-    {% endblock %}
-    <style>
-        html, body {
-            font-family: 'Quicksand', sans-serif;
-        }
-
-
-    </style>
-    {# --------------------------------------------- #}
-
 </head>
-{% block body %}
+<!-- Preloader -->
+<div id="preloader">
+    <div data-loader="dual-ring"></div>
+</div>
+<!-- Preloader End -->
 
-    <body data-spy="scroll" data-target="#topnav-menu" data-offset="60">
+<!-- Document Wrapper
+============================================= -->
+<div id="main-wrapper">
 
     {# BASE TOP NAVIGATION PANEL AREA #}
     {% block base_top_nav %}
@@ -52,8 +58,13 @@
     {# ------------------------------ #}
 
 
-    {% block content %}
-    {% endblock %}
+    <div id="content">
+        {% block content %}
+
+
+
+        {% endblock %}
+    </div>
 
     {% block footer %}
         {% include 'website/include/footer.html' %}
@@ -76,13 +87,48 @@
 
     {% endblock %}
     {# -------------------------------------------------------- #}
-    </body>
+</div>
+<!-- Back to Top
+============================================= -->
+<a id="back-to-top" data-bs-toggle="tooltip" title="Back to Top" href="javascript:void(0)"><i
+        class="fa fa-chevron-up"></i></a>
+
+<!-- Video Modal
+============================================= -->
+<div class="modal fade" id="videoModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content bg-transparent border-0">
+            <button type="button" class="btn-close btn-close-white ms-auto me-n3" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            <div class="modal-body p-0">
+                <div class="ratio ratio-16x9">
+                    <iframe id="video" src="" allow="autoplay;" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Video Modal end -->
+
+<!-- Script -->
+<script src="{% static 'vendor/jquery.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap-select.min.js' %}"></script>
+<script src="{% static 'vendor/owl.carousel.min.js' %}"></script>
+<!-- Style Switcher -->
+<script src="{% static 'vendor/switcher.min.js' %}"></script>
+<script src="{% static 'vendor/theme.js' %}"></script>
+
+{% block js %}
+
 {% endblock %}
+
+</body>
 </html>
 
 
 {# BASE EXTERNAL SCRIPTS OR LINKS THAT ARE REQUIRED IN PAGE #}
-{% block base_external_scripts %}
+{% block js_code %}
 
 {% endblock %}
 {# -------------------------------------------------------- #}

@@ -1,291 +1,205 @@
 {% extends 'website/base.html' %}
 {% load static %}
 
-{% block base_seo %}
-    <meta name="description" content="software development company">
-{% endblock %}
-
-{% block base_title %}Mainhandost{% endblock %}
-
 {% block content %}
-
-    {# PROTFOLIO ---------------------------------------------------------------------------------------------------- #}
-    <section class="py-5 remains_background" id="hero">
-        <div class="py-5">
-            <div class="py-5">
-                <div class="container py-5 col-md-5 justify-content-center text-white text-center py-5">
-
-                    <p class="mb-0 display-3">
-                        MaihanDost
-                    </p>
-                    <hr>
-                    <h1 class="mb-0 text-light h2">
-                        Don't forget your loved ones, maihandost offers most easy and secure way to sent gifts to your
-                        friends and family
-                    </h1>
-
+    <!-- Send/Request Money
+        ============================================= -->
+    <section class="hero-wrap">
+        <div class="hero-mask opacity-7 bg-dark"></div>
+        <div class="hero-bg" style="background-image:url('{% static 'vendor/images/image-5.jpg' %}');"></div>
+        <div class="hero-content d-flex min-vh-100">
+            <div class="container my-auto py-5">
+                <div class="row">
+                    <div class="col-lg-6 col-xl-7 my-auto text-center text-lg-start pb-5 pb-lg-0">
+                        <h2 class="text-17 text-white"><span class="fw-400 text-15">A better way to</span> <br>
+                            Send Money</h2>
+                        <p class="text-4 text-white mb-4"> Send money with a better exchange rate and avoid excessive
+                            bank fees.</p>
+                        <a class="btn btn-outline-light video-btn" href="#"
+                           data-src="https://www.youtube.com/embed/7e90gBu4pas" data-bs-toggle="modal"
+                           data-bs-target="#videoModal"><span class="text-2 me-3"><i class="fas fa-play"></i></span>See
+                            How it Works</a></div>
+                    <div class="col-lg-6 col-xl-5 my-auto">
+                        <div class="bg-white rounded shadow-md p-4">
+                            <h3 class="text-5 mb-4 text-center">Send Money</h3>
+                            <hr class="mb-4 mx-n4">
+                            <form id="form-send-money" method="post">
+                                <div class="mb-3">
+                                    <label for="youSend" class="form-label">You Send</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">$</span>
+                                        <input type="text" class="form-control" data-bv-field="youSend" id="youSend"
+                                               value="1,000" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="recipientGets" class="form-label">Recipient Gets</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">$</span>
+                                        <input type="text" class="form-control" data-bv-field="recipientGets"
+                                               id="recipientGets" value="1,410.06" placeholder="">
+                                    </div>
+                                </div>
+                                <p class="text-muted mb-1">Total fees - <span class="fw-500">7.21 USD</span></p>
+                                <p class="text-muted">The current exchange rate is <span class="fw-500">1 USD = 1.42030 AUD</span>
+                                </p>
+                                <div class="d-grid">
+                                    <button class="btn btn-primary">Continue</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
     </section>
+    <!-- Send/Request Money End -->
 
-    {# PAYMENTS ------------------------------------------------------------------------------------------------ #}
-    <section class="section py-5">
+    <!-- Why choose us
+    ============================================= -->
+    <section class="section bg-white">
         <div class="container">
-
+            <h2 class="text-9 text-center text-uppercase fw-400">Why choose us?</h2>
+            <p class="lead text-center mb-5">Here’s Top 4 reasons why using a Payyed account for manage your
+                money.</p>
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="text-center mb-5">
-                        <div class="small-title text-secondary">support</div>
-                        <h1 class="text-dark">Payment Methods</h1>
+                <div class="col-lg-10 mx-auto">
+                    <div class="row g-4">
+                        <div class="col-sm-6">
+                            <div class="featured-box style-3">
+                                <div class="featured-box-icon border border-primary text-primary rounded-circle"><i
+                                        class="fas fa-hand-pointer"></i></div>
+                                <h3 class="fw-400">Easy to use</h3>
+                                <p>Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent
+                                    possim iriure.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="featured-box style-3">
+                                <div class="featured-box-icon border border-primary text-primary rounded-circle"><i
+                                        class="fas fa-share"></i></div>
+                                <h3 class="fw-400">Faster Payments</h3>
+                                <p>Persius interesset his et, in quot quidam persequeris vim, ad mea essent possim
+                                    iriure.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="featured-box style-3">
+                                <div class="featured-box-icon border border-primary text-primary rounded-circle"><i
+                                        class="fas fa-dollar-sign"></i></div>
+                                <h3 class="fw-400">Lower Fees</h3>
+                                <p>Essent lisque persius interesset his et, in quot quidam persequeris vim, ad mea
+                                    essent possim iriure.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="featured-box style-3">
+                                <div class="featured-box-icon border border-primary text-primary rounded-circle"><i
+                                        class="fas fa-lock"></i></div>
+                                <h3 class="fw-400">100% secure</h3>
+                                <p>Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea
+                                    essent possim iriure.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="row justify-content-center">
-
-
-                <div class="cols px-4">
-                    <a href="#" target="_blank">
-                        <img src="{% static 'exarth/theme/images/payments/google-pay.png' %}" height="50"
-                             alt="default-logo" data-toggle="tooltip" data-placement="bottom"
-                             title="Google Pay">
-                    </a>
-                </div>
-                <div class="cols px-4">
-                    <a href="#" target="_blank">
-                        <img src="{% static 'exarth/theme/images/payments/apple-pay.png' %}" height="50"
-                             alt="default-logo" data-toggle="tooltip" data-placement="bottom"
-                             title="Apple Pay">
-                    </a>
-                </div>
-                <div class="cols px-4">
-                    <a href="#" target="_blank">
-                        <img src="{% static 'exarth/theme/images/payments/union-pay.png' %}" height="50"
-                             alt="default-logo" data-toggle="tooltip" data-placement="bottom"
-                             title="Union Pay">
-                    </a>
-                </div>
-                <div class="cols px-4">
-                    <a href="#" target="_blank">
-                        <img src="{% static 'exarth/theme/images/payments/master-card.png' %}" height="50"
-                             alt="default-logo" data-toggle="tooltip" data-placement="bottom"
-                             title="Master Card">
-                    </a>
-                </div>
-                <div class="cols px-4">
-                    <a href="#" target="_blank">
-                        <img src="{% static 'exarth/theme/images/payments/visa.png' %}" height="50"
-                             alt="default-logo" data-toggle="tooltip" data-placement="bottom"
-                             title="Visa">
-                    </a>
-                </div>
-                <div class="cols px-4">
-                    <a href="#" target="_blank">
-                        <img src="{% static 'exarth/theme/images/payments/american-express.png' %}" height="50"
-                             alt="default-logo" data-toggle="tooltip" data-placement="bottom"
-                             title="American Xpress">
-                    </a>
-                </div>
-                <div class="cols px-4">
-                    <a href="#" target="_blank">
-                        <img src="{% static 'exarth/theme/images/payments/discover.png' %}" height="50"
-                             alt="default-logo" data-toggle="tooltip" data-placement="bottom"
-                             title="Discover">
-                    </a>
-                </div>
-
-
-            </div>
         </div>
     </section>
+    <!-- Why choose us End -->
 
-    {# WORK ---------------------------------------------------------------------------------------------------- #}
-    <section class="section py-5 bg-white" id="about">
+    <!-- How it works
+    ============================================= -->
+    <section class="section">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="text-center mb-5">
-                        <div class="small-title">Want to know</div>
-                        <h4>How Maihandost gift cards works</h4></div>
-                </div>
-            </div>
-            <div class="align-items-center row">
-                <div class="col-lg-5">
-                    <div class="text-muted"><h4>2 step process to sent gifts all over world</h4>
-                        <p>
-                            The most trust able and easiest way to sent gift cards to your loved ones
-                            (friends and family) around the world in two steps with single click.
-                        </p>
-                        <p class="mb-4">More on you can check the information below</p>
-                        <div class="button-items">
-                            <a href="{% url 'website:gifts' %}" class="btn btn-success me-1">Sent Now</a>
-                            <a href="/#" class="btn btn-outline-primary">How It work</a>
-                        </div>
-                        <div class="mt-4 row">
-                            <div class="col-6 col-lg-4">
-                                <div class="mt-4"><h4>$ 6.2 M</h4>
-                                    <p>Total Amount</p></div>
-                            </div>
-                            <div class="col-6 col-lg-4">
-                                <div class="mt-4"><h4>16245</h4>
-                                    <p>Gifts Sent</p></div>
-                            </div>
-                        </div>
+            <h2 class="text-9 text-center text-uppercase fw-400">As simple as 1-2-3</h2>
+            <p class="lead text-center mb-5">Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.</p>
+            <div class="row g-4 g-lg-5">
+                <div class="col-sm-4">
+                    <div class="featured-box style-4">
+                        <div class="featured-box-icon text-dark shadow-none border-bottom"><span
+                                class="w-100 text-20 fw-500">1</span></div>
+                        <h3 class="mb-3">Sign Up Your Account</h3>
+                        <p class="text-3 fw-300">Sign up for your free personal/business Account in fea a
+                            minute.</p>
                     </div>
                 </div>
-                <div class="col-lg-6 ms-auto">
-                    <div class="mt-4 mt-lg-0">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="border card" style="">
-                                    <div class="card-body">
-                                        <div class="mb-3"><i class="mdi mdi-bitcoin h2 text-success"></i></div>
-                                        <div class="text-center">
-                                            <h1><i class="fa fa-plane"></i></h1>
-                                            <h5>Sent Fast</h5>
-                                        </div>
-                                        <p class="text-muted mb-0">No signup/login required, go with sent fast payment
-                                            method, your gift will be sent and account will be created automatically
-                                        </p>
-                                    </div>
-                                    <div class="card-footer bg-transparent border-top text-center">
-                                        <a href="{% url 'website:gifts' %}" class="text-primary"><i class="fa fa-telegram"></i> Go Fast</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="border mt-lg-5 card" style="">
-                                    <div class="card-body">
-                                        <div class="mb-3"><i class="mdi mdi-bitcoin h2 text-success"></i></div>
-                                        <div class="text-center">
-                                            <h1><i class="fa fa-lock"></i></h1>
-                                            <h5>Go Safe</h5>
-                                        </div>
-                                        <p class="text-muted mb-0">
-                                            Best way to setup your account, login to your account add recipient and sent
-                                            payments in
-                                            more secure and appropriate way.
-                                        </p>
-                                        <div class="card-footer bg-transparent border-top text-center">
-                                            <a href="#" class="text-primary">Go Safe</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="col-sm-4">
+                    <div class="featured-box style-4">
+                        <div class="featured-box-icon text-dark shadow-none border-bottom"><span
+                                class="w-100 text-20 fw-500">2</span></div>
+                        <h3 class="mb-3">Send & Receive Money</h3>
+                        <p class="text-3 fw-300">Receive & Send Payments from worldwide in 40 currencies.</p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="featured-box style-4">
+                        <div class="featured-box-icon text-dark shadow-none border-bottom"><span
+                                class="w-100 text-20 fw-500">3</span></div>
+                        <h3 class="mb-3">Withdraw Funds</h3>
+                        <p class="text-3 fw-300">Your funds will be transferred to your local bank account.</p>
                     </div>
                 </div>
             </div>
+            <div class="text-center mt-5"><a href="#" class="btn btn-primary">Open a Free Account</a></div>
         </div>
     </section>
+    <!-- How it works End -->
 
-    {# CARDS --------------------------------------------------------------------------------------------------- #}
-    <div class="section py-5">
-        <div class="container py-2">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="text-center mb-5">
-                        <div class="small-title text-secondary">
-                            Haven't seen
-                        </div>
-                        <h1 class="text-dark">Our Gift Cards</h1>
+    <!-- What can you do
+    ============================================= -->
+    <section class="section bg-white">
+        <div class="container">
+            <h2 class="text-9 text-center text-uppercase fw-400">What can you do?</h2>
+            <p class="lead text-center mb-5">Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.</p>
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-3"><a href="#">
+                    <div class="featured-box style-5 rounded">
+                        <div class="featured-box-icon text-primary"><i class="fas fa-share-square"></i></div>
+                        <h3>Send Money</h3>
                     </div>
-                </div>
+                </a></div>
+                <div class="col-sm-6 col-lg-3"><a href="#">
+                    <div class="featured-box style-5 rounded">
+                        <div class="featured-box-icon text-primary"><i class="fas fa-check-square"></i></div>
+                        <h3>Receive Money</h3>
+                    </div>
+                </a></div>
+                <div class="col-sm-6 col-lg-3"><a href="#">
+                    <div class="featured-box style-5 rounded">
+                        <div class="featured-box-icon text-primary"><i class="fas fa-user-friends"></i></div>
+                        <h3>Pay a Friend</h3>
+                    </div>
+                </a></div>
+                <div class="col-sm-6 col-lg-3"><a href="#">
+                    <div class="featured-box style-5 rounded">
+                        <div class="featured-box-icon text-primary"><i class="fas fa-shopping-bag"></i></div>
+                        <h3>Online Shopping</h3>
+                    </div>
+                </a></div>
             </div>
-
-            <div class="row justify-content-center">
-
-                {% if gift_cards %}
-                    {% for gift in gift_cards %}
-                        <div class="col-lg-4">
-                            <div class="card border shadow">
-                                <div class="card-body text-center">
-
-                                    <div>
-                                        {% if gift.image %}
-                                            <img src="{{ gift.image.url }}" height="150">
-                                        {% else %}
-                                            <img alt="gift-image" src="{% static 'exarth/theme/images/other/no-gift.png' %}" height="150">
-                                        {% endif %}
-
-                                        <h3 class="pt-2 m-0">
-                                            <a href="#" class="text-dark">{{ gift.name }}</a>
-                                        </h3>
-                                        <p class="text-muted small">{{ gift.description }}</p>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col">
-                                            <b class="">{{ gift.price }} $</b>
-                                        </div>
-                                        <div class="col">
-                                            <a href="{% url 'customer:order-add' gift.pk %}"><b>Buy Now</b></a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
-                {% else %}
-                    <p class="text-danger">
-                        <i class="fa fa-exclamation-circle"></i> No gifts are available for now.
-                    </p>
-                {% endif %}
-
-            </div>
+            <div class="text-center mt-5"><a href="#" class="btn-link text-4">See more can you do<i
+                    class="fas fa-chevron-right text-2 ms-2"></i></a></div>
         </div>
-    </div>
+    </section>
+    <!-- What can you do End -->
 
-{#    <section class="section" id="features">#}
-{#        <div class="container">#}
-{#            <div class="row">#}
-{#                <div class="col-lg-12">#}
-{#                    <div class="text-center mb-5">#}
-{#                        <div class="small-title">Features</div>#}
-{#                        <h4>Key features of the product</h4></div>#}
-{#                </div>#}
-{#            </div>#}
-{#            <div class="align-items-center pt-4 row">#}
-{#                <div class="col-sm-8 col-md-6">#}
-{#                    <div class="text-left">#}
-{#                        <img src="{% static 'exarth/theme/images/img-1.png' %}" alt=""#}
-{#                             class="img-fluid mx-auto d-block">#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="col-md-5 ms-auto">#}
-{#                    <div class="mt-4 mt-md-auto">#}
-{#                        <div class="d-flex align-items-center mb-2">#}
-{#                            <div class="features-number fw-semibold display-4 me-3">01</div>#}
-{#                            <h4 class="mb-0"> Click Fast Sent</h4>#}
-{#                        </div>#}
-{#                        <p class="text-muted">#}
-{#                            {% lorem 1 p %}#}
-{#                        </p>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#            <div class="align-items-center mt-5 pt-md-5 row">#}
-{#                <div class="col-md-5">#}
-{#                    <div class="mt-4 mt-md-auto">#}
-{#                        <div class="d-flex align-items-center mb-2">#}
-{#                            <div class="features-number fw-semibold display-4 me-3">02</div>#}
-{#                            <h4 class="mb-0">Fill Form</h4></div>#}
-{#                        <p class="text-muted">#}
-{#                            {% lorem 1 p %}#}
-{#                        </p>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="col-sm-8 col-md-6 ms-md-auto">#}
-{#                    <div class="mt-4 me-md-0">#}
-{#                        <img src="{% static 'exarth/theme/images/img-2.png' %}" alt=""#}
-{#                             class="img-fluid mx-auto d-block">#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </section>#}
-
-
+    <!-- Testimonial
+    ============================================= -->
+    <section class="hero-wrap section shadow-md">
+        <div class="hero-mask opacity-3 bg-dark"></div>
+        <div class="hero-bg hero-bg-scrll"
+             style="background-image:url('{% static 'vendor/images/image-4.jpg' %}');"></div>
+        <div class="hero-content py-0 py-lg-5 my-0 my-lg-5">
+            <div class="container text-center">
+                <h2 class="text-9 text-white fw-400 text-uppercase mb-5">What our customers say</h2>
+                <a class="video-btn d-flex" href="#" data-src="https://www.youtube.com/embed/7e90gBu4pas"
+                   data-bs-toggle="modal" data-bs-target="#videoModal"> <span
+                        class="playButton playButton-pulsing bg-white m-auto"><i class="fas fa-play"></i></span>
+                </a></div>
+        </div>
+    </section>
+    <!-- Testimonial end -->
 {% endblock %}
