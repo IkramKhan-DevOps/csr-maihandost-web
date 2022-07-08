@@ -23,34 +23,32 @@
                         <div class="bg-white rounded shadow-md p-4">
                             <h3 class="text-5 mb-4 text-center">Calculate Charges</h3>
                             <hr class="mb-4 mx-n4">
-                            <form id="form-send-money" method="post">
-                                <div class="mb-3">
-                                    <label for="youSend" class="form-label">You Send</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text">$</span>
-                                        <input type="text" class="form-control" data-bv-field="youSend" id="sent"
-                                               value="100" placeholder="">
-                                    </div>
+                            <div class="mb-3">
+                                <label for="youSend" class="form-label">You Send</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="text" class="form-control" data-bv-field="youSend" id="sent_c"
+                                           value="100" placeholder="">
                                 </div>
-                                <div class="mb-3">
-                                    <label for="recipientGets" class="form-label">Recipient Gets</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text">$</span>
-                                        <input type="text" class="form-control" data-bv-field="recipientGets"
-                                               id="receive" value="950" placeholder="">
-                                    </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipientGets" class="form-label">Recipient Gets</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="text" class="form-control" data-bv-field="recipientGets"
+                                           id="receive_c" value="950" placeholder="">
                                 </div>
-                                <p class="text-muted mb-0">Tax Rates<span class="fw-500"> 2.9% + 30 cents = </span><span
-                                        class="fw-500 text-danger" id="fees">3.2 USD</span></p>
-                                <p class="text-muted">Service Charges<span class="fw-500"> 1.7% = </span><span
-                                        class="fw-500 text-success" id="fees">1.7 USD</span>
-                                <p class="text-muted">Total Charges<span class="fw-500"> Tax + Service = </span><span
-                                        class="fw-500 text-primary" id="fees">5%</span>
-                                </p>
-                                <div class="d-grid">
-                                    <button class="btn btn-primary">Continue</button>
-                                </div>
-                            </form>
+                            </div>
+                            <p class="text-muted mb-0">Tax Rates<span class="fw-500"> 2.9% + 30 cents = </span><span
+                                    class="fw-500 text-danger" id="fee_c">3.2 USD</span></p>
+                            <p class="text-muted">Service Charges<span class="fw-500"> 1.7% = </span><span
+                                    class="fw-500 text-success" id="service_c">1.7 USD</span>
+                            <p class="text-muted">Total Charges<span class="fw-500"> Tax + Service = </span><span
+                                    class="fw-500 text-primary" id="total_c">5%</span>
+                            </p>
+                            <div class="d-grid">
+                                <button class="btn btn-primary" id="calculate_c">Calculate</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -403,4 +401,51 @@
     </section>
 
 
+{% endblock %}
+
+{% block js_code %}
+    <script>
+        $(document).ready(function () {
+
+            let sent_in = $('#sent_c');
+            let receive_in = $('#receive_c');
+            let calculate_btn = $('#calculate_c');
+
+            let total_text = $('#total_c');
+            let fee_text = $('#fee_c');
+            let service_text = $('#service_c');
+
+            let charges_fees = 3.2;
+            let service_fees = 1.7;
+
+            sent_in.keyup(function (event) {
+                calculate_price()
+            });
+
+            calculate_btn.click(function (event) {
+                calculate_price();
+            });
+
+            function calculate_price() {
+                const input_value = parseFloat(sent_in.val());
+                if (input_value > 0) {
+
+                    let percentage_5 = ((5 / 100) * input_value);
+                    let percentage_charges = ((charges_fees / 100) * input_value);
+                    let percentage_services = ((service_fees / 100) * input_value);
+
+                    total_text.text(percentage_5 + " USD");
+                    fee_text.text(percentage_charges + " USD");
+                    service_text.text(percentage_services + " USD");
+                    receive_in.val(percentage_5 + input_value);
+                } else {
+                    total_text.text("");
+                    fee_text.text("");
+                    service_text.text("");
+                    receive_in.val("");
+                }
+            }
+
+        });
+    </script>
 {% endblock %}
