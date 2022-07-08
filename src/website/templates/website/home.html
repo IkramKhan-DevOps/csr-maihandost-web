@@ -13,23 +13,23 @@
                     <div class="col-lg-6 col-xl-7 my-auto text-center text-lg-start pb-5 pb-lg-0">
                         <h2 class="text-17 text-white"><span class="fw-400 text-15">A better way to</span> <br>
                             Send Money</h2>
-                        <p class="text-4 text-white mb-4"> Send money with a better exchange rate and avoid excessive
-                            bank fees.</p>
+                        <p class="text-4 text-white mb-4"> Send money with a most easy and secure way to worldwide</p>
                         <a class="btn btn-outline-light video-btn" href="#"
                            data-src="https://www.youtube.com/embed/7e90gBu4pas" data-bs-toggle="modal"
                            data-bs-target="#videoModal"><span class="text-2 me-3"><i class="fas fa-play"></i></span>See
-                            How it Works</a></div>
+                            How it Works</a>
+                    </div>
                     <div class="col-lg-6 col-xl-5 my-auto">
                         <div class="bg-white rounded shadow-md p-4">
-                            <h3 class="text-5 mb-4 text-center">Send Money</h3>
+                            <h3 class="text-5 mb-4 text-center">Calculate Charges</h3>
                             <hr class="mb-4 mx-n4">
                             <form id="form-send-money" method="post">
                                 <div class="mb-3">
                                     <label for="youSend" class="form-label">You Send</label>
                                     <div class="input-group">
                                         <span class="input-group-text">$</span>
-                                        <input type="text" class="form-control" data-bv-field="youSend" id="youSend"
-                                               value="1,000" placeholder="">
+                                        <input type="text" class="form-control" data-bv-field="youSend" id="sent"
+                                               value="100" placeholder="">
                                     </div>
                                 </div>
                                 <div class="mb-3">
@@ -37,11 +37,15 @@
                                     <div class="input-group">
                                         <span class="input-group-text">$</span>
                                         <input type="text" class="form-control" data-bv-field="recipientGets"
-                                               id="recipientGets" value="1,410.06" placeholder="">
+                                               id="receive" value="950" placeholder="">
                                     </div>
                                 </div>
-                                <p class="text-muted mb-1">Total fees - <span class="fw-500">7.21 USD</span></p>
-                                <p class="text-muted">The current exchange rate is <span class="fw-500">1 USD = 1.42030 AUD</span>
+                                <p class="text-muted mb-0">Tax Rates<span class="fw-500"> 2.9% + 30 cents = </span><span
+                                        class="fw-500 text-danger" id="fees">3.2 USD</span></p>
+                                <p class="text-muted">Service Charges<span class="fw-500"> 1.7% = </span><span
+                                        class="fw-500 text-success" id="fees">1.7 USD</span>
+                                <p class="text-muted">Total Charges<span class="fw-500"> Tax + Service = </span><span
+                                        class="fw-500 text-primary" id="fees">5%</span>
                                 </p>
                                 <div class="d-grid">
                                     <button class="btn btn-primary">Continue</button>
@@ -66,8 +70,9 @@
                             <div class="col-sm-4 mt-3">
                                 <a href="{% url 'customer:order-add' gift_card.pk %}">
                                     <div class="card border-0">
-                                    <img src="{% static 'vendor/images/cards/card-100.png' %}" class="img-thumbnail">
-                                </div>
+                                        <img src="{% static 'vendor/images/cards/card-100.png' %}"
+                                             class="img-thumbnail">
+                                    </div>
                                 </a>
                             </div>
                         {% endfor %}
@@ -81,44 +86,41 @@
     {# FUTURE #}
     <section class="section">
         <div class="container">
-            <h2 class="text-9 text-center">Why should you choose Payyed?</h2>
-            <p class="lead text-center mb-5">Here’s Top 4 reasons why using a Payyed account for manage your money.</p>
+            <h2 class="text-9 text-center">Why should you choose Maihandost?</h2>
+            <p class="lead text-center mb-5">Here’s Top 4 reasons why using a Maihandost account for manage your
+                money.</p>
             <div class="row gy-5">
                 <div class="col-sm-6 col-lg-3">
                     <div class="featured-box">
                         <div class="featured-box-icon text-primary"><i class="fas fa-hand-pointer"></i></div>
                         <h3>Easy to use</h3>
-                        <p class="text-3">Lisque persius interesset his et, in quot quidam persequeris vim, ad mea
-                            essent possim iriure.</p>
-                        <a href="#" class="btn-link text-3">Learn more<i
-                                class="fas fa-chevron-right text-1 ms-2"></i></a></div>
+                        <p class="text-3">Maihandost is most easiest way to sent money to your loved ones using gift
+                            cards</p>
+                    </div>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                     <div class="featured-box">
                         <div class="featured-box-icon text-primary"><i class="fas fa-share"></i></div>
                         <h3>Faster Payments</h3>
-                        <p class="text-3">Persius interesset his et, in quot quidam persequeris vim, ad mea essent
-                            possim iriure.</p>
-                        <a href="#" class="btn-link text-3">Learn more<i
-                                class="fas fa-chevron-right text-1 ms-2"></i></a></div>
+                        <p class="text-3">We don't need more information or unnecessary checks just tell us the name and
+                            country of receiver</p>
+                    </div>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                     <div class="featured-box">
                         <div class="featured-box-icon text-primary"><i class="fas fa-dollar-sign"></i></div>
                         <h3>Lower Fees</h3>
-                        <p class="text-3">Essent lisque persius interesset his et, in quot quidam persequeris vim, ad
-                            mea essent possim iriure.</p>
-                        <a href="#" class="btn-link text-3">Learn more<i
-                                class="fas fa-chevron-right text-1 ms-2"></i></a></div>
+                        <p class="text-3">We have the lowest fees all over the way, just give us a small fee of our
+                            service its only 1.7%</p>
+                    </div>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                     <div class="featured-box">
                         <div class="featured-box-icon text-primary"><i class="fas fa-lock"></i></div>
                         <h3>100% secure</h3>
-                        <p class="text-3">Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad
-                            mea essent possim iriure.</p>
-                        <a href="#" class="btn-link text-3">Learn more<i
-                                class="fas fa-chevron-right text-1 ms-2"></i></a></div>
+                        <p class="text-3">Your payments are secured and encrypted, you can reverse your transactions
+                            anytime 24/7</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -142,17 +144,17 @@
                 <div class="col-lg-6 mt-5 mt-lg-0">
                     <div class="ms-4">
                         <h2 class="text-9">How does it work?</h2>
-                        <p class="text-4">Quidam lisque persius interesset his et, in quot quidam persequeris essent
-                            possim iriure. Lorem Ipsum is simply dummy text of the printing and typesetting
-                            industry.</p>
+                        <p class="text-4">You don't need to go to banks and pay heavy charges and fill forms, Take a
+                            seat and get relax open your phone visit maihandost ,we provide the most easy and simple way
+                            to sent money, its only two step process Need help? check below.</p>
                         <ul class="list-unstyled text-3 lh-lg">
-                            <li><i class="fas fa-check me-2"></i>Sign Up Account</li>
-                            <li><i class="fas fa-check me-2"></i>Receive &amp; Send Payments from worldwide</li>
-                            <li><i class="fas fa-check me-2"></i>Your funds will be transferred to your local bank
-                                account
+                            <li><i class="fas fa-check me-2"></i>Create Account (if not registered)</li>
+                            <li><i class="fas fa-check me-2"></i>Buy a gift card with different prices</li>
+                            <li><i class="fas fa-check me-2"></i>Enter receiver name and country and sent
                             </li>
                         </ul>
-                        <a href="#" class="btn btn-outline-primary shadow-none mt-2">Open a Free Account</a>
+                        <a href="/accounts/signup/" class="btn btn-outline-primary shadow-none mt-2">Open a Free
+                            Account</a>
                     </div>
                 </div>
             </div>
@@ -161,103 +163,94 @@
 
     {# PROMISES #}
     <section class="section py-5">
-      <div class="container">
-          <h2 class="text-9 text-center text-uppercase fw-400">No Promise Low Fees</h2>
-            <p class="lead text-center mb-5">No Extra Charges</p>
-        <div class="row g-5">
+        <div class="container">
+            <h2 class="text-9 text-center text-uppercase fw-400">Have a look</h2>
+            <p class="lead text-center mb-5">What we provide to our customers</p>
+            <div class="row g-5">
 
-          <!-- Withdrawal Funds
-          ============================================= -->
-          <div class="col-md-6">
-            <div class="bg-white shadow-sm rounded p-5 text-center">
-              <div class="featured-box style-4">
-                <div class="featured-box-icon text-light border rounded-circle shadow-none"> <i class="fas fa-download"></i> </div>
-                <h3 class="text-body text-7 mb-3">Withdrawal Funds</h3>
-                <p class="text-4 lh-base">You can easily withdraw funds to your local bank account in local currency at excellent rates.</p>
-                <div class="text-primary text-10 pt-3 pb-4 mb-2">up to 1.5%</div>
-                <a href="#" class="text-muted btn-link text-4">Learn more<i class="fas fa-chevron-right text-2 ms-2"></i></a> </div>
+                <div class="col-sm-4">
+                    <div class="bg-white shadow-sm rounded p-5 text-center">
+                        <div class="featured-box style-4">
+                            <div class="featured-box-icon text-light border rounded-circle shadow-none"><i
+                                    class="fas fa-download"></i></div>
+                            <h3 class="text-body text-7 mb-3">Sent Money</h3>
+                            <p class="text-4 lh-base">We provide no of gift cards from 50$ to 500$ buy and sent them to
+                                your loved ones</p>
+                            <div class="text-primary text-10 pt-3 pb-4 mb-2">1.7%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="bg-white shadow-sm rounded p-5 text-center">
+                        <div class="featured-box style-4">
+                            <div class="featured-box-icon text-light border rounded-circle shadow-none"><i
+                                    class="fas fa-upload"></i></div>
+                            <h3 class="text-body text-7 mb-3">Receive Money</h3>
+                            <p class="text-4 lh-base">You can receive money over sender provided secret key, all over
+                                the globe in your currency</p>
+                            <div class="text-primary text-10 pt-3 pb-4 mb-2">Free</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="bg-white shadow-sm rounded p-5 text-center">
+                        <div class="featured-box style-4">
+                            <div class="featured-box-icon text-light border rounded-circle shadow-none"><i
+                                    class="fas fa-file-invoice-dollar"></i></div>
+                            <h3 class="text-body text-7 mb-3">Custom Offer</h3>
+                            <p class="text-4 lh-base">No restrictions over gift cards create your own offer and sent
+                                money according to your own needs</p>
+                            <div class="text-primary text-10 pt-3 pb-4 mb-2">1.7%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="bg-white shadow-sm rounded p-5 text-center">
+                        <div class="featured-box style-4">
+                            <div class="featured-box-icon text-light border rounded-circle shadow-none"><i
+                                    class="fas fa-shopping-cart"></i></div>
+                            <h3 class="text-body text-7 mb-3">Ecommerce</h3>
+                            <p class="text-4 lh-base">
+                                Don't want to transfer money, visit our marketplace buy anything we will deliver to
+                                recipient
+                            </p>
+                            <div class="text-danger text-10 pt-3 pb-4 mb-2">Upcoming</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="bg-white shadow-sm rounded p-5 text-center">
+                        <div class="featured-box style-4">
+                            <div class="featured-box-icon text-light border rounded-circle shadow-none"><i
+                                    class="fas fa-exchange-alt"></i></div>
+                            <h3 class="text-body text-7 mb-3">Currency Conversion</h3>
+                            <p class="text-4 lh-base">No fees over conversion withdraw yur money according to latest
+                                global exchange rates </p>
+                            <div class="text-primary text-10 pt-3 pb-4 mb-2">Free</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="bg-white shadow-sm rounded p-5 text-center">
+                        <div class="featured-box style-4">
+                            <div class="featured-box-icon text-light border rounded-circle shadow-none"><i
+                                    class="fas fa-user"></i></div>
+                            <h3 class="text-body text-7 mb-3">Administrative fee</h3>
+                            <p class="text-4 lh-base">Keep using your Maihandost Account and you will never be charged
+                                an administrative fee!</p>
+                            <div class="text-primary text-10 pt-3 pb-4 mb-2">Free</div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-          </div>
-          <!-- Withdrawal Funds end -->
-
-          <!-- Deposit Funds
-          ============================================= -->
-          <div class="col-md-6">
-            <div class="bg-white shadow-sm rounded p-5 text-center">
-              <div class="featured-box style-4">
-                <div class="featured-box-icon text-light border rounded-circle shadow-none"> <i class="fas fa-upload"></i> </div>
-                <h3 class="text-body text-7 mb-3">Deposit Funds</h3>
-                <p class="text-4 lh-base">With a variety of options for deposit your account. There is always an option that is right for you.</p>
-                <div class="text-primary text-10 pt-3 pb-4 mb-2">up to 1.0%</div>
-                <a href="#" class="text-muted btn-link text-4">Learn more<i class="fas fa-chevron-right text-2 ms-2"></i></a> </div>
-            </div>
-          </div>
-          <!-- Deposit Funds end -->
-
-          <!-- Receive Money
-          ============================================= -->
-          <div class="col-md-6">
-            <div class="bg-white shadow-sm rounded p-5 text-center">
-              <div class="featured-box style-4">
-                <div class="featured-box-icon text-light border rounded-circle shadow-none"> <i class="fas fa-hand-holding-usd"></i> </div>
-                <h3 class="text-body text-7 mb-3">Receive Money</h3>
-                <p class="text-4 lh-base">Receiving money is always free of charge</p>
-                <div class="text-primary text-10 pt-3 pb-4 mb-2">Free</div>
-                <a href="#" class="text-muted btn-link text-4">Learn more<i class="fas fa-chevron-right text-2 ms-2"></i></a> </div>
-            </div>
-          </div>
-          <!-- Receive Money end -->
-
-          <!-- Send Money
-          ============================================= -->
-          <div class="col-md-6">
-            <div class="bg-white shadow-sm rounded p-5 text-center">
-              <div class="featured-box style-4">
-                <div class="featured-box-icon text-light border rounded-circle shadow-none"> <i class="fas fa-file-invoice-dollar"></i> </div>
-                <h3 class="text-body text-7 mb-3">Send Money</h3>
-                <p class="text-4 lh-base">You can easily make payments at excellent rates.</p>
-                <div class="text-primary text-10 pt-3 pb-4 mb-2">up to 1.0%</div>
-                <a href="#" class="text-muted btn-link text-4">Learn more<i class="fas fa-chevron-right text-2 ms-2"></i></a> </div>
-            </div>
-          </div>
-          <!-- Send Money end -->
-
-          <!-- Currency Conversion
-          ============================================= -->
-          <div class="col-md-6">
-            <div class="bg-white shadow-sm rounded p-5 text-center">
-              <div class="featured-box style-4">
-                <div class="featured-box-icon text-light border rounded-circle shadow-none"> <i class="fas fa-exchange-alt"></i> </div>
-                <h3 class="text-body text-7 mb-3">Currency Conversion</h3>
-                <p class="text-4 lh-base">We always give you the mid-market rate, which is the fairest exchange rate. </p>
-                <div class="text-primary text-10 pt-3 pb-4 mb-2">up to 0.4%</div>
-                <a href="#" class="text-muted btn-link text-4">Learn more<i class="fas fa-chevron-right text-2 ms-2"></i></a> </div>
-            </div>
-          </div>
-          <!-- Currency Conversion end -->
-
-          <!-- Administrative fee
-          ============================================= -->
-          <div class="col-md-6">
-            <div class="bg-white shadow-sm rounded p-5 text-center">
-              <div class="featured-box style-4">
-                <div class="featured-box-icon text-light border rounded-circle shadow-none"> <i class="fas fa-user"></i> </div>
-                <h3 class="text-body text-7 mb-3">Administrative fee</h3>
-                <p class="text-4 lh-base">Keep using your Payyed Account and you will never be charged an administrative fee!</p>
-                <div class="text-primary text-10 pt-3 pb-4 mb-2">Free</div>
-                <a href="#" class="text-muted btn-link text-4">Learn more<i class="fas fa-chevron-right text-2 ms-2"></i></a> </div>
-            </div>
-          </div>
-          <!-- Administrative fee end -->
-
         </div>
-      </div>
     </section>
 
     {# CLIENTS #}
     <section class="section">
         <div class="container">
-            <h2 class="text-9 text-center">What people say about Payyed</h2>
+            <h2 class="text-9 text-center">What people say about Maihandost</h2>
             <p class="lead text-center mb-4">A payments experience people love to talk about</p>
             <div class="row">
                 <div class="col-lg-10 col-xl-8 mx-auto">
@@ -269,31 +262,7 @@
                         <div class="owl-stage-outer">
                             <div class="owl-stage"
                                  style="transform: translate3d(-5256px, 0px, 0px); transition: all 0.25s ease 0s; width: 10522px; padding-left: 5px; padding-right: 5px;">
-                                <div class="owl-item cloned" style="width: 846px; margin-right: 30px;">
-                                    <div class="item">
-                                        <div class="testimonial rounded text-center p-4">
-                                            <p class="text-9 text-muted opacity-2 mb-2"><i class="fa fa-quote-left"></i>
-                                            </p>
-                                            <p class="text-4">“I have used them twice now. Good rates, very efficient
-                                                service and it denies high street banks an undeserved windfall.
-                                                Excellent.”</p>
-                                            <strong class="d-block fw-500">Chris Tom</strong> <span class="text-muted">User from UK</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="owl-item cloned" style="width: 846px; margin-right: 30px;">
-                                    <div class="item">
-                                        <div class="testimonial rounded text-center p-4">
-                                            <p class="text-9 text-muted opacity-2 mb-2"><i class="fa fa-quote-left"></i>
-                                            </p>
-                                            <p class="text-4">“It's a real good idea to manage your money by payyed. The
-                                                rates are fair and you can carry out the transactions without
-                                                worrying!”</p>
-                                            <strong class="d-block fw-500">Mauri Lindberg</strong> <span
-                                                class="text-muted">Freelancer from Australia</span></div>
-                                    </div>
-                                </div>
-                                <div class="owl-item cloned" style="width: 846px; margin-right: 30px;">
+                                <div class="owl-item" style="width: 846px; margin-right: 30px;">
                                     <div class="item">
                                         <div class="testimonial rounded text-center p-4">
                                             <p class="text-9 text-muted opacity-2 mb-2"><i class="fa fa-quote-left"></i>
@@ -303,41 +272,6 @@
                                                 to friends at the moment.”</p>
                                             <strong class="d-block fw-500">Dennis Jacques</strong> <span
                                                 class="text-muted">User from USA</span></div>
-                                    </div>
-                                </div>
-                                <div class="owl-item" style="width: 846px; margin-right: 30px;">
-                                    <div class="item">
-                                        <div class="testimonial rounded text-center p-4">
-                                            <p class="text-9 text-muted opacity-2 mb-2"><i class="fa fa-quote-left"></i>
-                                            </p>
-                                            <p class="text-4">“Easy to use, reasonably priced simply dummy text of the
-                                                printing and typesetting industry. Quidam lisque persius interesset his
-                                                et, in quot quidam possim iriure.”</p>
-                                            <strong class="d-block fw-500">Jay Shah</strong> <span class="text-muted">Founder at Icomatic Pvt Ltd</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="owl-item" style="width: 846px; margin-right: 30px;">
-                                    <div class="item">
-                                        <div class="testimonial rounded text-center p-4">
-                                            <p class="text-9 text-muted opacity-2 mb-2"><i class="fa fa-quote-left"></i>
-                                            </p>
-                                            <p class="text-4">“I am happy Working with printing and typesetting
-                                                industry. Quidam lisque persius interesset his et, in quot quidam
-                                                persequeris essent possim iriure.”</p>
-                                            <strong class="d-block fw-500">Patrick Cary</strong> <span
-                                                class="text-muted">Freelancer from USA</span></div>
-                                    </div>
-                                </div>
-                                <div class="owl-item" style="width: 846px; margin-right: 30px;">
-                                    <div class="item">
-                                        <div class="testimonial rounded text-center p-4">
-                                            <p class="text-9 text-muted opacity-2 mb-2"><i class="fa fa-quote-left"></i>
-                                            </p>
-                                            <p class="text-4">“Fast easy to use transfers to a different currency. Much
-                                                better value that the banks.”</p>
-                                            <strong class="d-block fw-500">De Mortel</strong> <span class="text-muted">Online Retail</span>
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="owl-item active" style="width: 846px; margin-right: 30px;">
@@ -348,7 +282,7 @@
                                             <p class="text-4">“I have used them twice now. Good rates, very efficient
                                                 service and it denies high street banks an undeserved windfall.
                                                 Excellent.”</p>
-                                            <strong class="d-block fw-500">Chris Tom</strong> <span class="text-muted">User from UK</span>
+                                            <strong class="d-block fw-500">Chris Tom</strong> <span class="text-muted">User from USA</span>
                                         </div>
                                     </div>
                                 </div>
@@ -357,71 +291,18 @@
                                         <div class="testimonial rounded text-center p-4">
                                             <p class="text-9 text-muted opacity-2 mb-2"><i class="fa fa-quote-left"></i>
                                             </p>
-                                            <p class="text-4">“It's a real good idea to manage your money by payyed. The
-                                                rates are fair and you can carry out the transactions without
-                                                worrying!”</p>
-                                            <strong class="d-block fw-500">Mauri Lindberg</strong> <span
-                                                class="text-muted">Freelancer from Australia</span></div>
-                                    </div>
-                                </div>
-                                <div class="owl-item" style="width: 846px; margin-right: 30px;">
-                                    <div class="item">
-                                        <div class="testimonial rounded text-center p-4">
-                                            <p class="text-9 text-muted opacity-2 mb-2"><i class="fa fa-quote-left"></i>
-                                            </p>
-                                            <p class="text-4">“Only trying it out since a few days. But up to now
-                                                excellent. Seems to work flawlessly. I'm only using it for sending money
-                                                to friends at the moment.”</p>
-                                            <strong class="d-block fw-500">Dennis Jacques</strong> <span
-                                                class="text-muted">User from USA</span></div>
-                                    </div>
-                                </div>
-                                <div class="owl-item cloned" style="width: 846px; margin-right: 30px;">
-                                    <div class="item">
-                                        <div class="testimonial rounded text-center p-4">
-                                            <p class="text-9 text-muted opacity-2 mb-2"><i class="fa fa-quote-left"></i>
-                                            </p>
-                                            <p class="text-4">“Easy to use, reasonably priced simply dummy text of the
-                                                printing and typesetting industry. Quidam lisque persius interesset his
-                                                et, in quot quidam possim iriure.”</p>
-                                            <strong class="d-block fw-500">Jay Shah</strong> <span class="text-muted">Founder at Icomatic Pvt Ltd</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="owl-item cloned" style="width: 846px; margin-right: 30px;">
-                                    <div class="item">
-                                        <div class="testimonial rounded text-center p-4">
-                                            <p class="text-9 text-muted opacity-2 mb-2"><i class="fa fa-quote-left"></i>
-                                            </p>
-                                            <p class="text-4">“I am happy Working with printing and typesetting
-                                                industry. Quidam lisque persius interesset his et, in quot quidam
-                                                persequeris essent possim iriure.”</p>
-                                            <strong class="d-block fw-500">Patrick Cary</strong> <span
-                                                class="text-muted">Freelancer from USA</span></div>
-                                    </div>
-                                </div>
-                                <div class="owl-item cloned" style="width: 846px; margin-right: 30px;">
-                                    <div class="item">
-                                        <div class="testimonial rounded text-center p-4">
-                                            <p class="text-9 text-muted opacity-2 mb-2"><i class="fa fa-quote-left"></i>
-                                            </p>
-                                            <p class="text-4">“Fast easy to use transfers to a different currency. Much
-                                                better value that the banks.”</p>
-                                            <strong class="d-block fw-500">De Mortel</strong> <span class="text-muted">Online Retail</span>
+                                            <p class="text-4">“Easy to use, most fast and reliable service - thumbs up
+                                                team maihandost”</p>
+                                            <strong class="d-block fw-500">Jay Shah</strong> <span class="text-muted">User from USA</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="owl-nav">
-                            <button type="button" role="presentation" class="owl-prev"><i
-                                    class="fa fa-chevron-left"></i></button>
-                            <button type="button" role="presentation" class="owl-next"><i
-                                    class="fa fa-chevron-right"></i></button>
-                        </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
@@ -430,7 +311,7 @@
         <div class="container">
             <h2 class="text-9 text-center">Frequently Asked Questions</h2>
             <p class="lead text-center mb-4 mb-sm-5">Can't find it here? Check out our <a class="btn-link"
-                                                                                          href="help.html">Help
+                                                                                          href="mailto:support@maihandost.com">Help
                 center</a></p>
             <div class="row">
                 <div class="col-md-10 col-lg-8 mx-auto">
@@ -440,14 +321,13 @@
                             <h2 class="accordion-header" id="headingOne">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    What is Payyed?
+                                    What is Maihandost?
                                 </button>
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                                  data-bs-parent="#popularTopics">
-                                <div class="accordion-body">Lisque persius interesset his et, in quot quidam persequeris
-                                    vim, ad mea essent possim iriure. Mutat tacimates id sit. Ridens mediocritatem ius
-                                    an, eu nec magna imperdiet.
+                                <div class="accordion-body">
+                                    Most reliable and fast service to transfer money to worldwide within 1 minute.
                                 </div>
                             </div>
                         </div>
@@ -461,13 +341,8 @@
                             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                                  data-bs-parent="#popularTopics">
                                 <div class="accordion-body">
-                                    <p>Pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson
-                                        ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
-                                        Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent
-                                        possim iriure. Ad vegan excepteur butcher vice lomo.</p>
-                                    Mutat tacimates id sit. Ridens mediocritatem ius an, eu nec magna imperdiet. Lisque
-                                    persius interesset his et, in quot quidam persequeris vim, ad mea essent possim
-                                    iriure. Ad vegan excepteur butcher vice lomo.
+                                    Follow the tutorial above to get help, it's just 2 step process only needs a time of
+                                    30 seconds and boom your money is sent
                                 </div>
                             </div>
                         </div>
@@ -476,18 +351,14 @@
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseThree" aria-expanded="false"
                                         aria-controls="collapseThree">
-                                    Is my money safe with Payyed?
+                                    Is my money safe with Maihandost?
                                 </button>
                             </h2>
                             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                                  data-bs-parent="#popularTopics">
                                 <div class="accordion-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                                    richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
-                                    brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
-                                    aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
-                                    Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente
-                                    ea proident.
+                                    Yes maihandost is complete secure and fast payment method, your information is 100%
+                                    guaranteed even you can reverse your transaction to.
                                 </div>
                             </div>
                         </div>
@@ -496,17 +367,14 @@
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseFour" aria-expanded="false"
                                         aria-controls="collapseFour">
-                                    How much fees does Payyed charge?
+                                    How much fees does Maihandost charge?
                                 </button>
                             </h2>
                             <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
                                  data-bs-parent="#popularTopics">
                                 <div class="accordion-body">
-                                    Pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
-                                    squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck
-                                    quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-                                    on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
-                                    helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                                    Maihandost charge only 1.7% of your payments remaining charges are tax and other
+                                    fees of 3.2% - overall you will be charged as 5% on each transfer
                                 </div>
                             </div>
                         </div>
@@ -521,30 +389,9 @@
                             <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
                                  data-bs-parent="#popularTopics">
                                 <div class="accordion-body">
-                                    Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente
-                                    ea proident. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-                                    terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
-                                    brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
-                                    aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingSix">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseSix" aria-expanded="false"
-                                        aria-controls="collapseFive">
-                                    Can I open an Payyed account for business?
-                                </button>
-                            </h2>
-                            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
-                                 data-bs-parent="#popularTopics">
-                                <div class="accordion-body">
-                                    Enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
-                                    aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                                    eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin
-                                    coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer
-                                    labore wes anderson cred nesciunt sapiente ea proident.
+                                    There is no service more faster and easy to transfer money abroad as compared to
+                                    maihandost - it takes 30 seconds to sent amount on the same time within 30 seconds
+                                    your receiver can withdraw it - takes only 1 minute for a complete transaction.
                                 </div>
                             </div>
                         </div>
