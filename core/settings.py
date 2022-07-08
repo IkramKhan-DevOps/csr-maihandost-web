@@ -21,7 +21,7 @@ ROOT_URLCONF = 'core.urls'
 AUTH_USER_MODEL = 'accounts.User'
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
-SERVER = 'local'
+SERVER = 'testing'
 DEBUG = True
 
 
