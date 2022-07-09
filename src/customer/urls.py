@@ -3,7 +3,7 @@ from django.urls import path
 from .views import (
     DashboardView,
     OrderListView, OrderCreateView, OrderUpdateView, OrderDetailView,
-    OrderDeleteView, OrderInvoiceView
+    OrderDeleteView, OrderInvoiceView, OrderCustomCreateView
 )
 
 app_name = 'customer'
@@ -13,6 +13,7 @@ urlpatterns = [
 
 urlpatterns += [
     path('order/', OrderListView.as_view(), name='order-list'),
+    path('order/add/', OrderCustomCreateView.as_view(), name='order-custom-add'),
     path('order/add/<int:pk>/', OrderCreateView.as_view(), name='order-add'),
     path('order/<int:pk>/', OrderDetailView.as_view(), name='order-detail'),
     path('order/<int:pk>/update/', OrderUpdateView.as_view(), name='order-update'),

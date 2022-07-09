@@ -4,7 +4,6 @@ from notifications.signals import notify
 
 from src.accounts.models import User, UserStatistics
 from datetime import date
-from src.api.models import Subscription, Withdrawal, Profit
 import calendar
 import datetime
 from django.utils import timezone
@@ -27,19 +26,13 @@ def get_month_days():
     return days
 
 
-def customer_subscription():
-    pass
+def calculate_charges_on_order(amount):
+    # CHECKS PAYMENT METHOD CHECK HERE
+    # --------------------------------
 
+    payable = ((5 / 100) * amount) + amount
+    tax = ((5 / 100) * amount)
+    charges = ((5 / 100) * amount)
 
-def subscription_check(request):
-    response_error = True
-    response_message = "something wrong with this request"
+    return payable, tax, charges
 
-    return response_error, response_message
-
-
-def calculate_profit_today(user):
-    response_error = True
-    response_message = "something wrong with this request"
-
-    return response_error, response_message

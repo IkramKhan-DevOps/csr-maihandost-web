@@ -66,6 +66,29 @@ class OrderCreateView(CreateView):
 
 
 @method_decorator(login_required, name='dispatch')
+class OrderCustomCreateView(CreateView):
+    model = Order
+    fields = [
+        'receiver_first_name', 'receiver_last_name',
+        'receiver_phone_number', 'receiver_email', 'receiver_country', 'total_amount'
+    ]
+    template_name = 'customer/order_custom_form.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(OrderCustomCreateView, self).get_context_data(**kwargs)
+        context['custom_offer'] = True
+        return context
+
+    def form_valid(self, form):
+        form.instance.sender = self.request.user
+        form.instance.is_customized = True
+        return super(OrderCustomCreateView, self).form_valid(form)
+
+    def get_success_url(self):
+        return reverse_lazy('payments:create_checkout_session', kwargs={'pk': self.object.pk})
+
+
+@method_decorator(login_required, name='dispatch')
 class OrderListView(ListView):
     paginate_by = 100
     template_name = 'customer/order_list.html'

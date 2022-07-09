@@ -6,20 +6,35 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import TemplateView
 
 from core import settings
+from src.admins.bll import calculate_charges_on_order
 from src.admins.models import GiftCard, Order
 
 
 @csrf_exempt
 def create_checkout_session(request, pk):
+
+    # GET INFO
     domain_url = settings.DOMAIN_URL
     order = get_object_or_404(Order, pk=pk)
     stripe.api_key = settings.STRIPE_SECRET_KEY
+
+    # BLL
+    order_name = ["Custom Offer" if order.is_customized else order.gift_card.name]
+    payable, tax, charges = calculate_charges_on_order(order.total_amount)
+
+    # SAVE INFO
+    order.tax_charges = tax
+    order.fees_charges = charges
+    order.payable_amount = payable
+    order.save()
+
+    # CALL PAYMENTS
     session = stripe.checkout.Session.create(
         line_items=[{
-            'name': order.gift_card.name,
+            'name': order_name,
             'quantity': 1,
             'currency': 'usd',
-            'amount': int(str(int(order.gift_card.price))+"00"),
+            'amount': order.payable_amount,
         }],
         mode='payment',
         success_url=request.build_absolute_uri(
@@ -27,6 +42,7 @@ def create_checkout_session(request, pk):
         ) + "?session_id={CHECKOUT_SESSION_ID}",
         cancel_url=request.build_absolute_uri(reverse('payments:cancel')),
     )
+
     order.stripe_pay_id = session.id
     order.save()
 
