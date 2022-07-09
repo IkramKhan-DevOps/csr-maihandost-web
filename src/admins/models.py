@@ -36,6 +36,18 @@ class GiftCard(models.Model):
         return self.name
 
 
+class PaymentMethod(models.Model):
+    name = models.CharField(max_length=50)
+    charges = models.FloatField(default=0)
+    description = models.CharField(max_length=100, default='Description not provided yet.')
+
+    is_figure = models.BooleanField(default=False, help_text="Figure means not in %")
+    is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.name
+
+
 class Order(models.Model):
 
     STATUS_CHOICES = (
@@ -51,6 +63,7 @@ class Order(models.Model):
     transaction_id = models.CharField(max_length=2000, null=False, blank=False, default=uuid.uuid4)
     sender = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=False)
 
+    # RECEIVER
     receiver_first_name = models.CharField(max_length=10, null=False, blank=False)
     receiver_last_name = models.CharField(max_length=10, null=False, blank=False)
     receiver_phone_number = PhoneNumberField()
@@ -59,19 +72,27 @@ class Order(models.Model):
         Country, on_delete=models.SET_NULL, null=True, blank=True, related_name='receiver_country'
     )
 
+    # CALCULATIONS
     total_amount = models.FloatField(default=0)
     tax_charges = models.FloatField(default=0)
     fees_charges = models.FloatField(default=0)
     payable_amount = models.FloatField(default=0)
 
-    gift_card = models.ForeignKey(GiftCard, on_delete=models.SET_NULL, null=True, blank=True)
+    # MISC
     stripe_pay_id = models.CharField(max_length=2000, null=True, blank=True)
 
+    # CHOICES AND KEYS
     status = models.CharField(max_length=3, choices=STATUS_CHOICES, default='unp')
+    payment_method = models.ForeignKey(PaymentMethod, null=True, blank=True, on_delete=models.SET_NULL)
+    gift_card = models.ForeignKey(GiftCard, on_delete=models.SET_NULL, null=True, blank=True)
+
+    # STATUS
+    is_customized = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
+
+    # IMPORTANT DATES
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-
     closed_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='staff')
     closed_at = models.DateTimeField(null=True, blank=True)
 
