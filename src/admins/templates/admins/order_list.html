@@ -36,6 +36,7 @@
                                     <th>Receiver</th>
                                     <th>Total Amount</th>
                                     <th>Charges</th>
+                                    <th>Payable</th>
                                     <th>Gift Card</th>
                                     <th>Status</th>
                                     <th>Active</th>
@@ -50,12 +51,17 @@
                                         <td>{{ object.sender_first_name }} {{ object.sender_last_name }}</td>
                                         <td>{{ object.receiver_first_name }} {{ object.receiver_last_name }}</td>
                                         <td>$ {{ object.total_amount }}</td>
-                                        <td>$ {{ object.fees_charges }}</td>
+                                        <td class="text-danger">$ {{ object.fees_charges }}</td>
+                                        <td>$ {{ object.payable_amount }}</td>
                                         <td>
                                             <b>
-                                                <a href="#">
+                                                {% if object.gift_card %}
+                                                    <a href="#">
                                                     {{ object.gift_card.name }}
                                                 </a>
+                                                {% else %}
+                                                    -- custom --
+                                                {% endif %}
                                             </b>
                                         </td>
                                         <td>{{ object.get_status_display }}</td>

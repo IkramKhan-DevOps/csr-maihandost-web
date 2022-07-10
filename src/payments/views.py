@@ -19,7 +19,7 @@ def create_checkout_session(request, pk):
     stripe.api_key = settings.STRIPE_SECRET_KEY
 
     # BLL
-    order_name = ["Custom Offer" if order.is_customized else order.gift_card.name]
+    order_name = "Custom Offer" if order.is_customized else order.gift_card.name
     payable, tax, charges = calculate_charges_on_order(order.total_amount)
 
     # SAVE INFO
@@ -34,7 +34,7 @@ def create_checkout_session(request, pk):
             'name': order_name,
             'quantity': 1,
             'currency': 'usd',
-            'amount': order.payable_amount,
+            'amount': int(str(int(order.payable_amount))+"00"),
         }],
         mode='payment',
         success_url=request.build_absolute_uri(
